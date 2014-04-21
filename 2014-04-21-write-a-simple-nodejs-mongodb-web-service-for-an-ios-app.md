@@ -16,7 +16,7 @@
 
 这个栈对于移动应用来说相当流行，因为原生数据格式是JSON，它容易被应用解析，例如通过使用 Cocoa 的 `NSJSONSerialization` 类或其它类似的解析器。
 
-在本教程中，你将学会如何搭建了一个 Node.js 环境，驱动 Express；在平台之上，你将构建一个通过 REST API 来提供一个 MongoDB 数据库的服务器，就像这样：
+在本教程中，你将学会如何搭建了一个 Node.js 环境，驱动 Express；在此平台之上，你将构建一个通过 REST API 来提供一个 MongoDB 数据库的服务器，就像这样：
 
 ![The backend database rendered in a HTML table](http://cdn4.raywenderlich.com/wp-content/uploads/2014/02/tmt_db-480x270.png)  
 在一个 HTML 表格中呈现的后端数据库
@@ -442,7 +442,7 @@ app.get('/:a?/:b?/:c?', function (req,res) {
 
 [HTTP 1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) 协议在 4xx 和 5xx 范围内定义了好几个错误码。 400 段的错误用于用户错误，例如请求一个不存在的条目：一个熟悉的错误码是 404 Not Found 错误。500 段的错误表示服务器错误，例如超时或者编程错误（比如 null 解除引用（null dereference））。
 
-你将添加一个捕捉所有的路由并在请求内容不能被找到时返回一个 404 页面。因为路由处理器按照它们设置 `app.use` 或 app._verb_ 的顺序添加，一个捕捉所有的路由可以添加在路由链的最后。
+你将添加一个捕捉所有（catch-all）的路由并在请求内容不能被找到时返回一个 404 页面。因为路由处理器按照它们设置 `app.use` 或 app._verb_ 的顺序添加，一个捕捉所有（catch-all）的路由可以添加在路由链的最后。
 
 添加如下代码到 `index.js` ，就在最后的 `app.get` 与调用 `http.createServer` 之间:
 
@@ -456,7 +456,7 @@ app.use(function (req,res) { //1
 
 这里有一些值得记录的点：
 
-- `app.use(callback)` 匹配_所有_请求。当它被放在所有 `app.use` 和 app._verb_ 的列表的最后，callback 就会成为捕捉所有。
+- `app.use(callback)` 匹配_所有_请求。当它被放在所有 `app.use` 和 app._verb_ 的列表的最后，callback 就会成为捕捉所有（catch-all）。
 - `res.render(view, params)`调用使用`模版引擎( templating engine)`渲染的输出填充响应 Body 。 一个模版引擎使用磁盘上一个叫做“View”的模版文件并用一组键值参数替换其中的变量以生成一个新的文档。
 
 等等——一个“模版引擎”？这货搞什么飞机？
@@ -593,7 +593,7 @@ var ObjectID = require('mongodb').ObjectID;
 
 这一行引入了各个需要的包；在本例中，是来自 MongoDB 包的 `ObjectID` 。
 
->注意：如果你比较熟悉传统数据库，你可能明白术语“主键”。MongoDB有类似的概念：默认来说，新实体都会被分配一个唯一的 `_id` 字段，其类型为  `ObjectID` ，这是 MongoDB 用来永华查找和插入的。因为 ObjectID 是一个 BSON 类型而不是 JSON 类型，你必须转换任何传入的字符串为 ObjectID 如果它们用于对一个　`_id` 字段进行比较。
+>注意：如果你比较熟悉传统数据库，你可能明白术语“主键”。MongoDB有类似的概念：默认来说，新实体都会被分配一个唯一的 `_id` 字段，其类型为  `ObjectID` ，这是 MongoDB 用来优化查找和插入的。因为 ObjectID 是一个 BSON 类型而不是 JSON 类型，你必须转换任何传入的字符串为 ObjectID ，如果它们用于和一个　`_id` 字段进行比较。
 
 添加如下代码到 `collectionDriver.js` 刚才那行后面：
 
@@ -636,7 +636,7 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
 };
 ```
 
-A 行的 `CollectionDriver.prototype.findAll` 获取集合，如果没有如不能访问 MongoDB 服务器这样的错误，它调用 B 行的 `find()` 。这将返回所有找到的对象。
+A 行的 `CollectionDriver.prototype.findAll` 获取集合，如果没有如不能访问 MongoDB 服务器这样的错误，它就调用 B 行的 `find()` 。这将返回所有找到的对象。
 
 `find()` 返回一个`数据游标（data cursor）`，它可用于遍历匹配对象。`find()` 同样能接受一个选择器对象来过滤结果。 `toArray()` 组织所有的结果为一个数组并将其传递给回调。最后回调返回给调用者一个找到的对象的数组或者一个错误。
 
@@ -660,7 +660,7 @@ CollectionDriver.prototype.get = function(collectionName, id, callback) { //A
 
 在 A 行， `CollectionDriver.prototype.get` 使用 `_id` 从一个集合中获取单个条目。类似于 `prototype.findAll` 方法，这个调用首先获取一个集合对象然后在返回的对象上执行一个 `findOne` 。因为这匹配 `_id` 字段，本例中的一个 `find()` 或 `findOne()` 将会使用正确的[数据类型](http://docs.mongodb.org/manual/reference/bson-types/)来匹配它。
 
-MongoDB 存储 `_id` 字段为 BSON 类型 `ObjectID` 。在上面的 C 行，`ObjectID()` 接受一个字符串并将其转换为一个 BSON ObjectID 去匹配集合。然而，`ObjectID()` 很小气，需要适当的十六进制字符串否则它会返回一个错误：因此，B 行会先用正则检查。
+MongoDB 存储 `_id` 字段为 BSON 类型 `ObjectID` 。在上面的 C 行，`ObjectID()` 接受一个字符串并将其转换为一个 BSON ObjectID 去匹配集合。然而，`ObjectID()` 很小气，需要适当的十六进制字符串否则它会返回一个错误：因此，B 行会先用正则作检查。
 
 这不能保证有一个与 `_id` 匹配的对象，但它保证 `ObjectID` 能够传递字符串。选择器 `{'_id':ObjectID(id)}` 使用提供的 `id` 匹配 `_id` 字段。
 
@@ -863,7 +863,7 @@ curl -H "Content-Type: application/json" -X POST -d '{"title":"Hello World"}' ht
 
 ## 更新与删除数据
 
-你已经实现了 CRUD 中的 Create 和 Read 操作——还剩下 Update 和 Delete 。这些都是比较简单的，遵循与其他两个一样的模式。
+你已经实现了 CRUD 中的 Create 和 Read 操作——还剩下 Update 和 Delete 。这些都比较简单，遵循与其他两个一样的模式。
 
 添加下列代码到 `CollectionDriver.js`，就在 `exports.CollectionDriver` 行之前：
 
