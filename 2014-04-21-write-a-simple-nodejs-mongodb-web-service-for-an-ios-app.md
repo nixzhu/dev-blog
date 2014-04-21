@@ -28,7 +28,7 @@ TourMyTown 的主视图
 
 本教程假设你已经了解了 JavaScript 和 Web 开发的基础，但对 Node.js、Express 以及 MongoDB 都不熟悉。
 
-## A Case for Node+Mongo 一个 Node+Mongo 案例
+## 一个 Node+Mongo 案例
 
 大多数 Objective-C 开发者都不太熟悉 JavaScript ，但它对于 Web 开发者来说是极其常见的语言。因为这个原因，Node 作为一个 Web 框架收获了大量人气，但还有更多原因使其成为后端服务的绝好选择：
 
@@ -43,7 +43,7 @@ MongoDB 是一个低开销的数据库，其所有实体都是自由形式 BSON 
 
 Node 和 MongoDB 在本质上都具有可扩展性，能够轻松地在跨越分布式模型中的多个机器，实现同步；这个组合对于不具有均匀分布负载的应用来说是一个理想选择。
 
-## Getting Started 入门
+## 入门
 
 本教程假设你使用 OS X Mountain Lion 或 Mavericks ，Xcode 及其 command line tools 都已经安装好了。
 
@@ -72,8 +72,6 @@ brew install mongodb
 ```
 
 记下 MongoDB 被安装的位置，它就在输出的“Summary”中。稍后你将用它加载 MongoDB 服务。
-
-译者注：可能不需要。
 
 从 [http://nodejs.org/download/](http://nodejs.org/download/) 下载并运行 Node.js 安装器。
 
@@ -107,7 +105,7 @@ undefined
 >注意：如果你以前使用过 JavaScript ，你需要知道 Node.js 环境和浏览器环境之间有些许不同。`全局`对象被叫做 `global` 而不是 `window` 。在 Node.js 交互提示符后键入 `global` 并按下回车就会显示 global 命名空间里所有的方法和对象；当然，直接使用 [Node.js 文档](http://nodejs.org/api/) 来做参考更容易些。 :]  
 `global` 对象有所有预定义的常数、函数以及数据类型，都可用于所有运行在 Node.js 环境里的程序。任何用户创造的变量同样也都添加到全局上下文对象。基本上 `global` 的输出将列出所有内存中可以访问的事物。
 
-## Running a Node.js Script 运行一个 Node.js 脚本
+## 运行一个 Node.js 脚本
 
 Node.js 的交互式环境对于玩耍和调试 JavaScript 表达式是很棒的，但通常你都会使用脚本文件来做实际的事情。就像 iOS 应用包含有 `Main.m` 作为其入口点，Node.js 的默认入口点就是 `index.js` 。然而，不同于 Objective-C ，这里没有 main 函数；相反， `index.js` 将从头到尾的执行。
 
@@ -141,7 +139,7 @@ node index.js
 
 固然，一个 “Hello World” 脚本成不了一个服务器，但这是测试你的安装是否成功的快速方式。下一节将向你介绍 Node.js 包的世界，这会成为你那闪亮的新 Web 服务器的基础！
 
-## Node Packages Node 包
+## Node 包
 
 Node.js 应用程序都被分成不同的包，这就是 Node.js 世界的“框架”。 Node.js 自带有几个基础且强大的包，但还有超过 50000 个由活跃的开发社区提供的公开包——如果你不能找到你需要的包，你自己也可以比较容易地创造。
 
@@ -187,7 +185,7 @@ node index.js
 
 >注意：Node 包通常由顶层函数或引入的对象写就。通过使用 require ，这个函数在之后就被分配给一个顶层变量。这样有助于以一个健全的方式管理范围（scope）以及暴露（expose）模块的 API 。稍后在本教程中你会看到如何创建一个自定义模块，你将为 MongoDB 添加一个驱动器。
 
-## NPM – Using External Node Modules 使用外部 Node 模块
+## NPM —— 使用外部 Node 模块
 
 前一小节覆盖了 Node.js 内建的模块，那第三方的模块该怎么处理呢？例如你之后需要的 Express 模块，它为你的服务器平台提供路由中间件。
 
@@ -195,7 +193,7 @@ node index.js
 
 Node.js 使用　`npm` —— Node 包模块——来下载、安装以及管理包依赖。如果你熟悉 CocoaPods 或者 Ruby gems ，那么你对 `npm` 也会觉得熟悉。你的 Node.js 应用程序使用 `package.json` ，它专门定义配置和 `npm` 依赖。
 
-## Using Express 使用 Express
+## 使用 Express
 
 Express 是一个流行的 Node.js 模块，提供路由中间件。为什么你会需要这个独立的包呢？考虑下面的情形。
 
@@ -203,7 +201,7 @@ Express 是一个流行的 Node.js 模块，提供路由中间件。为什么你
 
 然而，用 Express 你就能容易地为每个请求定义路由和回调。 Express 同样让为基于 HTTP 动词（例如 POST, PUT, GET, DELETE, HEAD, 等）以提供不同的回调变得很容易。
 
-### A Short Diversion into HTTP Verbs HTTP 动词的简要介绍
+### HTTP 动词的简要介绍
 
 一个 HTTP 请求包含一个方式——或者动词——的值。默认值是 `GET` ，它是为了获取数据，例如浏览器中 Web 页面。 `POST` 意味着上传数据，例如提交 Web 表单。对于 Web API 来说， `POST` 通常用于添加数据，但它同样可用于远程处理调用类型端点（but it can also be used for remote procedure call-type endpoints.）。
 
@@ -213,7 +211,7 @@ Express 是一个流行的 Node.js 模块，提供路由中间件。为什么你
 
 还有其它一些少有人知的 HTTP 动词。 `HEAD` 表现得像一个 `GET` 但只返回应答头而没有 Body 。这有助于最小化数据传输，如果应答头中的信息足够确定是否有可用的新数据。其它动词如 `TRACE` 和 `CONNECT` 用于网络路由。
 
-## Adding a Package to Your Node Instance 添加包到 Node 实例
+## 添加一个包到 Node 实例
 
 在终端里执行下列命令：
 
@@ -345,7 +343,7 @@ curl -v http://localhost:3000
 
 `curl` 吐出你的 HTTP 请求的头和内容，给你显示服务传来的东西的原始细节。注意 `X-Powered-By : Express` 头；Express 会自动添加这个元数据到应答里。
 
-## Serving up Content With Express 使用 Express 提供内容
+## 使用 Express 提供内容
 
 用 Express 提供静态文件非常容易。
 
@@ -407,13 +405,13 @@ mkdir public; edit public/hello.html
 
 ![web_hello](http://cdn5.raywenderlich.com/wp-content/uploads/2014/02/web_hello-480x230.png)
 
-## Advanced Routing 高级路由
+## 高级路由
 
 静态页面是不错，但 Express 的真正威力是动态路由。 Express 在路由字符串上使用一个正则表达是匹配器，允许你为路由定义参数。
 
 举个例子，路由字符串可以包含下列元素：
 
-- 静态元素—— `/files` 只会匹配 `http://localhost:300/pages` （译者注：似乎有点问题）
+- 静态元素—— `/files` 只会匹配 `http://localhost:3000/pages` （译者注：似乎有点问题，应该只会匹配 `http://localhost:3000/files`）
 - 以“:”开头的参数—— `/files/:filename` 匹配 `/files/foo` 和 `/files/bar`，但不能匹配 `/files`
 - 以“?”结尾的可选参数——`/files/:filename?` 匹配 `/files/foo` 也能匹配 `/files`
 - 正则表达式—— `/^\/people\/(\w+)/` 匹配 `/people/jill` 和 `/people/john`
@@ -438,7 +436,7 @@ app.get('/:a?/:b?/:c?', function (req,res) {
 
 除了 `app.get` ， Express 还支持 `app.post`、`app.put`、`app.delete` 等等。
 
-## Error Handling And Templated Web Views 错误处理与模版化Web视图
+## 错误处理与模版化 Web 视图
 
 服务器错误可用一到两种方式处理。你可以传递一个异常给调用栈——这样做可能干掉应用——或者你可以捕捉错误并返回一个合适的错误码。
 
@@ -545,7 +543,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 现在你的 `index.js` 中有足够的启动代码去接收传入的请求并提供一些基本的响应。而缺失的部分就是数据库持久化，它能将这些东西变成一个有用的Web应用程序，能够被一个移动应用所利用。
 
-## Introducing MongoDB 介绍 MongoDB
+## 介绍 MongoDB
 
 MongoDB 是一个存储 JSON 对象的数据库。不像 SQL 数据库，类似 Mongo 的 `NoSQL 数据库` 不支持实体关系。进一步说明，没有预定义的模式，所以同一集合里的实体不需要有同样的字段或符合预定义的模式。
 
@@ -555,7 +553,7 @@ MongoDB 最大的缺点是缺少关系支持，而且在内存映射实际的数
 
 因为 MongoDB 文档 和 JSON 的亲密关系，MongoDB 对于 Web 和移动应用都是很棒的选择。 MongoDB 不存储原始 JSON；而是叫做 BSON（即 Binary JSON） 格式的文档，这对于数据存储和查询来说更有效率。BSON 同时还支持比 JSON 更多的数据类型，例如日期和C类型（C-type）。
 
-## Adding MongoDB to Your Project 添加 MongoDB 到你的项目中
+## 添加 MongoDB 到你的项目中
 
 MongoDB 是一个原生应用程序，通过`驱动器（drivers）`访问。有好多种驱动器可用于几乎任何环境，当然包括 Node.js 。MongoDB 驱动器连接 MongoDB 服务器并发出命令去更新或读取数据。
 
@@ -567,7 +565,7 @@ MongoDB 是一个原生应用程序，通过`驱动器（drivers）`访问。有
 cd /usr/local/opt/mongodb/; mongod
 ```
 
-译者注：这里可能会发生错误，试试先创建一个自定义路径，再用 `mongd --dbpath '~/somepath'` 来启动服务器。
+译者注：这里可能会发生错误 `ERROR: dbpath (/data/db) does not exist.`，试试先创建一个自定义路径，再用 `mongd --dbpath '~/somepath'` 来启动服务器。
 
 这就能启动一个 MongoDB 守护服务器。
 
@@ -575,7 +573,7 @@ cd /usr/local/opt/mongodb/; mongod
 
 虽然 MongoDB 驱动器提供了数据库连接，但它依然需要被连接到服务器以便转换传入的 HTTP 请求为适当的数据库命令。
 
-## Creating a MongoDB Collection Driver 创建一个 MongoDB 集合驱动器
+## 创建一个 MongoDB 集合驱动器（Collection Driver）
 
 还记得你之前实现的 `/:a/:b/:c` 路由吗？如果你可以使用这个模式去查找数据库实体如何？
 
@@ -678,7 +676,7 @@ exports.CollectionDriver = CollectionDriver;
 
 保存你的修改——你完成了这个文件！现在你需要一个方式去调用这个文件。
 
-## Using Your Collection Driver 使用你的集合驱动器
+## 使用你的集合驱动器
 
 要调用你的 `collectionDriver` ，首先添加下面一行到 `package.json` 中的 `dependencies` 内：
 
@@ -803,7 +801,7 @@ app.get('/:collection/:entity', function(req, res) { //I
 
 哦，等等——那是因为你还没有添加任何数据呢。是时候了！
 
-## Working With Data 与数据同行
+## 与数据同行
 
 从一个空空如也的数据库里读取对象一点儿也不有趣。要测试功能，就要有一个添加实体到数据库的途径。
 
@@ -863,7 +861,7 @@ curl -H "Content-Type: application/json" -X POST -d '{"title":"Hello World"}' ht
 
 ![web_createitem](http://cdn4.raywenderlich.com/wp-content/uploads/2014/02/web_createitem-480x247.png)
 
-## Updating and Deleting Data 更新与删除数据
+## 更新与删除数据
 
 你已经实现了 CRUD 中的 Create 和 Read 操作——还剩下 Update 和 Delete 。这些都是比较简单的，遵循与其他两个一样的模式。
 
