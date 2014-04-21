@@ -998,4 +998,7 @@ curl -H "Content-Type: application/json" -X DELETE  http://localhost:3000/items/
 如果你有任何问题或评论，可自由地加入下方的讨论！ 
 
 ===============
+
 译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
+
+欢迎转发此条微博  [http://weibo.com/2076580237/B0JsD8YKe](http://weibo.com/2076580237/B0JsD8YKe) 以分享给更多人！
