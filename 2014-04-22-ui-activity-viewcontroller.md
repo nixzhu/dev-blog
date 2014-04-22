@@ -75,7 +75,7 @@ Activity 类型又分为“操作”和“分享”两大类：
 
 每个 Activity 类型都支持好多种不同的数据类型。例如，一条 Tweet 可能由 NSString 以及一个附加的图像 和/或 URL 所组成。
 
-### Supported Data Types by Activity Type 由 Activity 类型所支持的数据类型
+### 不同的 Activity 类型所支持的数据类型
 
 <table>
   <thead>
@@ -630,3 +630,5 @@ IntentKit 合并了连接到这些最流行的服务（如 Web、地图、邮件
 ===============
 
 译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
+
+欢迎转发此条微博 [http://weibo.com/2076580237/B0VJyuBJ7](http://weibo.com/2076580237/B0VJyuBJ7) 以分享给更多人！
