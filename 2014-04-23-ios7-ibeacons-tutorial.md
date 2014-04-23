@@ -495,7 +495,7 @@ static NSString * const kRWTStoredItemsKey = @"storedItems";
 
 在你设计你自己的应用，以及决定你的 iBeacon 硬件的最佳摆放位置时，请将这一点记在脑子里。
 
-## Notifications 通知
+## 通知
 
 到这里事情快要完成了；你有一个你的 iBeacon 的列表，而且能实时监控它们的接近值。但这还没达到你的应用的最终目标。你依然需要在应用没有运行的情况下通知用户他们忘记了他们的电脑包或他们的猫跑掉了——甚至更糟糕的情况，比如他们的猫带着电脑包跑掉了！ :]
 
@@ -589,3 +589,5 @@ iBeacon 并不局限于自定义应用；你也可以将它们与 Passbook 的�
 ===============
 
 译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
+
+欢迎转发此条微博 [http://weibo.com/2076580237/B138xzUwI](http://weibo.com/2076580237/B138xzUwI) 以分享给更多人！
