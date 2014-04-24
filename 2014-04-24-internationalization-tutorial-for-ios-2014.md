@@ -1,4 +1,4 @@
-# iOS 应用的国际化
+# iOS 应用的国际化（2014）
 
 本文翻译至 [http://www.raywenderlich.com/64401/internationalization-tutorial-for-ios-2014](http://www.raywenderlich.com/64401/internationalization-tutorial-for-ios-2014)
 
@@ -287,3 +287,4 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
 
+欢迎转发此条微博 [http://weibo.com/2076580237/B1fcVd0rF](http://weibo.com/2076580237/B1fcVd0rF) 以分享给更多人！
