@@ -1086,3 +1086,5 @@ if ([self.cellsCurrentlyEditing containsObject:indexPath]) {
 ===============
 
 译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
+
+欢迎转发此条微博 [http://weibo.com/2076580237/B1vqCrWfe](http://weibo.com/2076580237/B1vqCrWfe) 以分享给更多人！
