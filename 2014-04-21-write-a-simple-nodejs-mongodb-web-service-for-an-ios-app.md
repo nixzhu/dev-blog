@@ -1005,4 +1005,4 @@ curl -H "Content-Type: application/json" -X DELETE  http://localhost:3000/items/
 
 如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的幸苦：
 
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/blob/master/images/nixzhu_alipay.png)
+![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
