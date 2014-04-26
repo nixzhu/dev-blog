@@ -1,6 +1,6 @@
 # 开发使用 iBeacon 的 iOS 7 应用
 
-本文翻译至 [http://www.raywenderlich.com/66584/ios7-ibeacons-tutorial](http://www.raywenderlich.com/66584/ios7-ibeacons-tutorial)
+本文翻译自 [http://www.raywenderlich.com/66584/ios7-ibeacons-tutorial](http://www.raywenderlich.com/66584/ios7-ibeacons-tutorial)
 
 原作者：[Chris Wagner](http://www.raywenderlich.com/u/cwagdev)
 

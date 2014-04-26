@@ -1,6 +1,6 @@
 # GCD 深入理解：第一部分
 
-本文翻译至 [http://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1](http://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
+本文翻译自 [http://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1](http://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
 
 原作者：[Derek Selander](http://www.raywenderlich.com/u/Lolgrep)
 

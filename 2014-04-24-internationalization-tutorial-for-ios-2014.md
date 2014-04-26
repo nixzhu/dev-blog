@@ -1,6 +1,6 @@
 # iOS 应用的国际化（2014）
 
-本文翻译至 [http://www.raywenderlich.com/64401/internationalization-tutorial-for-ios-2014](http://www.raywenderlich.com/64401/internationalization-tutorial-for-ios-2014)
+本文翻译自 [http://www.raywenderlich.com/64401/internationalization-tutorial-for-ios-2014](http://www.raywenderlich.com/64401/internationalization-tutorial-for-ios-2014)
 
 原作者：[Ali Hafizji](http://www.raywenderlich.com/u/ali.hafizji)
 

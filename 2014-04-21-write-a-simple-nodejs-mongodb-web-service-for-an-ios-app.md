@@ -1,6 +1,6 @@
 # 为一个 iOS 应用编写一个简单的 Node.js/MongoDB Web 服务
 
-本文翻译至 [http://www.raywenderlich.com/61078/write-simple-node-jsmongodb-web-service-ios-app](http://www.raywenderlich.com/61078/write-simple-node-jsmongodb-web-service-ios-app)
+本文翻译自 [http://www.raywenderlich.com/61078/write-simple-node-jsmongodb-web-service-ios-app](http://www.raywenderlich.com/61078/write-simple-node-jsmongodb-web-service-ios-app)
 
 原作者：[Michael Katz](http://www.raywenderlich.com/u/mkatz)
 
