@@ -9,3 +9,4 @@ dev-blog
 - [翻译：开发使用 iBeacon 的 iOS 7 应用](https://github.com/nixzhu/dev-blog/blob/master/2014-04-23-ios7-ibeacons-tutorial.md)
 - [翻译：iOS 应用的国际化（2014）](https://github.com/nixzhu/dev-blog/blob/master/2014-04-24-internationalization-tutorial-for-ios-2014.md)
 - [翻译：制作一个可以滑动操作的 Table View Cell](https://github.com/nixzhu/dev-blog/blob/master/2014-04-26-make-swipeable-table-view-cell-actions-without-going-nuts-scroll-views.md)
+- [翻译：编写一个使用 Node.js/MongoDB Web 服务的 iOS 应用](https://github.com/nixzhu/dev-blog/blob/master/2014-04-29-write-ios-app-uses-node-jsmongodb-web-service.md)
