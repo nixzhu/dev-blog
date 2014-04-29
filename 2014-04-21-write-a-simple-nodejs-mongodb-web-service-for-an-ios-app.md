@@ -565,7 +565,7 @@ MongoDB 是一个原生应用程序，通过`驱动器（drivers）`访问。有
 cd /usr/local/opt/mongodb/; mongod
 ```
 
-译者注：这里可能会发生错误 `ERROR: dbpath (/data/db) does not exist.`，试试先创建一个自定义路径，再用 `mongd --dbpath '~/somepath'` 来启动服务器。
+译者注：这里可能会发生错误 `ERROR: dbpath (/data/db) does not exist.`，试试先创建一个自定义路径，再用 `mongod --dbpath '~/somepath'` 来启动服务器。
 
 这就能启动一个 MongoDB 守护服务器。
 
