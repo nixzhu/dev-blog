@@ -95,7 +95,7 @@ angular.module('directivesModule').directive('mySharedScope', function () {
 });
 ```
 
-这给我们带来了比使用 **ng-include** 指令加载子视图更多的东西吗？目前还没有。然而，指令能够通过添加一点点代码来做到更多事情，而且它们能够让元素轻易地附上功能。一个将 **mySharedScope** 指令附加到一个 **<div>** 的例子如下所示：
+这给我们带来了比使用 **ng-include** 指令加载子视图更多的东西吗？目前还没有。然而，指令能够通过添加一点点代码来做到更多事情，而且它们能够让元素轻易地附上功能。一个将 **mySharedScope** 指令附加到一个 **&lt;div&gt;** 的例子如下所示：
 
 ```HTML
 <div my-shared-scope></div>
