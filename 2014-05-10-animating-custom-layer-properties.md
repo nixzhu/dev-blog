@@ -161,8 +161,6 @@
 @end
 ```
 
-Before we do anything else, we need to make one other slight adjustment: Unfortunately, `CALayer` doesn't know how to interpolate `NSDate` properties (i.e. it cannot automatically generate intermediate values between `NSDate` instances, as it can with numeric types and others such as `CGColor` and `CGAffineTransform`). We could keep our custom setter method and have it set another dynamic property representing the equivalent `NSTimeInterval` (which is a numeric value, and can be interpolated), but to keep the example simple, we'll replace our `NSDate` property with a floating-point value that represents hours on the clock, and update the user interface so it uses a simple `UITextField` to set the value instead of a date picker:
-
 在我们开始做事之前，需要先做一个小调整：因为不幸的是，`CALayer` 不知道如何对 `NSDate` 属性进行插值（interpolate）（例如，它不能自动生成 `NSDate` 实例之间的中间值，虽然它可以处理数字类型和其它例如 `CGColor` 和 `CGAffineTransform` 这样的类型）。我们可以保留我们的自定义 setter 方法并用它设置另一个动态属性（它表示等价的 `NSTimeInterval`，这是一个数字值，可以被插值），但为了保持例子的简单性，我们会用一个浮点值替换 `NSDate` 属性来表征时钟的小时，为了更新用户界面，我们使用一个简单的 `UITextField` 来设置浮点值，不再使用日期选择器：
 
 ```Objective-C
