@@ -1,6 +1,3 @@
-
-[Source](http://www.raywenderlich.com/63338/grand-central-dispatch-in-depth-part-2 "Permalink to Grand Central Dispatch In-Depth: Part 2/2")
-
 # GCD 深入理解：第二部分
 
 本文翻译自 [http://www.raywenderlich.com/63338/grand-central-dispatch-in-depth-part-2](http://www.raywenderlich.com/63338/grand-central-dispatch-in-depth-part-2)
