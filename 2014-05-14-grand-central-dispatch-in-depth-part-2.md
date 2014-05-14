@@ -213,11 +213,7 @@ Dispatch Group 会在整个组的任务都完成时通知你。这些任务可�
 
 对于这个特定的工作，上面的处理明显更清晰，而且也不会阻塞任何线程。
 
-
-## The Perils of Too Much Concurrency 太多并发带来的危险
-
-
-With all of these new tools at your disposal, you should probably thread everything, right!?
+## 太多并发带来的危险
 
 既然你的工具箱里有了这些新工具，你大概做任何事情都想使用它们，对吧？
 
@@ -537,7 +533,7 @@ With this method, you can make updates to the UI, inquire about the properties o
 
 译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
 
-欢迎转发此条微博 [http://weibo.com/2076580237/B4eCrBWrI](http://weibo.com/2076580237/B4eCrBWrI)  以分享给更多人！
+欢迎转发此条微博 [http://weibo.com/2076580237/B4eHynxYo](http://weibo.com/2076580237/B4eHynxYo)  以分享给更多人！
 
 如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的幸苦：
 
