@@ -214,10 +214,8 @@ Dispatch Group 会在整个组的任务都完成时通知你。这些任务可�
 对于这个特定的工作，上面的处理明显更清晰，而且也不会阻塞任何线程。
 
 
-## The Perils of Too Much Concurrency 太多并发带来的危险
+## 太多并发带来的风险
 
-
-With all of these new tools at your disposal, you should probably thread everything, right!?
 
 既然你的工具箱里有了这些新工具，你大概做任何事情都想使用它们，对吧？
 
@@ -353,7 +351,7 @@ Xcode 里的测试在 `XCTestCase` 的子类上执行，并运行任何方法签
 
 你需要一个更优雅、可扩展的解决方案来阻塞线程直到资源可用。欢迎来到信号量。
 
-### Semaphores 信号量
+### 信号量
 
 信号量是一种老式的线程概念，由非常谦卑的 Edsger W. Dijkstra 介绍给世界。信号量之所以比较复杂是因为它建立在操作系统的复杂性之上。
 
@@ -537,7 +535,7 @@ With this method, you can make updates to the UI, inquire about the properties o
 
 译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
 
-欢迎转发此条微博 [http://weibo.com/2076580237/B4eCrBWrI](http://weibo.com/2076580237/B4eCrBWrI)  以分享给更多人！
+欢迎转发此条微博 [http://weibo.com/2076580237/B4eHynxYo](http://weibo.com/2076580237/B4eHynxYo)  以分享给更多人！
 
 如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的幸苦：
 
