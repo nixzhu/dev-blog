@@ -16,7 +16,7 @@
 
 除了上面这些，你还通过利用 `dispatch_after` 来延迟显示提示信息，以及利用 `dispatch_async` 将 CPU 密集型任务从 ViewController 的初始化过程中剥离出来异步执行，达到了增强应用的用户体验的目的。
 
-如果你一直跟着第一部分的教程在写代码，那你可以继续你的工程。但如果你没有完成第一部分的工作，或者不想重用你的工程，你可以[下载第一部分最终的代码](http://cdn2.raywenderlich.com/wp-content/uploads/2014/01/GooglyPuff_End_1.zip)
+如果你一直跟着第一部分的教程在写代码，那你可以继续你的工程。但如果你没有完成第一部分的工作，或者不想重用你的工程，你可以[下载第一部分最终的代码](http://cdn2.raywenderlich.com/wp-content/uploads/2014/01/GooglyPuff_End_1.zip)。
 
 那就让我们来更深入地探索 GCD 吧！
 
