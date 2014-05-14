@@ -12,7 +12,7 @@
 
 欢迎来到GCD深入理解系列教程的第二部分（也是最后一部分）。
 
-在本系列的[第一部分](4)中，你已经学到超过你想像的关于并发、线程以及GCD 如何工作的知识。通过在初始化时利用 `dispatch_once`，你创建了一个线程安全的 `PhotoManager` 单例，而且你通过使用 `dispatch_barrier_async` 和 `dispatch_sync` 的组合使得对 `Photos` 数组的读取和写入都变得线程安全了。
+在本系列的[第一部分][4]中，你已经学到超过你想像的关于并发、线程以及GCD 如何工作的知识。通过在初始化时利用 `dispatch_once`，你创建了一个线程安全的 `PhotoManager` 单例，而且你通过使用 `dispatch_barrier_async` 和 `dispatch_sync` 的组合使得对 `Photos` 数组的读取和写入都变得线程安全了。
 
 除了上面这些，你还通过利用 `dispatch_after` 来延迟显示提示信息，以及利用 `dispatch_async` 将 CPU 密集型任务从 ViewController 的初始化过程中剥离出来异步执行，达到了增强应用的用户体验的目的。
 
@@ -28,40 +28,42 @@
 
 问题的症结在 PhotoManagers 的 `downloadPhotoWithCompletionBlock:` 里，它目前的实现如下：
 
-    - (void)downloadPhotosWithCompletionBlock:(BatchPhotoDownloadingCompletionBlock)completionBlock
-    {
-        __block [NSError][7] *error;
-    &nbsp;
-        for (NSInteger i = 0; i &lt; 3; i++) {
-            [NSURL][8] *url;
-            switch (i) {
-                case 0:
-                    url = [[NSURL][8] URLWithString:kOverlyAttachedGirlfriendURLString];
-                    break;
-                case 1:
-                    url = [[NSURL][8] URLWithString:kSuccessKidURLString];
-                    break;
-                case 2:
-                    url = [[NSURL][8] URLWithString:kLotsOfFacesURLString];
-                    break;
-                default:
-                    break;
-            }
-    &nbsp;
-            Photo *photo = [[Photo alloc] initwithURL:url
-                                  withCompletionBlock:^(UIImage *image, [NSError][7] *_error) {
-                                      if (_error) {
-                                          error = _error;
-                                      }
-                                  }];
-    &nbsp;
-            [[PhotoManager sharedManager] addPhoto:photo];
+```Objective-C
+- (void)downloadPhotosWithCompletionBlock:(BatchPhotoDownloadingCompletionBlock)completionBlock
+{
+    __block NSError *error;
+ 
+    for (NSInteger i = 0; i < 3; i++) {
+        NSURL *url;
+        switch (i) {
+            case 0:
+                url = [NSURL URLWithString:kOverlyAttachedGirlfriendURLString];
+                break;
+            case 1:
+                url = [NSURL URLWithString:kSuccessKidURLString];
+                break;
+            case 2:
+                url = [NSURL URLWithString:kLotsOfFacesURLString];
+                break;
+            default:
+                break;
         }
-    &nbsp;
-        if (completionBlock) {
-            completionBlock(error);
-        }
+ 
+        Photo *photo = [[Photo alloc] initwithURL:url
+                              withCompletionBlock:^(UIImage *image, NSError *_error) {
+                                  if (_error) {
+                                      error = _error;
+                                  }
+                              }];
+ 
+        [[PhotoManager sharedManager] addPhoto:photo];
     }
+ 
+    if (completionBlock) {
+        completionBlock(error);
+    }
+}
+```
 
 在方法的最后你调用了 `completionBlock` ——因为此时你假设所有的照片都已下载完成。但很不幸，此时并不能保证所有的下载都已完成。
 
@@ -213,7 +215,7 @@ Dispatch Group 会在整个组的任务都完成时通知你。这些任务可�
 
 对于这个特定的工作，上面的处理明显更清晰，而且也不会阻塞任何线程。
 
-## 太多并发带来的危险
+## 太多并发带来的风险
 
 既然你的工具箱里有了这些新工具，你大概做任何事情都想使用它们，对吧？
 
@@ -349,7 +351,7 @@ Xcode 里的测试在 `XCTestCase` 的子类上执行，并运行任何方法签
 
 你需要一个更优雅、可扩展的解决方案来阻塞线程直到资源可用。欢迎来到信号量。
 
-### Semaphores 信号量
+### 信号量
 
 信号量是一种老式的线程概念，由非常谦卑的 Edsger W. Dijkstra 介绍给世界。信号量之所以比较复杂是因为它建立在操作系统的复杂性之上。
 
