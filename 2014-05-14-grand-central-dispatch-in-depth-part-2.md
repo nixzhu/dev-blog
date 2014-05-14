@@ -12,7 +12,7 @@
 
 欢迎来到GCD深入理解系列教程的第二部分（也是最后一部分）。
 
-在本系列的[第一部分](4)中，你已经学到超过你想像的关于并发、线程以及GCD 如何工作的知识。通过在初始化时利用 `dispatch_once`，你创建了一个线程安全的 `PhotoManager` 单例，而且你通过使用 `dispatch_barrier_async` 和 `dispatch_sync` 的组合使得对 `Photos` 数组的读取和写入都变得线程安全了。
+在本系列的[第一部分[4]中，你已经学到超过你想像的关于并发、线程以及GCD 如何工作的知识。通过在初始化时利用 `dispatch_once`，你创建了一个线程安全的 `PhotoManager` 单例，而且你通过使用 `dispatch_barrier_async` 和 `dispatch_sync` 的组合使得对 `Photos` 数组的读取和写入都变得线程安全了。
 
 除了上面这些，你还通过利用 `dispatch_after` 来延迟显示提示信息，以及利用 `dispatch_async` 将 CPU 密集型任务从 ViewController 的初始化过程中剥离出来异步执行，达到了增强应用的用户体验的目的。
 
