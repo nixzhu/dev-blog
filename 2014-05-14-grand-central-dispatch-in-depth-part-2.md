@@ -511,8 +511,6 @@ dispatch_source_t dispatch_source_create(
 
 ![Dispatch_Sources_Debugger_Updating_UI][23]
 
-With this method, you can make updates to the UI, inquire about the properties of a class, and even execute methods — all while not having to restart the app to get into that special workflow state. Pretty neat.
-
 使用这个方法，你可以更新 UI、查询类的属性，甚至是执行方法——所有这一切都不需要重启应用并到达某个特定的工作状态。相当优美吧！
 
 >译者注：发挥这一点，是可以做出一些调试库的吧？
