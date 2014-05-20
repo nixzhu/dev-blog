@@ -556,7 +556,7 @@ dispatch_source_t dispatch_source_create(
 [13]: http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/
 [14]: http://en.wikipedia.org/wiki/Spinlock
 [15]: http://greenteapress.com/semaphores/
-[16]: http://en.wikipedia.org/wiki/Dining_philosophers_problem
+[16]: http://zh.wikipedia.org/wiki/%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98
 [17]: https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/Reference/reference.html#//apple_ref/doc/constant_group/Dispatch_Source_Type_Constants
 [18]: https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/Reference/reference.html#//apple_ref/c/macro/DISPATCH_SOURCE_TYPE_SIGNAL"
 [19]: http://www.opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/sys/signal.h
