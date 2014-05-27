@@ -125,11 +125,13 @@ static CGPoint midpoint(CGPoint p0, CGPoint p1) {
 
 ![可变宽度签名字母J](https://www.altamiracorp.com/blog/118/files/signature-letter-j-opengl.png)
 
->译者注：[原文](ttps://www.altamiracorp.com/blog/employee-posts/capture-a-signature-on-ios)后的评论也可以看看哦！
+>译者注：[原文](https://www.altamiracorp.com/blog/employee-posts/capture-a-signature-on-ios)后的评论也可以看看哦！
 
 =====================
 
 译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
+
+欢迎转发此条微博 [http://weibo.com/2076580237/B6ff98eWs](http://weibo.com/2076580237/B6ff98eWs)  以分享给更多人！
 
 如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的幸苦：
 
