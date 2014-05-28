@@ -63,7 +63,7 @@ pan.maximumNumberOfTouches = pan.minimumNumberOfTouches = 1;
 
 上图是用这种技术画出的字母 “J” ，它也揭示了一些问题：在较慢的速度下， iOS 可以捕捉到足够多的触摸点，因此看起来较平滑，但稍快的移动就会导致触摸点之间较大的间距，签名看起来就是一些直线段相连。
 
-2012 年的 Apple 开发者大会有一个 session 叫做 [创建高级收拾识别器](https://developer.apple.com/videos/wwdc/2012/?id=233)，它用了一点数学来解决此问题。
+2012 年的 Apple 开发者大会有一个 session 叫做 [创建高级手势识别器](https://developer.apple.com/videos/wwdc/2012/?id=233)，它用了一点数学来解决此问题。
 
 ## 二次贝塞尔曲线
 
