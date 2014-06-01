@@ -14,3 +14,4 @@ dev-blog
 - [翻译：自定义 Layer 属性的动画](https://github.com/nixzhu/dev-blog/blob/master/2014-05-10-animating-custom-layer-properties.md)
 - [翻译：GCD 深入理解：第二部分](https://github.com/nixzhu/dev-blog/blob/master/2014-05-14-grand-central-dispatch-in-depth-part-2.md)
 - [翻译：在 iOS 上捕捉签名](https://github.com/nixzhu/dev-blog/blob/master/2014-05-27-capture-a-signature-on-ios.md)
+- [翻译：Flipboard 在 iOS 上怎样播放 GIF 动画](https://github.com/nixzhu/dev-blog/blob/master/2014-06-01-animated-gif.md)
