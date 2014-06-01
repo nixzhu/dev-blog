@@ -82,7 +82,7 @@ imageView.animationDuration = image.totalDelayTimes;
 
 ### FLAnimatedImage
 
-[`FLAnimatedImage`][15] 用 GIF 数据初始化，之后它的工作就是在被通过 `\- (UIImage *)imageLazilyCachedAtIndex:(NSUInteger)index` 请求时尽可能快地递发那一帧，而且仅使用小部分内存。
+[`FLAnimatedImage`][15] 用 GIF 数据初始化，之后它的工作就是在被通过 `- (UIImage *)imageLazilyCachedAtIndex:(NSUInteger)index` 请求时尽可能快地递发那一帧，而且仅使用小部分内存。
 
 它试着智能地根据图像尺寸和内存情况选择帧缓存的大小：如果是小的 GIF ，我们会试着将所有帧都放在内存里，减轻 CPU 的负担。如果是很大的 GIF，我们会试着通过只缓存足够用于实时回放的帧来降低内存占用。
 
@@ -99,8 +99,6 @@ imageView.animationDuration = image.totalDelayTimes;
 `FLAnimatedImage` 直接继承自 `NSObject` ，因为它若继承于 `UIImage` 能获得收益其实很少。另一方面说来，`FLAnimatedImageView` 完全兼容 `UIImageView` 子类并可立即投入使用以取代其位置；设置一个 `UIImage` 或一个 `FLAnimatedImage` 在其上都可以以我们所期望的方式正常工作。所以无论何处我们要显示一个图像，我们就使用 `FLAnimatedImageView` ，然后它就自动正确地处理剩下的事情。
 
 当考虑架构时，创建一个自包含、可重用的组件是非常重要的。多个 `FLAnimatedImage`-`FLAnimatedImageView` 对依然可在没有中央缓存时被使用。它们都尊重系统并且独立地尝试做到最好以成为里面的伟大公民（They're all aware of the system and independently try to do the best to be great citizens.）。
-
-The module is around a thousand lines of code and tries to adhere to the [Unix philosophy][17] of "doing one thing and doing it well". At this point, it's well tested for production use. There's still [room to build it out further][3] and we welcome contributions from the community.
 
 这个模块有大约1000行的代码并试图坚持“做一件事并做好”的[Unix哲学][17]。目前，它已经经过良好测试，可用于生产环境。它依然还有[改进空间][3]，我们欢迎社区的贡献者。
 
