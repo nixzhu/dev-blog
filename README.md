@@ -16,3 +16,4 @@ dev-blog
 - [翻译：在 iOS 上捕捉签名](https://github.com/nixzhu/dev-blog/blob/master/2014-05-27-capture-a-signature-on-ios.md)
 - [翻译：Flipboard 在 iOS 上怎样播放 GIF 动画](https://github.com/nixzhu/dev-blog/blob/master/2014-06-01-animated-gif.md)
 - [翻译：介绍 MVVM](https://github.com/nixzhu/dev-blog/blob/master/2014-06-10-mvvm.md)
+- [翻译：使用 Swift 和 Xcode 6 制作超棒的 UI 组件](https://github.com/nixzhu/dev-blog/blob/master/2014-06-10-make-awesome-ui-components-ios-8-using-swift-xcode-6.md)
