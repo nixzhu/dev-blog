@@ -135,7 +135,7 @@ func _didChange (notification: NSNotification) {
 
 ## 动画
 
-事实上，只要读者稍微阅读一下 `_animatePlaceholder` 就可以分析出来，作者还使用了一个名为 `lt_rightPlaceholderLabel` 的“虚拟属性”，用于在 `UITextField` 里有字符时，在其最右边显示另外一个 Placeholder，大家运行 Demo 时应该有所体会。
+事实上，只要读者稍微阅读一下 `_animatePlaceholder` 就可以分析出来，lexrus 还使用了一个名为 `lt_rightPlaceholderLabel` 的“虚拟属性”，用于在 `UITextField` 里有字符时，在其最右边显示另外一个 Placeholder，大家运行 Demo 时应该有所体会。
 
 这里的 Core Animation 将 `lt_placeholderLabel` 移动到右边并隐去，与此同时， `lt_rightPlaceholderLabel` 也被移动到右边，但它是渐显，这样就得到我们所体验到的效果。
 
