@@ -141,6 +141,10 @@ func _didChange (notification: NSNotification) {
 
 >作者注：不知道只用一个自定义的 Placeholder 能否实现这个效果，但既然 lexrus 这样写，可能有他的道理。
 
+补记：lexrus 给出了解释：
+
+>用两个 UILabel 是因为我之前在 QuartzComposer 里试过只用一个的话，文字变化的动画就会比较难做，两个 UILabel 分别淡入、淡出比较简单。
+
 ## 在 IB 里设置运行时属性
 
 最后，在扩展文件的开头，我们还看到 `alwaysBouncePlaceholder` 与 `abbreviatedPlaceholder` 这两个“虚拟属性”，它们被创建所用的技术和 `lt_placeholderLabel` 一致，不再赘述。只需要观察到，这两个属性在 Demo 中的 IB 中对应 UITextField 的 Identity Inspector 里有被使用，这样就等于直接初始化了它们。
