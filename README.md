@@ -18,3 +18,4 @@ dev-blog
 - 翻译：[介绍 MVVM](https://github.com/nixzhu/dev-blog/blob/master/2014-06-10-mvvm.md)
 - 翻译：[使用 Swift 和 Xcode 6 制作超棒的 UI 组件](https://github.com/nixzhu/dev-blog/blob/master/2014-06-10-make-awesome-ui-components-ios-8-using-swift-xcode-6.md)
 - [分析一个有趣的 Swift 项目：LTBouncyPlaceholder](https://github.com/nixzhu/dev-blog/blob/master/2014-06-12-LTBouncyPlaceholder.md)
+- 翻译：[用 Quartz Composer 和 Origami 制作一个简单的按钮动画](https://github.com/nixzhu/dev-blog/blob/master/2014-06-22-quartz-composer-and-origami-tutorial-button-animation.md)
