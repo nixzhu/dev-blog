@@ -31,6 +31,8 @@
 3. [下载并安装 Origami][10]
 4. [下载并解压本教程所使用的源文件][11]
 
+>译者注：如果你下载 QC 或 Origami 有困难，请试试[这个百度网盘链接](http://pan.baidu.com/s/1D4rxW)。
+
 ## 2\. 打开 Quartz Composer 并创建一个新的构造（Composition）
 
 上面的步骤做完，就打开 QC。你会看到 Template Chooser 界面。对于我们的目标来说，使用 Basic Composition（默认选中）就可以了，所以确保它被选中，然后点击 Choose。一个几乎空白的编辑器窗口和一个空白的查看器窗口将显示出来。
