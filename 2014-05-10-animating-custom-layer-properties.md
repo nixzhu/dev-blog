@@ -520,7 +520,7 @@ const NSInteger hoursOnAClockFace = 12;
 
 欢迎转发此条微博 [http://weibo.com/2076580237/B3CtbFvP6](http://weibo.com/2076580237/B3CtbFvP6) 以分享给更多人！ 
 
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的幸苦：
+如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
 
 ![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
 
