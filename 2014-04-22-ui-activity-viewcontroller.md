@@ -10,9 +10,9 @@
 
 数据与代码的关系一直都让人好奇。
 
-特定的编程语言，如 [Lisp](http://en.wikipedia.org/wiki/Lisp_programming_language)、[lo](http://en.wikipedia.org/wiki/Io_%28programming_language%29) 和 [Mathematica](http://en.wikipedia.org/wiki/Mathematica) 都是[同像性的（homoiconic）](http://en.wikipedia.org/wiki/Homoiconicity)，意味着它们的代码可作为数据原语呈现，也就是说它们自身就可在代码中被操纵。许多其他语言，包括 Objective-C ，就不同了，在两者之间建立了严格的界限，回避 `eval()` 和其它潜在的危险的动态指示加载方法。
+特定的编程语言，如 [Lisp](http://en.wikipedia.org/wiki/Lisp_programming_language)、[lo](http://en.wikipedia.org/wiki/Io_%28programming_language%29) 和 [Mathematica](http://en.wikipedia.org/wiki/Mathematica) 都是[同像性的（homoiconic）](http://en.wikipedia.org/wiki/Homoiconicity)，意味着它们的代码可作为数据原语呈现，也就是说它们自身就可在代码中被操纵。许多其他语言，包括 Objective-C ，就不同了，它们在这两者之间建立了严格的界限，回避 `eval()` 和其它潜在的动态指示加载方法，以回避风险。
 
-当问题中的数据过大或难以表示为除了字节流之外的任何东西时，那么代码与数据的这种紧张关系就达到了一个新的高度。关于“如何编码、解码以及解释图像、文档和媒体的二进制表示”的问题从最开始的操作系统开始就一直存在着。
+当问题里的数据过大或难以表示为除了字节流之外的其他东西时，那么代码与数据的这种紧张关系就达到了一个新的高度。关于“如何编码、解码以及解释图像、文档和媒体的二进制表示”的问题从最早的操作系统开始就一直存在着。
 
 OS X 的 `Core Services 框架`与 iOS 的`移动 Core Services 框架`都提供函数通过[通用类型标识符（Universal Type Identifiers，即UTI）](http://en.wikipedia.org/wiki/Uniform_Type_Identifier)来根据文件扩展和[MIME类型](http://en.wikipedia.org/wiki/Internet_media_type)识别和分类数据类型。UTI提供了可扩展和可继承的分类系统，它能给予开发人员极大的灵活性，即使是处理最奇特的文件类型。例如，一个 Ruby 源代码文件（.rb）被分类为 Ruby 源代码 > 源代码 > 文本 > 内容 > 数据；一个 QuickTime 电影文件（.mov）被分类为视频 > 电影 > 试听内容 > 内容 > 数据；
 
