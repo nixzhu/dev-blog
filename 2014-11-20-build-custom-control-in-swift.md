@@ -329,7 +329,7 @@ func moveHandle(lastPoint: CGPoint) {
     // 重绘
     setNeedsDisplay()
 }
-``
+```
 
 大部分工作由 **AngleFromNorth** 完成。给定 2 个点，它返回一个连接它们的假想线的角度。
 
