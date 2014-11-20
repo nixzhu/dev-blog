@@ -469,6 +469,8 @@ Ciao!
 
 译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
 
+欢迎转发此条微博 [http://weibo.com/2076580237/Bx8x1DKMD](http://weibo.com/2076580237/Bx8x1DKMD) 或 Tweet [https://twitter.com/nixzhu/status/535304706990415872](https://twitter.com/nixzhu/status/535304706990415872) 以分享给更多人！
+
 如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳译者的辛苦：
 
 ![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
