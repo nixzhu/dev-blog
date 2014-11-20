@@ -20,3 +20,4 @@ dev-blog
 - [分析一个有趣的 Swift 项目：LTBouncyPlaceholder](https://github.com/nixzhu/dev-blog/blob/master/2014-06-12-LTBouncyPlaceholder.md)
 - 翻译：[用 Quartz Composer 和 Origami 制作一个简单的按钮动画](https://github.com/nixzhu/dev-blog/blob/master/2014-06-22-quartz-composer-and-origami-tutorial-button-animation.md)
 - [检测是否通过点击通知来启动App](https://github.com/nixzhu/dev-blog/blob/master/2014-09-30-detect-launch-from-notification.md)
+- 翻译：[使用 Swift 构建自定义（且“可设计”的）控件](https://github.com/nixzhu/dev-blog/blob/master/2014-11-20-build-custom-control-in-swift.md)
