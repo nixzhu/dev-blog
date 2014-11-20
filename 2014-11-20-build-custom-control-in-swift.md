@@ -33,13 +33,11 @@
 
 在这个圆形滑块（Circular Slider）中，我们将要定义一个**用户界面**（就是圆形滑块本身），然后用户可以与之**交互**（移动把手）。用户的决定会被转化成**操作（action）**对应到控件的**目标（target）**
 
-We are ready to open XCode. I suggest you to download the full project at the end of this article and follow this tutorial reading my code.
-
 我们准备好打开 Xcode。我建议你下载本文的[完整项目][8]，以便跟着本教程来阅读代码。
 
 我们将走一遍上面列出的三个步骤。这些步骤是完全模块化的，也就是说，如果你对我如何画出组件不感兴趣，那可以直接跳到第二步和第三步。
 
-打开 **BWCircluarSlider.swift** 跟着下面的小结走：
+打开 **BWCircluarSlider.swift** 跟着下面的小节走：
 
 ### 1) 绘制用户界面
 
@@ -431,8 +429,6 @@ func valueChanged(slider:BWCircularSlider){
 ```
 
 我们使用了 Target-Action 模式，所以收到发送者（这里就是滑块）对应事件时就会调用这个操作。此例中，我们直接访问角度值，并简单地打印它。
-
-Now check the override of the function **willMoveToSuperview**
 
 现在看看覆写方法 **willMoveToSuperview**
 
