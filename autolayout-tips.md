@@ -23,7 +23,7 @@ NSArray *constraintH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=
                                                                      views:viewsDictionary];
 ```
 
-这个约束集描述了 imageView 和 label 相邻，而且，imageView 的左边相对于 Superview 的距离 >=0 ，即是可变的；同样，label 的右边相对于 Superview 的距离也 >= 0，一样可变。但若此时运行代码，它们并不会居中于 Superview，可以都挤在右边或左边。
+这个约束集描述了 imageView 和 label 相邻，而且，imageView 的左边相对于 Superview 的距离 >=0 ，即是可变的；同样，label 的右边相对于 Superview 的距离也 >= 0，一样可变。但若此时运行代码，它们并不会居中于 Superview，可能都挤在右边或左边。
 
 我们使用一个 helperView 来处理“居中”问题。
 
