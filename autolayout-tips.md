@@ -63,3 +63,13 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 搞定！（注意上面的代码省略了一些竖向居中的约束。）虽然是用代码描述的，但是文字说明很清楚了，直接在 IB 里构建约束也没有问题。关键就是我们的 helperView，它虽不可见，但只要它的约束起作用就可以了。
 
 我也写了一个 [Demo 放在 GitHub](https://github.com/nixzhu/CenterTwoViewsUseAutoLayout)，如有必要，请稍微看看！
+
+===============
+
+最近我所在公司开发的[秒视 CatchChat](http://catchchat.me/) 推出了1.6版，它是一个可以发送与接收图片以及限定时长视频的社交应用，具有设计精美，操作快速的特点，欢迎使用！我的秒视ID是 nixzhu，也欢迎来扰！
+
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
+
+如果你认为这些 AutoLayout Tips 不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳译者的辛苦：
+
+![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
