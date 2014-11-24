@@ -1,6 +1,6 @@
 # AutoLayout Tips
 
-一些值得记录的 AutoLayout 用法。
+一些值得记录的 AutoLayout 用法。如无意外，作者是：[@nixzhu](https://twitter.com/nixzhu)
 
 ## Tip 1：两个不等宽的 View，彼此相邻，并“共同”居中于 Superview
 
