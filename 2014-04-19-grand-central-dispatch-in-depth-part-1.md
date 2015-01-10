@@ -116,7 +116,7 @@ GCD 提供有 `dispatch queues` 来处理代码块，这些队列管理你提供
 
 以上是调度队列的大框架！
 
-GCD 的“艺术”归结为选择合适的队列来调度函数以提交你的工作。体验这一点的最好方式是走一遍下边的例子，我们沿途会提供一些一般性的建议。
+GCD 的“艺术”归结为选择合适的队列来调度函数以提交你的工作。体验这一点的最好方式是走一遍下边的列子，我们沿途会提供一些一般性的建议。
 
 ## 入门
 
@@ -145,7 +145,7 @@ GooglyPuff 是一个没有优化，线程不安全的应用，它使用 Core Ima
 
 注意在按下 `PhotoCollectionViewController` 中的一个 `UICollectionViewCell` 到生成一个新的 `PhotoDetailViewController` 之间花了多久时间；你会注意到一个明显的滞后，特别是在比较慢的设备上查看很大的图。
 
-在重载 `UIViewController 的 viewDidLoad` 时容易加入太多杂波（too much clutter），这通常会引起视图控制器出现前更长的等待。如果可能，最好是卸下一些工作放到后台，如果它们不是绝对必须要运行在加载时间里。
+在重载 `UIViewController 的 viewDidLoad` 时容易加入太多杂乱的工作（too much clutter），这通常会引起视图控制器出现前更长的等待。如果可能，最好是卸下一些工作放到后台，如果它们不是绝对必须要运行在加载时间里。
 
 这听起来像是 `dispatch_async` 能做的事情！
 
