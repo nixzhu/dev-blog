@@ -1,6 +1,8 @@
 # 生成自适应图表图片的秘密
 
 
+细节是什么？边界条件就是细节。请做一个会解方程的程序员！
+
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
 
@@ -89,6 +91,8 @@ while true {
 
 var barRightMargin = currentTryRightMargin
 ```
+
+其中 `fpN` 是 f 的导数，它是个常量且不为0，那么牛顿迭代法将具有平方收敛的性能，因此可以快速逼近最优解。
 
 注意 `nMax()` 是计算方程 (6) 中里面的 max 的，`currentBarWidth` 其实就是方程 (5)。
 
