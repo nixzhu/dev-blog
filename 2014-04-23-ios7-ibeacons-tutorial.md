@@ -14,7 +14,7 @@
 
 这就是…… [iBeacon](http://en.wikipedia.org/wiki/IBeacon)！
 
-这这篇 iBeacon 教程中你将创建一个应用，它能让你注册已知的 iBeacon 发射器并在你的手机离开其区域时告知你。如果你还不明白这能有什么用，只需想想有多少次你早早地来到工作场所或学校，却不得不回头去拿你忘在家里电脑包。
+在这篇 iBeacon 教程中你将创建一个应用，它能让你注册已知的 iBeacon 发射器并在你的手机离开其区域时告知你。如果你还不明白这能有什么用，只需想想有多少次你早早地来到工作场所或学校，却不得不回头去拿你忘在家里电脑包。
 
 这个方便的小应用和一个 iBeacon 能够节省你的汽油钱、时间甚至是面子——当你星期一早上第一件事是冲出门去找回你的电脑包，那你周围同事就会议论纷纷！（译者注：不知如何翻译，选择意译（when you throw out some choice language around your colleagues first thing Monday morning as you storm out the door to retrieve your laptop bag!））
 
