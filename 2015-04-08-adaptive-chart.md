@@ -23,6 +23,7 @@
 我们共有三个变量，所以还需要两个方程，很容易有：
 
 (2) leftMargin + barWidth? * count + rightMargin? = fullWidth
+
 (3) rightMargin? = max(bestNameWidth? - barWidth? * 0.5 + minRightMargin, minRightMargin)
 
 方程 (2) 很好理解。方程 (3) 是说我们至少要保证 rightMargin? 有 minRightMargin 那么大，因为很可能 bestNameWidth? 并没有超过 barWidth? 的一半，例如都是单个字符的 Name，请想象一下。
