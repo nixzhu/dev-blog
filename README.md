@@ -25,3 +25,4 @@ dev-blog
 - 翻译：[AsyncDisplayKit 教程：达到 60 FPS 的滚动帧率](https://github.com/nixzhu/dev-blog/blob/master/2014-11-22-asyncdisplaykit-tutorial-achieving-60-fps-scrolling.md)
 - [生成自适应图表图片的秘密](https://github.com/nixzhu/dev-blog/blob/master/2015-04-08-adaptive-chart.md)
 - [使用状态机的好处](https://github.com/nixzhu/dev-blog/blob/master/2015-04-23-state-machine.md)
+- [用 Swift 实现轻量的属性监听系统](https://github.com/nixzhu/dev-blog/blob/master/2015-04-30-property-listener.md)
