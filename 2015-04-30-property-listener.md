@@ -1,6 +1,6 @@
 # 用 Swift 实现轻量的属性监听系统
 
-本文的主要目的是解决客户端开发中对“模型的一处修改，UI 要多处更新”的问题。当然，我们要知晓解决方案的细节和思考过程，以及看到其能达到的效果。我们会用到函数式编程的思想，以及伟大的“范型”。请相信我，我们并非为了使用新技术而使用新技术。如果一个问题有更好的方法去解决，那为何不替换掉旧方法呢？
+本文的主要目的是解决客户端开发中对“模型的一处修改，UI 要多处更新”的问题。当然，我们要知晓解决方案的细节和思考过程，以及看到其能达到的效果。我们会用到函数式编程的思想，以及伟大的“泛型”。请相信我，我们并非为了使用新技术而使用新技术。如果一个问题有更好的方法去解决，那为何不替换掉旧方法呢？
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
@@ -224,11 +224,11 @@ UserInfo.bindAndFireNameListener("FirstViewController.nameButton") { name in
 
 最后的最后，UserInfo 里可能会包含其他类型的属性，例如 `var hairColor: UIColor`，如果它也面临“一处修改，多处更新”的问题，那么我们也需要实现一个 HairColorListener 吗？
 
-也许我们该利用 Swift 的范型编写一个更加合理的 Listener，你说对吧？
+也许我们该利用 Swift 的泛型编写一个更加合理的 Listener，你说对吧？
 
 非最终的效果请查看并运行 Demo 代码：[https://github.com/nixzhu/PropertyListenerDemo](https://github.com/nixzhu/PropertyListenerDemo)。如果你愿意的话，可以查看 git 的各个 commit 以得到整个过程。
 
-（最终的）更好的范型实现在分支 [generic](https://github.com/nixzhu/PropertyListenerDemo/tree/generic) 里，它的关键就是利用范型实现一个 `class Listenable<T>` 以对应任何类型的属性，它内部再实现监听系统即可。当然，我们也让监听者支持范型（`struct Listener<T>`）以便执行 action 时可以传递任意类型的参数。还有少许细节不同，例如 UserInfo 里直接使用 static 变量更方便，不需要用一个单独的单例再访问其属性。
+（最终的）更好的泛型实现在分支 [generic](https://github.com/nixzhu/PropertyListenerDemo/tree/generic) 里，它的关键就是利用泛型实现一个 `class Listenable<T>` 以对应任何类型的属性，它内部再实现监听系统即可。当然，我们也让监听者支持泛型（`struct Listener<T>`）以便执行 action 时可以传递任意类型的参数。还有少许细节不同，例如 UserInfo 里直接使用 static 变量更方便，不需要用一个单独的单例再访问其属性。
 
 ===============
 
