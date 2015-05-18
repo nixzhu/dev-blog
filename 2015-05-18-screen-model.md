@@ -90,6 +90,8 @@ extension UIDevice {
 
 另外，如果将来 iPhone 又出了新的型号以至于我们要增加新的屏幕模型，那只需要修改对应增加 ScreenModel 的 case，再进一步修改 matchMarginFrom 的实现。之后所有使用 matchMarginFrom 的地方都会编译失败，这正好给了我们补足新数据的机会，而不用担心匆忙中漏掉某一个。
 
+而如果使用可变参数或者用传递数组的方式来实现 `matchMarginFrom` 就得不到编译器帮我们检查的好处。如果真有增加 ScreenModel case 的一天，那改起所有使用 matchMarginFrom 的地方就不保险了。
+
 因为代码比较简单，就放在 gist [https://gist.github.com/nixzhu/3c8ed0b8f7f24df924ac](https://gist.github.com/nixzhu/3c8ed0b8f7f24df924ac) 里了。
 
 
