@@ -94,6 +94,7 @@ extension UIDevice {
 
 因为代码比较简单，就放在 gist [https://gist.github.com/nixzhu/3c8ed0b8f7f24df924ac](https://gist.github.com/nixzhu/3c8ed0b8f7f24df924ac) 里了。
 
+7月22日补记：已有更合理的 Repo：[https://github.com/nixzhu/Ruler](https://github.com/nixzhu/Ruler)
 
 ===============
 
