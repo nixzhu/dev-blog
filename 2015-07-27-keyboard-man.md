@@ -155,6 +155,10 @@ public var postKeyboardInfo: ((keyboardMan: KeyboardMan, keyboardInfo: KeyboardI
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
 
+欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/625544225908637696](https://twitter.com/nixzhu/status/625544225908637696) 或微博 [http://weibo.com/2076580237/Ct2C8ouJh](http://weibo.com/2076580237/Ct2C8ouJh)  以分享此文！
+
+http://weibo.com/2076580237/Ct2C8ouJh
+
 如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
 
 ![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
