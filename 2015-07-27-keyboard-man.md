@@ -38,7 +38,7 @@ let UIKeyboardDidChangeFrameNotification: String
 
 经我测试，在`UIKeyboardWillShowNotification`发送次数不正确时，`UIKeyboardWillChangeFrameNotification`和`UIKeyboardDidChangeFrameNotification`都能正确发送。这自然会成为解决问题的关键。
 
-因为我们用做的是键盘跟随动画，因此不考虑`UIKeyboardDidChangeFrameNotification`，因为`Did`表明它“滞后”了。那么`UIKeyboardWillShowNotification`就成为了我们唯一的希望。
+因为我们要做的是键盘跟随动画，因此不考虑`UIKeyboardDidChangeFrameNotification`，因为`Did`表明它“滞后”了。那么`UIKeyboardWillChangeFrameNotification`就成为了我们唯一的希望。
 
 通过监听它，我们可以观察到它会在`UIKeyboardWillShowNotification`之前或者在`UIKeyboardDidHideNotification`之后发出。因为键盘隐藏的通知并没有不正常，所以我们不需要关心其在`UIKeyboardDidHideNotification`的发送。也就是说，我们要把`UIKeyboardWillChangeFrameNotification`当作`UIKeyboardWillShowNotification`来用，以保证获取到正确的键盘高度。但这样以来，键盘出现通知的“次数”就多了，我们还要想办法缩减到正确的次数。
 
