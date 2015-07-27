@@ -74,7 +74,7 @@ public struct KeyboardInfo {
 var keyboardInfo: KeyboardInfo?
 ```
 
-每次收到键盘通知时，我们就更新此变量，其中`action`能表示当前时 Show 还是 Hide，而`isSameAction`需要计算，表示当前的`action`是否与之前的一样，可用于区别键盘通知类型的转换。
+每次收到键盘通知时，我们就更新此变量，其中`action`能表示当前是 Show 还是 Hide，而`isSameAction`需要计算，表示当前的`action`是否与之前的一样，可用于区别键盘通知类型的转换。
 
 那么我们的通知处理逻辑如下：
 
