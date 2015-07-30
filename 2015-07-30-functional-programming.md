@@ -11,7 +11,7 @@
 如果我们用程序来描述上面的过程，大概如下：
 
 ``` swift
-if forplay(forplayMinutes) {
+if foreplay(foreplayMinutes) {
     if sexualIntercourse(sexualIntercourseMinutes) {
         if hug(hugMinutes, smallTalk) {
             print("Satisfied!")
@@ -26,12 +26,12 @@ if forplay(forplayMinutes) {
 }
 ```
 
-其中`forplay`，`sexualIntercourse`，`hug`都是函数，相对于具体过程来说，我们已经做了抽象和简化，不然会变得少儿不宜。
+其中`foreplay`，`sexualIntercourse`，`hug`都是函数，相对于具体过程来说，我们已经做了抽象和简化，不然会变得少儿不宜。
 
 它们的实现大概如下：
 
 ``` swift
-func forplay(minutes: Int) -> Bool {
+func foreplay(minutes: Int) -> Bool {
     return minutes >= 15 ? true : false
 }
 
@@ -50,8 +50,8 @@ func hug(minutes: Int, smallTalk: Bool) -> Bool {
 
 先来分析一下最上面的过程：
 
-1. 首先我们定义了一些输入，如`forplayMinutes`等；
-2. 然后我们（主要是您）先执行 forplay，当这个过程符合要求后才进行下一步；
+1. 首先我们定义了一些输入，如`foreplayMinutes`等；
+2. 然后我们（主要是您）先执行 foreplay，当这个过程符合要求后才进行下一步；
 3. 若三个子过程都满足要求，女士才会满足，中间某个过程一旦不满足，那就不可能满足了。
 
 再简化一点说，即：有输入，过程有顺序，过程可能有输出。那什么是“函数式编程”？
@@ -75,12 +75,12 @@ func bind<A, B>(a: A?, f: A -> B?) -> B? {
 而为了在子过程中体现顺序，我们要为它们增加参数：
 
 ``` swift
-func forplay(minutes: Int) -> Bool? {
+func foreplay(minutes: Int) -> Bool? {
     return minutes >= 15 ? true : false
 }
 
-func sexualIntercourse(forplaySatisfied: Bool, minutes: Int) -> Bool? {
-    if forplaySatisfied {
+func sexualIntercourse(foreplaySatisfied: Bool, minutes: Int) -> Bool? {
+    if foreplaySatisfied {
         return (minutes >= 3 && minutes <= 5) ? true : false
     } else {
         return nil
@@ -102,7 +102,7 @@ func hug(sexualIntercourseSatisfied: Bool, minutes: Int, smallTalk: Bool) -> Boo
 
 ``` swift
 var satisfied: Bool = false
-satisfied = bind(forplayMinutes, forplay) ?? false
+satisfied = bind(foreplayMinutes, foreplay) ?? false
 satisfied = bind(satisfied, sexualIntercourse) ?? false //错误
 satisfied = bind(satisfied, hug) ?? false               //错误
 
@@ -137,7 +137,7 @@ addThree(4) // 7
 由此，我们改造`sexualIntercourse`和`hug`如下：
 
 ``` swift
-func sexualIntercourse(minutes: Int)(forplaySatisfied: Bool) -> Bool? {
+func sexualIntercourse(minutes: Int)(foreplaySatisfied: Bool) -> Bool? {
     //...
 }
 
@@ -179,13 +179,13 @@ func >>><A, B>(a: A?, f: A -> B?) -> B? {
 然后对应的计算就变为：
 
 ``` swift
-let satisfied = forplayMinutes >>> forplay >>> sexualIntercourse(sexualIntercourseMinutes) >>> hug(hugMinutes, smallTalk) ?? false
+let satisfied = foreplayMinutes >>> foreplay >>> sexualIntercourse(sexualIntercourseMinutes) >>> hug(hugMinutes, smallTalk) ?? false
 ```
 
 变成一条链了，顺序非常清楚。当然，我们写成这样可能更好看：
 
 ``` swift
-let satisfied = forplay(forplayMinutes) >>> sexualIntercourse(sexualIntercourseMinutes) >>> hug(hugMinutes, smallTalk) ?? false
+let satisfied = foreplay(foreplayMinutes) >>> sexualIntercourse(sexualIntercourseMinutes) >>> hug(hugMinutes, smallTalk) ?? false
 ```
 
 三个过程会更清楚。
