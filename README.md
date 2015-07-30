@@ -29,3 +29,4 @@ dev-blog
 - [区别 iPhone 做布局](https://github.com/nixzhu/dev-blog/blob/master/2015-05-18-screen-model.md)
 - [再造虫洞：一次 Objective-C 到 Swift 的改写之旅](https://github.com/nixzhu/dev-blog/blob/master/2015-05-27-wormhole.md)
 - [处理键盘通知](https://github.com/nixzhu/dev-blog/blob/master/2015-07-27-keyboard-man.md)
+- [对函数式编程的一点理解](https://github.com/nixzhu/dev-blog/blob/master/2015-07-30-functional-programming.md)
