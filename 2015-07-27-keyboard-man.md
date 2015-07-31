@@ -131,6 +131,25 @@ var keyboardInfo: KeyboardInfo? {
 
 可以看出，我们只会在键盘Action改变时，或键盘高度增量大于 0 时才进行真正的处理。由此，就可以避免因为将`UIKeyboardWillChangeFrameNotification`当作`UIKeyboardWillShowNotification`用而导致“次数”反而增加了。
 
+不过还有一个新情况：当键盘出现后，若用户按下 Home 进入后台，然后回到本应用，那么 iOS 还会再发送`UIKeyboardWillShowNotification`和`UIKeyboardWillChangeFrameNotification`，而我们并不需要它们。好在这样的情况很好处理，只需在 willSet 的顶部先判断一下应用的状态即可：
+
+```swift
+var keyboardInfo: KeyboardInfo? {
+    willSet {
+        if UIApplication.sharedApplication().applicationState != .Active {
+            return
+        }
+
+        if let info = newValue {
+            if !info.isSameAction || info.heightIncrement > 0 {
+                //TODO
+            }
+        }
+    }
+}
+
+```
+
 有了这些代码后，我们就可以暴露“闭包”给外部，闭包的执行就放在上面代码 TODO 的位置。
 
 处于方便的考虑，KeyboardMan 共暴露三个闭包：
@@ -145,7 +164,7 @@ public var postKeyboardInfo: ((keyboardMan: KeyboardMan, keyboardInfo: KeyboardI
 
 其中前两个闭包比较方便，放在其中的代码会被自动“动画”，易于使用。第三个将每次刷新的 KeyboardInfo 发送出去，使用的逻辑就交给程序员了。另外，稍微注意一下 animateWhenKeyboardAppear 闭包的`appearPostIndex`参数，它表示“本次”键盘出现时，通知发送到第几次了（每次都从0开始，有可能你的代码里用得到）。如果你用 postKeyboardInfo 闭包那么可用`keyboardMan`参数取到它。
 
-还有一些细节，包括通知监听开启或关闭的实现，通知内容解析的实现，具体请看 KeyboardMan 的代码。另外，Demo 里有三个闭包的基本用法。
+还有一些细节，包括通知监听开启或关闭的实现（注意 deinit 里设置属性并不会触发对应的 willSet 或 didSet），通知内容解析的实现，具体请看 KeyboardMan 的代码。另外，Demo 里有三个闭包的基本用法。
 
 项目地址：[https://github.com/nixzhu/KeyboardMan](https://github.com/nixzhu/KeyboardMan)
 
