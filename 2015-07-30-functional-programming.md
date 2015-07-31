@@ -11,6 +11,27 @@
 如果我们用程序来描述上面的过程，大概如下：
 
 ``` swift
+let foreplayMinutes = 20
+let sexualIntercourseMinutes = 5
+let hugMinutes = 40
+let smallTalk = true
+
+if foreplayMinutes >= 15 {
+    if sexualIntercourseMinutes >= 3 && sexualIntercourseMinutes <= 5 {
+        if hugMinutes >= 30 && smallTalk {
+            print("Satisfied!")
+        }
+    } else {
+        print("Not satisfied!")
+    }
+} else {
+    print("Not satisfied!")
+}
+```
+
+虽然这个过程比较简单，但那是因为我们做了简化，不然会变得少儿不宜。在真实场景下，我们会将明显可独立的部分抽象成函数，帮助我们更好地理解整个过程，于是变为：
+
+``` swift
 if foreplay(foreplayMinutes) {
     if sexualIntercourse(sexualIntercourseMinutes) {
         if hug(hugMinutes, smallTalk) {
@@ -26,9 +47,7 @@ if foreplay(foreplayMinutes) {
 }
 ```
 
-其中`foreplay`，`sexualIntercourse`，`hug`都是函数，相对于具体过程来说，我们已经做了抽象和简化，不然会变得少儿不宜。
-
-它们的实现大概如下：
+其中`foreplay`，`sexualIntercourse`，`hug`都是函数，它们的实现大概如下：
 
 ``` swift
 func foreplay(minutes: Int) -> Bool {
@@ -58,7 +77,7 @@ func hug(minutes: Int, smallTalk: Bool) -> Bool {
 
 别慌，快了。
 
-其实函数式编程的是一种更高层的抽象：我们假设有个“高阶函数”，它能接受任意数据和一个函数（利用范型），并返回经过此函数处理的数据。我们命名此函数为`bind`：
+其实函数式编程的是一种更高层的抽象（类似于我们将“过程”抽象成“函数”）：我们假设有个“高阶函数”，它能接受任意数据和一个函数（利用范型），并返回经过此函数处理的数据。我们命名此函数为`bind`：
 
 ``` swift
 func bind<A, B>(a: A?, f: A -> B?) -> B? {
@@ -96,9 +115,9 @@ func hug(sexualIntercourseSatisfied: Bool, minutes: Int, smallTalk: Bool) -> Boo
 }
 ```
 
-注意，除了增加判断参数外，为了能适用于 bind，函数的返回值也变为可选了。
+注意，除了增加判断参数外，为了能适用于`bind`，函数的返回值也变为可选了。
 
-由此，该怎么用 bind 来描述上面的过程呢？
+由此，该怎么用`bind`来描述上面的过程呢？
 
 ``` swift
 var satisfied: Bool = false
