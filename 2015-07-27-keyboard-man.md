@@ -152,7 +152,7 @@ var keyboardInfo: KeyboardInfo? {
 
 有了这些代码后，我们就可以暴露“闭包”给外部，闭包的执行就放在上面代码 TODO 的位置。
 
-处于方便的考虑，KeyboardMan 共暴露三个闭包：
+出于方便的考虑，KeyboardMan 共暴露三个闭包：
 
 ```swift
 public var animateWhenKeyboardAppear: ((appearPostIndex: Int, keyboardHeight: CGFloat, keyboardHeightIncrement: CGFloat) -> Void)? 
