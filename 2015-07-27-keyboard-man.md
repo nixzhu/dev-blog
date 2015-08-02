@@ -129,7 +129,7 @@ var keyboardInfo: KeyboardInfo? {
 }
 ```
 
-可以看出，我们只会在键盘Action改变时，或键盘高度增量大于 0 时才进行真正的处理。由此，就可以避免因为将`UIKeyboardWillChangeFrameNotification`当作`UIKeyboardWillShowNotification`用而导致“次数”反而增加了。
+可以看出，我们只会在键盘Action改变时，或键盘高度增量不等于 0 时才进行真正的处理。由此，就可以避免因为将`UIKeyboardWillChangeFrameNotification`当作`UIKeyboardWillShowNotification`用而导致“次数”反而增加了。
 
 不过还有一个新情况：当键盘出现后，若用户按下 Home 进入后台，然后回到本应用，那么 iOS 还会再发送`UIKeyboardWillShowNotification`和`UIKeyboardWillChangeFrameNotification`，而我们并不需要它们。好在这样的情况很好处理，只需在 willSet 的顶部先判断一下应用的状态即可：
 
