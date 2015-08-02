@@ -121,7 +121,7 @@ func keyboardDidHide(notification: NSNotification) {
 var keyboardInfo: KeyboardInfo? {
     willSet {
         if let info = newValue {
-            if !info.isSameAction || info.heightIncrement > 0 {
+            if !info.isSameAction || info.heightIncrement != 0 {
                 //TODO
             }
         }
@@ -141,7 +141,7 @@ var keyboardInfo: KeyboardInfo? {
         }
 
         if let info = newValue {
-            if !info.isSameAction || info.heightIncrement > 0 {
+            if !info.isSameAction || info.heightIncrement != 0 {
                 //TODO
             }
         }
