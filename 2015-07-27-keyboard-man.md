@@ -91,9 +91,6 @@ func keyboardWillChangeFrame(notification: NSNotification) {
         if keyboardInfo.action == .Show {
             handleKeyboard(notification, .Show)
         }
-
-    } else {
-        handleKeyboard(notification, .Show)
     }
 }
 
@@ -112,7 +109,7 @@ func keyboardDidHide(notification: NSNotification) {
 
 然后注意`keyboardWillChangeFrame`函数，它处理`UIKeyboardWillChangeFrameNotification`。因为此通知会在`UIKeyboardWillShowNotification`之前发送，要将它当作`UIKeyboardWillShowNotification`来用的前提是：
 
-1. `keyboardInfo` 不存在，表示键盘还未弹出过（那么若有通知必然是 Show）
+1. `keyboardInfo` 不存在，表示键盘还未弹出过，（因为 `UIKeyboardWillShowNotification` 至少会发送一次，故不处理 `UIKeyboardWillChangeFrameNotification`）
 2. `keyboardInfo`已存在，只要保证前一次是 Show 再处理即可。
 
 最后，键盘通知的次数处理，在设置 `keyboardInfo` 时，我们增加一个 willSet
@@ -150,7 +147,9 @@ var keyboardInfo: KeyboardInfo? {
 
 ```
 
-有了这些代码后，我们就可以暴露“闭包”给外部，闭包的执行就放在上面代码 TODO 的位置。
+此外，iOS 的键盘在某些设备上还可以拆分（Split）和浮动（Undock），这时系统会发送两个 Hide 通知，若之后再 dismiss 时，系统会发送 `UIKeyboardWillChangeFrameNotification`，不过这个时候就不能将其当做 Show 来处理了。好在上面的`keyboardWillChangeFrame`函数已经避免了这样的情况。
+
+有了这些代码和考量后，我们就可以暴露“闭包”给外部，闭包的执行就放在上面代码 TODO 的位置。
 
 出于方便的考虑，KeyboardMan 共暴露三个闭包：
 
