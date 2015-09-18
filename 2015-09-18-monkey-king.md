@@ -35,7 +35,7 @@ $ pod search wechat
 
 成功通过编译。
 
-那就先来测试一下，安装其几乎无法目睹的文档：
+那就先来测试一下，按照其几乎无法目睹的文档：
 
 1. 先添加 CFBundleURLTypes，……，便于回调
 2. 再在 appDelegate 的 didFinishLauching 里 `WXApi.registerApp("appID...")`，心中更怒了，为何要在这么早注册它的 appID，我还没打算分享呢。后来百度LBS的李择一说光是这一句，微信SDK就在后面做数据收集了，它会往[http://pingma.qq.com/mstat/report](http://pingma.qq.com/mstat/report)发送RC4加密的数据。鬼才知道它还会干什么！
@@ -72,7 +72,7 @@ $ pod search wechat
 	
 	鬼才知道它会不会在 handleOpenURL 时收集数据啊！
 	
-通常，第 3 步时还要检查 `WXApi.isWXAppInstalled()` 和 `WXApi.isWXAppSupportApi()`，可我发现，在测试剂已安装了微信的前提下，前者可能返回 false，后者返回 true，我已经出离愤怒了。也许微信后台还有激活时间段？后来过了几个小时，这两个方法都返回 true 了，但谁也不知道中间发生了什么。
+通常，第 3 步时还要检查 `WXApi.isWXAppInstalled()` 和 `WXApi.isWXAppSupportApi()`，可我发现，在测试机已安装了微信的前提下，前者可能返回 false，后者返回 true，我已经出离愤怒了。也许微信后台还有激活时间段？后来过了几个小时，这两个方法都返回 true 了，但谁也不知道中间发生了什么。
 
 最后，为了使用 UIActivityController 来做系统分享，我们还必须制作 UIActivity，可微信的分享还分成 Session（聊天） 和 Timeline（朋友圈），它一个破 App 居然要占据两个位置。
 
@@ -214,13 +214,13 @@ class WeChatActivity: UIActivity {
 
 作为一种研究，我决定分析 [openshare][1] 的实现（作者已写了很好的[文章](http://www.gfzj.us/series/openshare/)），然后用 Swift 写一个支持分享到微信的功能即可，这也是目前我们应用只用到的部分。
 
-[openshare][1] 的原理很简单，分析第三方SDK在分享跳转时所传递的数据然后自行构造同样的数据流。虽说原理简单，但想必作者花了不少时间调试和测试。
+[openshare][1] 的原理很简单，分析第三方 SDK 在分享跳转时所传递的数据然后自行构造同样的数据流。虽说原理简单，但想必作者花了不少时间调试和测试。
 
 简单来说，走微信分享时，我们要用微信的 scheme 打开它，这个 URL 里有不少参数，比较大的数据，比如分享图片时的图片要放在系统粘贴板里，因为系统粘贴板是所有应用都可以访问的。
 
 其它细节就不赘述了。不过我发现，相对来说，微信的机制比 QQ 好一点，微信利用的 PropertyList 来做数据交换，比较好格式化；而 QQ 可能比较原始，要在 URL 里编码大量数据。虽说目的都一样，但过程的体验不同。
 
-最后得到一个开源项目：[MonkeyKing][2]，以 Swift 2 编写，但它目前支持只分享链接和图片到微信或 QQ。若你有其它需求，还是请考虑 [openshare][1]。由此，我们就避免了使用微信的SDK带来的愤怒，也避免了用户所要面临的不必要的风险。
+最后得到一个开源项目：[MonkeyKing][2]，以 Swift 2 编写，但它目前支持只分享链接和图片到微信或 QQ。若你有其它需求，还是请考虑 [openshare][1]。由此，我们就避免了使用微信的 SDK 带来的愤怒，也避免了用户所要面临的不必要的风险。
 
 不过 [MonkeyKing][2] 的代码比较简短，你若想看实现的细节会比较容易些。
 
