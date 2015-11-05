@@ -103,7 +103,7 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 ![](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/autolayout_tip2_add_label4.png)
 
-可事情还没完。若我想 UILabel 的右边约束是 20，下边约束也是 20，可行吗？读者可以自行修改约束的值，很明显是可以的。但这时候就“目测”来看，很明显着两个约束的“线段”会长于 20，为什么 Storyboard 不会报错或警告呢？
+可事情还没完。若我想 UILabel 的右边约束是 20，下边约束也是 20，可行吗？读者可以自行修改约束的值，很明显是可以的。但这时候就“目测”来看，很明显这两个约束的“线段”会长于 20，那为什么 Storyboard 不会报错或警告呢？
 
 如果读者理解了前面的过程，那就会有答案。因为 UILabel 在 UIScrollView 内的 contentView 上，虽然看起来 UIScrollView 很宽很大，但其 contentView 并不是。相反，contentView 的 size 是由其中的 Subview 的约束所确定的。
 
@@ -121,7 +121,7 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
  这时候就看起来“正常”了，对吧？同样的道理，如果你要往 UIScrollView 里放入很多很多的 Subview，那你就先将 View 的 Size 改到一个合适的尺寸，再做 Subview 的布局，注意修改约束的“值”（因为看起来的长度不一定是实际的长度）。
  
-最后强调一点，确保约束能让 AutoLayout 确定 UIScrollView 的 contentView 的 Size，一切就搞定了！完全不需要辅助 View 之类的东西。
+最后强调一点，确保约束能让 AutoLayout 确定 UIScrollView 的 contentView 的 Size，此外就是正常的 AutoLayout 用法。当然，有时候我们只需要高度增加，宽度和屏幕一样，那约束好设置吗？
 
 同样有个 [Demo 放在 GitHub](https://github.com/nixzhu/AutoLayoutInUIScrollView)，如有必要，请稍微看看！
 
