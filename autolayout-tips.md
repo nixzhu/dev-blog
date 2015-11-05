@@ -80,7 +80,7 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 只要度过了最开始的不适应期，各位用着 AutoLayout 时应该都是心情愉悦的。虽然手写约束会给人冗长的感觉，但 API 的长度并不会阻碍你对代码的理解。不过大部分时间里，我们都在 Storyboard 里，愉快的链接着约束，日子美好又幸福。
 
-可惜好景不长。有一天，我们遇到的某个需求很可能需要我们用 UIScrollView 来实现。比如一个很长的展示页面，里面有文字、有图片、可能还有一些按钮等等。它们的长度或宽度很可能会超过 iPhone（或 iPad）的高度或宽度。Apple 是着重研究过小尺寸屏幕，它的解决方案就是 UIScrollView。
+可惜好景不长。有一天，我们遇到的某个需求很可能需要我们用 UIScrollView 来实现。比如一个很长的展示页面，里面有文字、有图片、可能还有一些按钮等等。它们的长度或宽度很可能会超过 iPhone（或 iPad）的高度或宽度。Apple 当然很仔细地研究过小尺寸屏幕，它提供的解决方案就是 UIScrollView。
 
 我们就来试试。
 
@@ -88,7 +88,7 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 ![](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/autolayout_tip2_add_scrollview.png)
 
-更新一下Frame：
+更新一下它的 Frame：
 
 ![](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/autolayout_tip2_add_scrollview2.png)
 
@@ -96,19 +96,19 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 ![](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/autolayout_tip2_add_label.png)
 
-如果英文不太好的话，我们可以用谷歌翻译，ambiguous 的意思是“不明确”，也就是说，UIScrollView 不能确定其内容的宽或高。
+如果英文不太好的话，我们可以用谷歌翻译。ambiguous 的意思是“不明确”，也就是说，UIScrollView 不能确定其内容的宽或高。
 
-由此，我们可以推断，当 UIScrollView 有 SubView 的时候，它就会开始考虑其 contentView 的 size 了。因为 UIScrollView 处于一个 AutoLayout 的环境中，它不能直接得到 SubView 的 Frame，也就不能确定其 contentView 的 size，于是 Storyboard 就会跑出来告诉我们这件事。
+由此，我们可以推断，当 UIScrollView 有 SubView 的时候，它就会开始考虑其“内部”的 contentView 的 Size 了。因为 UIScrollView 处于一个 AutoLayout 的环境中，它不能直接得到 SubView 的 Frame，也就不能确定其 contentView 的 Size，于是 Storyboard 就会跑出来告诉我们这件事。
 
 那我们给 UILabel 加上 3 边约束：
 
 ![](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/autolayout_tip2_add_label2.png)
 
-正常来说，只需要上边和左边就能确定其位置，但右边的约束的作用实际是“撑宽”UIScrollView，这时错误就只有一个了：
+正常来说，只需要上边和左边就能确定 UILabel 的位置，但右边的约束的作用实际是“撑宽”UIScrollView，这时错误就只有一个了：
 
 ![](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/autolayout_tip2_add_label3.png)
 
-很明显，UIScrollView 可以确定其 contentView 的宽度了，因为 Label 的宽度固定，它的左边到 UIScrollView 的左边固定，它的右边到 UIScrollView 的右边固定，于是 AutoLayout 系统可以通过这些约束“猜出” UIScrollView 的 contentView 的宽度。
+很明显，UIScrollView 可以确定其 contentView 的宽度了，因为 UILabel 的宽度固定，它的左边到 UIScrollView 的左边固定，它的右边到 UIScrollView 的右边固定，于是 AutoLayout 系统可以通过这些约束“猜出” UIScrollView 的 contentView 的宽度。
 
 然后，我们再给 UILabel 加上下边的约束，错误就会完全消失了。
 
@@ -116,7 +116,7 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 可事情还没完。若我想 UILabel 的右边约束是 20，下边约束也是 20，可行吗？读者可以自行修改约束的值，很明显是可以的。但这时候就“目测”来看，很明显这两个约束的“线段”会长于 20，那为什么 Storyboard 不会报错或警告呢？
 
-如果读者理解了前面的过程，那就会有答案。因为 UILabel 在 UIScrollView 内的 contentView 上，虽然看起来 UIScrollView 很宽很大，但其 contentView 并不是。相反，contentView 的 size 是由其中的 Subview 的约束所确定的。
+如果读者理解了前面的过程，那就会有答案。因为 UILabel 在 UIScrollView 内的 contentView 上，虽然看起来 UIScrollView 很宽很大，但其 contentView 并不是。相反，contentView 的 Size 是由其中的 Subview 的约束所确定的。
 
 这就是你在同时使用 AutoLayout 和 UIScrollView 时所唯一需要明白的地方。
 
