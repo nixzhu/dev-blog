@@ -5,7 +5,7 @@
 ===============================
 
 - [Tip 1：两个不等宽的 View，彼此相邻，并“共同”居中于 Superview](#tip-1)
-- [Tip 2：AutoLayout in UIScrollView](#tip-2)
+- [Tip 2：让 AutoLayout 与 UIScrollView 合作无间](#tip-2)
 
 ===============================
 
@@ -76,7 +76,7 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 ## Tip 2
 
-**AutoLayout in UIScrollView**
+**让 AutoLayout 与 UIScrollView 合作无间**
 
 只要度过了最开始的不适应期，各位用着 AutoLayout 时应该都是心情愉悦的。虽然手写约束会给人冗长的感觉，但 API 的长度并不会阻碍你对代码的理解。不过大部分时间里，我们都在 Storyboard 里，愉快的链接着约束，日子美好又幸福。
 
