@@ -136,6 +136,8 @@ NSLayoutConstraint *constraint5 =[NSLayoutConstraint constraintWithItem:helperVi
 
 同样有个 [Demo 放在 GitHub](https://github.com/nixzhu/AutoLayoutInUIScrollView)，如有必要，请稍微看看！
 
+2015年11月7日补记：[微博评论里](http://weibo.com/2076580237/D2zBsiMPk?type=comment)有人提到所谓正确的用法是“使用一个单一的containerView占满全部，然后把所有的subview添加到containerView中”，但这是我极力避免的，因为这样的方式并没有说清楚原理。Demo 里有三个 Tab，第一个是上面介绍的过程，第二个是限制为只能上下滑动，第三个是要显示的东西的尺寸（无论高宽）超过屏幕的情况。它们都不需要一个中间的containerView。
+
 ===============
 
 
