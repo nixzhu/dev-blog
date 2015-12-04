@@ -51,3 +51,65 @@ let package = Package(
 目前，这两个选择都不是很理想，因为新提交的代码可能很容易破坏同组人的使用，例如，如果你修改了 `Foo` 的代码并让你的 app 使用这些改动，却并没有提交这些改动到 `Foo`，那么你就可能将你的同事置于代码依赖的地狱（caused dependency hell）。
 
 我们会努力改进工具以避免类似问题，但目前，希望你知悉这些问题。
+
+=================================
+
+# `Package.swift` — 清单文件
+
+引用：[Package.swift — The Manifest File](https://github.com/apple/swift-package-manager/blob/master/Documentation/Package.swift.md)
+
+指示如何构建一个包的清单文件，被称为 `Package.swift`。你可以定制此文件以声明构建 target 或依赖，引用或排除源文件，以及为模块或单个文件指定构建配置。
+
+如下是一个 `Package.swift` 文件的例子：
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "Hello",
+    dependencies: [
+        .Package(url: "ssh://git@example.com/Greeter.git", versions: "1.0.0"),
+    ]
+)
+```
+
+明显， `Package.swift` 文件是一个 Swift 文件，它用定义在 `PackageDescription` 模块的类型来声明一个包的配置。这个清单声明了一个对外部包 `Greeter` 的依赖。
+
+果你的‘包’包含多个互相依赖的 target，那么你需要指明它们的相互依赖关系。如下例所示：
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "Example",
+    targets: [
+        Target(
+            name: "top",
+            dependencies: [.Target(name: "bottom")]),
+        Target(
+            name: "bottom")
+```
+
+target 的名字就是你子目录的名字。
+
+## 自定义构建
+
+清单文件本质为 Swift 源码，可带来极强的自定义性，例如：
+
+```swift
+import PackageDescription
+
+var package = Package()
+
+#if os(Linux)
+let target = Target(name: "LinuxSources/foo")
+package.targets.append(target)
+#endif
+```
+
+对于这样的特性，标准配置文件格式，如 JSON，将导致字典结构对每一个特性都增加很多复杂性。
+
+## 依赖 Apple 模块（如 Foundation）
+
+当前，还没有明确支持依赖于 Foundation、AppKit 等，尽管这些模块在合适的系统位置时应该正常工作。我们将为系统依赖添加明确的支持。注意，目前包管理器还没有支持 iOS、watchOS 或 tvOS 平台。
+
