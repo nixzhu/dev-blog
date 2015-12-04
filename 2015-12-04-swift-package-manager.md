@@ -171,8 +171,6 @@ package.targets.append(target)
 
 要做到这一点，指定的包必须被发布，并包含一个模块地图（module map）。
 
-Let’s use the example of [IJG’s JPEG library](http://www.ijg.org). This is the code we want to compile:
-
 让我们以 [IJG’s JPEG 库](http://www.ijg.org) 为例。如下是我们要编译的代码：
 
 ```swift
@@ -383,10 +381,8 @@ package the link errors can be especially difficult to debug.）
 
 长期来看，我们希望系统库和系统包都提供模块地图，那是，包管理器的这个组建就会变得多余。
 
-*Notably* the above steps will not work if you installed JPEG and JasPer with [Homebrew](http://brew.sh) since the files will
-be installed to `/usr/local` for now adapt the paths, but as said, we plan to support basic relocations like these.
-
-*值得注意的是*上述步骤在使用 [Homebrew](http://brew.sh) 安装 JPEG 和 JasPer 时将不会工作，因为目前文件会被安装到 `/usr/local`，但如提到的，我们打算支持基本重定位。
+*值得注意的是*上述步骤在使用 [Homebrew](http://brew.sh) 安装 JPEG 和 JasPer 时将不会工作，因为目前文件会被安装到 `/usr/local`，但如提到的，我们打算支持基本重定位。（*Notably* the above steps will not work if you installed JPEG and JasPer with [Homebrew](http://brew.sh) since the files will
+be installed to `/usr/local` for now adapt the paths, but as said, we plan to support basic relocations like these.）
 
 ## 模块地图的版本
 
@@ -400,3 +396,11 @@ be installed to `/usr/local` for now adapt the paths, but as said, we plan to su
 
 例如，`libarchive` 可选依赖于 `xz`，这意味着它可以在 `xz` 支持下编译，但这不一定是必要的。要提供一个有着 xz 的 libarchive 包，你必须做一个 `CArchive+CXz` 包，其依赖于 `CXz`，同时提供 `CArchive`。
 
+===============
+===============
+
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
+
+欢迎捐助，以慰劳作者的辛苦：
+
+![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
