@@ -113,3 +113,47 @@ package.targets.append(target)
 
 当前，还没有明确支持依赖于 Foundation、AppKit 等，尽管这些模块在合适的系统位置时应该正常工作。我们将为系统依赖添加明确的支持。注意，目前包管理器还没有支持 iOS、watchOS 或 tvOS 平台。
 
+=================================
+
+# 源码布局
+
+引用：[Source Layouts](https://github.com/apple/swift-package-manager/blob/master/Documentation/SourceLayouts.md)
+
+`swift build` 创建的模块取决于源文件在文件系统里的布局。
+
+例如，如果你创建一个目录包含如下布局：
+
+    example/
+    example/Sources/bar.swift
+    example/Sources/baz.swift
+
+在 `example` 目录中运行 `swift build` 会产生单个库目标文件：`example/.build/debug/example.a`
+
+要创建多个模块，就创建多个子目录：
+
+    example/Sources/foo/foo.swift
+    example/Sources/bar/bar.swift
+
+此时运行 `swift build` 将产生两个库目标文件：
+
+* `example/.build/debug/foo.a`
+* `example/.build/debug/bar.a`
+
+要生成一个可执行模块（而不是一个库模块），添加一个 `main.swift` 到那个模块的子目录即可：
+
+    example/Sources/foo/main.swift
+    example/Sources/bar/bar.swift
+
+此时运行 `swift build` 将产生：
+
+* `example/.build/debug/foo`
+* `example/.build/debug/bar.a`
+
+这里的 `foo` 就是一个可执行文件，而 `bar.a` 是一个静态库。
+
+## 其它规则
+
+* 命名为 `Tests` 的目录会被忽略
+* 若目录的子目录命名为 `Sources`、`Source`、`srcs` 或 `src`，它们将成为模块
+* 没有 `Sources` 目录是可接受的，在这种情况下，根目录就被当做单个模块（将你的源代码放在这里），或者根目录的子目录会被认为是模块。对于简单项目，这种布局比较方便。
+
