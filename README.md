@@ -32,3 +32,5 @@ dev-blog
 - [对函数式编程的一点理解](https://github.com/nixzhu/dev-blog/blob/master/2015-07-30-functional-programming.md)
 - [国产SDK](https://github.com/nixzhu/dev-blog/blob/master/2015-09-18-monkey-king.md)
 - [一种头像缓存策略](https://github.com/nixzhu/dev-blog/blob/master/2015-10-08-navi.md)
+- 翻译：[Swift 包管理器](https://github.com/nixzhu/dev-blog/blob/master/2015-12-04-swift-package-manager.md)
+- [NSCache 源码分析](https://github.com/nixzhu/dev-blog/blob/master/2015-12-09-nscache.md)
