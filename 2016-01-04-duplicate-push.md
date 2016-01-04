@@ -32,9 +32,9 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
 
 我在这里还用了 defer 关键字，也就是无论如何，我们都可以取消 cell 的选中。当然，我们还应该判断 navigationController 的存在性，因为当前的 ViewController 不一定内嵌在某个 UINavigationController 里，segue 也并非只有 push(show) 一种。
 
-这样写真的有效吗？好在我能稍微毕竟容易地重现此问题。
+这样写真的有效吗？好在我能稍微比较容易地重现此问题。
 
-在我自己的实验里，若长按 cell，然后稍微减少手指的压力再立即增加压力，触发此 bug 的可能性就比较大。
+在我自己的实验里，若长按 cell，然后稍微减少手指的压力再立即增加压力，触发此 bug 的可能性就比较大。（这也许和具体的 app UI 逻辑的实现有关，也许你遇到的问题不是这样。另外，如果你没有观察到两次 push 间 viewControllers stack 的改变，那说明你遇到的问题更加诡异，此方法也可能不适用。）
 
 我通过打印的办法确认，在出现重复 push 的情况下，iOS 9.2 会调用两次 `tableView(:didSelectRowAtIndexPath:)`，但在此之间，当第一次 performSegue 时，UINavigationController 的 viewControllers stack 就已经被改变了，也就是说，第二次就不会再 push 了。
 
