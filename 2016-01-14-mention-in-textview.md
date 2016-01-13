@@ -48,6 +48,8 @@ mentionExpression.enumerateMatchesInString(text, options: NSMatchingOptions(), r
 
 这里我们给符合模式的子字符串添加上了 NSLinkAttributeName 属性和一个自定义检测属性。如果你将 UITextView 的 URL 检测打开，你可以看到 `@nixzhu` 与 `www.apple.com` 都有了颜色和下划线。也就是说，iOS 会将有 NSLinkAttributeName 属性的字符串当做链接。
 
+![Mention in TextView](https://raw.githubusercontent.com/nixzhu/dev-blog/master/images/mention_textview.png)
+
 此时，我们点击 URL 有反应，点击 mention 也有类似效果，只是没有后续操作，因为我们还没做自定义。
 
 上面提到 iOS 会将有 NSLinkAttributeName 属性的字符串当做链接，因此，我们可以利用 UITextViewDelegate 的一个方法来做处理：
