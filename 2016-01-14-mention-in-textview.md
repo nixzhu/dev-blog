@@ -1,7 +1,7 @@
 
 # 自定义 UITextView 关键字高亮与点击检测
 
-妙手偶得
+一种很简单的方法，妙手偶得，可比较容易地处理 Mention、Hashtag 等
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
@@ -11,7 +11,7 @@
 
 若我们要增加对 mention 或 hashtag 的检测，例如 `*@nixzhu* hello` 里的 `@nixzhu` 或 `what a great #weather!` 里的 `#weather`，该怎么办呢？
 
-你可能会想着去找一个开源库，它可能支持很多种标记类型的检测，但也许你就只是需要检测 mention 而已。你当然可以研究其实现来自己改写，看一看 TextKit 相关的文档或 session 视频，弄明白 NSTextStorage、NSLayoutManager、NSTextContainer 等与 UITextView 的关系。
+你可能会想着去找一个开源库，例如[RichTextView](https://github.com/kevinzhow/RichTextView)或[SwiftyText](https://github.com/kejinlu/SwiftyText)，它们可能支持很多种标记类型的检测，但也许你就只是需要检测 mention 而已。你当然可以研究其实现来自己改写，看一看 TextKit 相关的文档或 session 视频，弄明白 NSTextStorage、NSLayoutManager、NSTextContainer 等与 UITextView 的关系。
 
 不过今天我发现并实验了一种比较简单的办法，不需要去了解太复杂的东西（当然 TextKit 仍然值得被了解），所以分享在此。
 
