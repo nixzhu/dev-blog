@@ -35,3 +35,4 @@ dev-blog
 - 翻译：[Swift 包管理器](https://github.com/nixzhu/dev-blog/blob/master/2015-12-04-swift-package-manager.md)
 - [NSCache 源码分析](https://github.com/nixzhu/dev-blog/blob/master/2015-12-09-nscache.md)
 - [防止点击 Cell 时 ViewController 被重复 Push]( https://github.com/nixzhu/dev-blog/blob/master/2016-01-04-duplicate-push.md)
+- [自定义 UITextView 关键字高亮与点击检测](https://github.com/nixzhu/dev-blog/blob/master/2016-01-14-mention-in-textview.md)
