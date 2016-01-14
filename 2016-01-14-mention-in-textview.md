@@ -26,7 +26,7 @@ let attributedString = NSMutableAttributedString(string: text)
 
 let textRange = NSMakeRange(0, (text as NSString).length)
 
-let mentionPattern = "@[A-Za-z0-9_]+$?"
+let mentionPattern = "@[A-Za-z0-9_]+" // 可能有更好的正则模式，或者更适合你 app 的正则模式
 let mentionExpression = try! NSRegularExpression(pattern: mentionPattern, options: NSRegularExpressionOptions())
 
 mentionExpression.enumerateMatchesInString(text, options: NSMatchingOptions(), range: textRange, usingBlock: { result, flags, stop in
