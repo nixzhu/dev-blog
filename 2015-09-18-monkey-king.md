@@ -206,7 +206,7 @@ class WeChatActivity: UIActivity {
 
 之后使用时就可以放到 UIActivityViewController 里了，当然，还得请设计师画两个图标。
 
-![系统分享微信](https://raw.githubusercontent.com/nixzhu/MonkeyKing/master/images/system_share.jpg)
+![系统分享微信](https://raw.githubusercontent.com/nixzhu/MonkeyKing/master/images/system_share.png)
 
 事情到这一步好像就结束了，但我心中的愤怒丝毫没有减少。
 
