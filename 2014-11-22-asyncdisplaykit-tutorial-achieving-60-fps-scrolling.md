@@ -22,7 +22,7 @@ Facebook 的 [Paper](https://www.facebook.com/paper) 团队给我们带来另一
 
 开始之前，先看看 [AsyncDisplayKit 的介绍](https://code.facebook.com/posts/721586784561674/introducing-asyncdisplaykit-for-smooth-and-responsive-apps-on-ios/ "here")。以对它有个简要的概念，知道它是要解决什么问题。
 
-准备好了后就[下载初始项目](http://cdn1.raywenderlich.com/wp-content/uploads/2014/10/Layers-Start.zip)吧。你需要使用 Xcode 6.1 和 iOS 8.1 SDK 来编译它。
+准备好了后就[下载初始项目](http://www.raywenderlich.com/wp-content/uploads/2015/04/Layers-Start.zip)吧。你需要使用 Xcode 6.1 和 iOS 8.1 SDK 来编译它。
 
 >**注意：**本教程的代码使用 AsyncDisplayKit 1.0 来编写。这个版本已经被包含在初始项目中了。
 
