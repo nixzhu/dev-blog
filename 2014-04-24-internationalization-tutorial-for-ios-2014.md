@@ -63,7 +63,7 @@ Xcode 使用以 ".strings" 为扩展名的多个文件来存储和检索所有�
 
 点击 `Next` ，将文件命名为 `Localizable.strings` ，然后点击 `Save`。
 
->注意：`Localizable.strings` 是 iOS 用于本地化文本的默认文件名。请抗拒将其改名的冲动，否则你将在每次引用本地化字符串时都要去输入一遍你的 .strings 文件名。
+>注意：`Localizable.strings` 是 iOS 用于本地化文本的默认文件名。请忍耐将其改名的冲动，否则你将在每次引用本地化字符串时都要去输入一遍你的 .strings 文件名。
 
 现在，你已经创建了 `Localizable.strings` 文件，你需要添加所有目前硬编码在应用里的文本。你将按照如下简单的特定规则来做：
 
