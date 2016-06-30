@@ -1,4 +1,4 @@
-本文翻译自 [http://www.raywenderlich.com/86365/asyncdisplaykit-tutorial-achieving-60-fps-scrolling](http://www.raywenderlich.com/86365/asyncdisplaykit-tutorial-achieving-60-fps-scrolling) 
+本文翻译自 [http://www.raywenderlich.com/86365/asyncdisplaykit-tutorial-achieving-60-fps-scrolling](http://www.raywenderlich.com/86365/asyncdisplaykit-tutorial-achieving-60-fps-scrolling)
 
 原作者：[René Cacheaux](http://www.twitter.com/rcachATX)
 
@@ -130,7 +130,7 @@ class RainforestCardCell: UICollectionViewCell {
 ```Swift
 override func awakeFromNib() {
   super.awakeFromNib()
- 
+
   placeholderLayer = CALayer()
   placeholderLayer.contents = UIImage(named: "cardPlaceholder")!.CGImage
   placeholderLayer.contentsGravity = kCAGravityCenter
@@ -145,7 +145,7 @@ override func awakeFromNib() {
 ```Swift
 override func layoutSubviews() {
   super.layoutSubviews()
- 
+
   placeholderLayer?.frame = bounds
 }
 ```
@@ -159,7 +159,7 @@ override func layoutSubviews() {
 ```Swift
 override func layoutSubviews() {
   super.layoutSubviews()
- 
+
   CATransaction.begin()
   CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
   placeholderLayer?.frame = bounds
@@ -218,7 +218,7 @@ func configureCellDisplayWithCardInfo(cardInfo: RainforestCardInfo) {
   //MARK: Image Size Section
   let image = UIImage(named: cardInfo.imageName)!
   featureImageSizeOptional = image.size
- 
+
   //MARK: Node Creation Section
   let backgroundImageNode = ASImageNode()
   backgroundImageNode.image = image
@@ -298,16 +298,16 @@ func configureCellDisplayWithCardInfo(cardInfo: RainforestCardInfo) {
   //MARK: Image Size Section
   let image = UIImage(named: cardInfo.imageName)!
   featureImageSizeOptional = image.size
- 
+
   //MARK: Node Creation Section
   let backgroundImageNode = ASImageNode()
   backgroundImageNode.image = image
   backgroundImageNode.contentMode = .ScaleAspectFill
   backgroundImageNode.layerBacked = true
- 
+
   //MARK: Node Layout Section
   backgroundImageNode.frame = FrameCalculator.frameForContainer(featureImageSize: image.size)
- 
+
   //MARK: Node Layer and Wrap Up Section
   self.contentView.layer.addSublayer(backgroundImageNode.layer)
   self.backgroundImageNode = backgroundImageNode
@@ -401,7 +401,7 @@ backgroundImageNode.imageModificationBlock = { input in
     30,
     tintColor: UIColor(white: 0.5, alpha: 0.3),
     saturationDeltaFactor: 1.8,
-    maskImage: nil, 
+    maskImage: nil,
     didCancel:{ return false }) {
       return blurredImage
   } else {
@@ -451,7 +451,7 @@ backgroundImageNode.imageModificationBlock = { [weak backgroundImageNode] input 
   if input == nil {
     return input
   }
- 
+
   // ADD FROM HERE...
   let didCancelBlur: () -> Bool = {
     var isCancelled = true
@@ -461,7 +461,7 @@ backgroundImageNode.imageModificationBlock = { [weak backgroundImageNode] input 
       let isCancelledClosure = {
         isCancelled = strongBackgroundImageNode.preventOrCancelDisplay
       }
- 
+
       // 3
       if NSThread.isMainThread() {
         isCancelledClosure()
@@ -472,7 +472,7 @@ backgroundImageNode.imageModificationBlock = { [weak backgroundImageNode] input 
     return isCancelled
   }
   // ...TO HERE
- 
+
   ...
 }
 ```
@@ -631,12 +631,12 @@ self.containerNode = containerNode
 ```Swift
 override func prepareForReuse() {
   super.prepareForReuse()
- 
+
   // Replace this line...
   // backgroundImageNode?.preventOrCancelDisplay = true
   // ...with this line:
   containerNode?.recursiveSetPreventOrCancelDisplay(true)
- 
+
   contentLayer?.removeFromSuperlayer()
   ...
 }
@@ -650,7 +650,7 @@ override func prepareForReuse() {
 override func prepareForReuse() {
   ...
   contentLayer = nil
- 
+
   // Replace this line...
   // backgroundImageNode = nil
   // ...with this line:
@@ -765,7 +765,7 @@ titleTextNode.frame = FrameCalculator.frameForTitleText(
 let descriptionTextNode = ASTextNode()
 descriptionTextNode.layerBacked = true
 descriptionTextNode.backgroundColor = UIColor.clearColor()
-descriptionTextNode.attributedString = 
+descriptionTextNode.attributedString =
   NSAttributedString.attributedStringForDescriptionText(cardInfo.description)
 ```
 
@@ -793,9 +793,9 @@ descriptionTextNode.frame = FrameCalculator.frameForDescriptionText(
 
 目前为止，你使用了 `ASImageNode` 和 `ASTextNode`。这会带你走很远，但有些时候你需要你自己的 Node，就如同某些时候在传统的 UIKit 编程里你需要自己的 View 一样。
 
-### 创建梯度 Node 类
+### 创建渐变 Node 类
 
-接下来，你将给 _GradientView.swift_ 添加 Core Graphics 代码来构建一个自定义的梯度 Display Node。这会被用于创建一个绘制梯度的自定义 Node 。梯度图会显示在特征图像的底部以便让 Title 看起来更加明显。
+接下来，你将给 _GradientView.swift_ 添加 Core Graphics 代码来构建一个自定义的渐变 Display Node。这会被用于创建一个绘制渐变的自定义 Node 。渐变图会显示在特征图像的底部以便让 Title 看起来更加明显。
 
 打开 _Layers-Bridging-Header.h_ 并添加如下代码：
 
@@ -813,7 +813,7 @@ descriptionTextNode.frame = FrameCalculator.frameForDescriptionText(
 ```Swift
 class func drawRect(bounds: CGRect, withParameters parameters: NSObjectProtocol!,
     isCancelled isCancelledBlock: asdisplaynode_iscancelled_block_t!, isRasterizing: Bool) {
- 
+
 }
 ```
 
@@ -823,7 +823,7 @@ class func drawRect(bounds: CGRect, withParameters parameters: NSObjectProtocol!
 
 要为你的自定义 Display Node 填充内容，你需要实现来自 `_ASDisplayLayerDelegate` 协议的 `drawRect(...)` 或 `displayWithParameters(...)`。在继续之前，看看 _`_ASDisplayLayer.h`_ 得到这个方法和它们参数的信息。搜索 `_ASDisplayLayerDelegate`。重点看看头文件注释里关于 `drawRect(...)` 的描述。
 
-因为梯度图位于特征图的上方，使用 Core Graphics 绘制，所以你需要使用 `drawRect(...)` 。
+因为渐变图位于特征图的上方，使用 Core Graphics 绘制，所以你需要使用 `drawRect(...)` 。
 
 打开 _GradientView.swift_ 并拷贝 `drawRect(...)` 的内容到 _GradientNode.swift_ 的 `drawRect(...)`，如下：
 
@@ -833,7 +833,7 @@ class func drawRect(bounds: CGRect, withParameters parameters: NSObjectProtocol!
   let myContext = UIGraphicsGetCurrentContext()
   CGContextSaveGState(myContext)
   CGContextClipToRect(myContext, bounds)
- 
+
   let componentCount: UInt = 2
   let locations: [CGFloat] = [0.0, 1.0]
   let components: [CGFloat] = [0.0, 0.0, 0.0, 1.0,
@@ -841,19 +841,19 @@ class func drawRect(bounds: CGRect, withParameters parameters: NSObjectProtocol!
   let myColorSpace = CGColorSpaceCreateDeviceRGB()
   let myGradient = CGGradientCreateWithColorComponents(myColorSpace, components,
     locations, componentCount)
- 
+
   let myStartPoint = CGPoint(x: bounds.midX, y: bounds.maxY)
   let myEndPoint = CGPoint(x: bounds.midX, y: bounds.midY)
   CGContextDrawLinearGradient(myContext, myGradient, myStartPoint,
     myEndPoint, UInt32(kCGGradientDrawsAfterEndLocation))
- 
+
   CGContextRestoreGState(myContext)
 }
 ```
 
 然后删除 _GradientView.swift_，编译并确保没有错误。
 
-### 添加梯度 Node
+### 添加渐变 Node
 
 打开 _RainforestCardCell.swift_ 并找到 `configureCellDisplayWithCardInfo(cardInfo:)`。在 _Node Creation Section_ 底部，添加如下代码，就在创建 `descriptionTextNode` 的代码之后：
 
@@ -876,7 +876,7 @@ containerNode.addSubnode(titleTextNode)
 containerNode.addSubnode(descriptionTextNode)
 ```
 
-梯度 Node 需要这个位置才能在特征图之上，Title 之下。
+渐变 Node 需要这个位置才能在特征图之上，Title 之下。
 
 然后添加如下代码到 _Node Layout Section_ 底部：
 
@@ -885,7 +885,7 @@ gradientNode.frame = FrameCalculator.frameForGradient(
   featureImageFrame: featureImageNode.frame)
 ```
 
-编译并运行。你将看到梯度在特征图的底部。Title 确实看得更清楚了！
+编译并运行。你将看到渐变在特征图的底部。Title 确实看得更清楚了！
 
 [![IMG_0019](http://cdn2.raywenderlich.com/wp-content/uploads/2014/10/IMG_0019-375x500.png)](http://cdn4.raywenderlich.com/wp-content/uploads/2014/10/IMG_0019.png)
 
@@ -893,7 +893,7 @@ gradientNode.frame = FrameCalculator.frameForGradient(
 
 如之前提到的，cell 的 Node 内容会在完成绘制时“弹出”。这不是很理想。所以让我们继续，以修复这个问题。但首先，更加深入 AsyncDisplayKit 以看看它是如何工作的。
 
-在 `configureCellDisplayWithCardInfo(cardInfo:)` 的 _Container Node Creation Section_ ，关闭容器 Node 的 `shouldRasterizeDescendants`： 
+在 `configureCellDisplayWithCardInfo(cardInfo:)` 的 _Container Node Creation Section_ ，关闭容器 Node 的 `shouldRasterizeDescendants`：
 
 ```Swift
 containerNode.shouldRasterizeDescendants = false
@@ -926,7 +926,7 @@ containerNode.shouldRasterizeDescendants = true
 ```Swift
 func nodeConstructionOperationWithCardInfo(cardInfo: RainforestCardInfo, image: UIImage) -> NSOperation {
   let nodeConstructionOperation = NSBlockOperation()
-  nodeConstructionOperation.addExecutionBlock { 
+  nodeConstructionOperation.addExecutionBlock {
     // TODO: Add node hierarchy construction
   }
   return nodeConstructionOperation
@@ -1014,13 +1014,13 @@ class RainforestCardCell: UICollectionViewCell {
 ```Swift
 override func prepareForReuse() {
   super.prepareForReuse()
- 
+
   // ADD FROM HERE...
   if let operation = nodeConstructionOperation {
     operation.cancel()
   }
   // ...TO HERE
- 
+
   containerNode?.recursiveSetPreventOrCancelDisplay(true)
   contentLayer?.removeFromSuperlayer()
   contentLayer = nil
@@ -1039,7 +1039,7 @@ func configureCellDisplayWithCardInfo(cardInfo: RainforestCardInfo) {
     oldNodeConstructionOperation.cancel()
   }
   // ...TO HERE
- 
+
   //MARK: Image Size Section
   let image = UIImage(named: cardInfo.imageName)!
   featureImageSizeOptional = image.size
@@ -1054,7 +1054,7 @@ func configureCellDisplayWithCardInfo(cardInfo: RainforestCardInfo) {
 
 AsyncDisplayKit 允许你在非主线程做许多工作。但当它要面对 UIKit 和 CoreAnimation 时，你还是需要在主线程做。目前为止，你从主线程移走了所有的 Node 创建。但还有一件事需要被放在主线程——即设置 CoreAnimation 的 Layer 层次结构。
 
-在 _RainforestCardCell.swift_ 里，找到 `nodeConstructionOperationWithCardInfo(cardInfo:image:)` 并替换 _Node Layer and Wrap Up Section_ 为如下代码： 
+在 _RainforestCardCell.swift_ 里，找到 `nodeConstructionOperationWithCardInfo(cardInfo:image:)` 并替换 _Node Layer and Wrap Up Section_ 为如下代码：
 
 ```Swift
 // 1
@@ -1064,17 +1064,17 @@ dispatch_async(dispatch_get_main_queue()) { [weak nodeConstructionOperation] in
     if strongNodeConstructionOperation.cancelled {
       return
     }
- 
+
     // 3
     if strongSelf.nodeConstructionOperation !== strongNodeConstructionOperation {
       return
     }
- 
+
     // 4
     if containerNode.preventOrCancelDisplay {
       return
     }
- 
+
     // 5
     //MARK: Node Layer and Wrap Up Section
     strongSelf.contentView.layer.addSublayer(containerNode.layer)
@@ -1099,7 +1099,7 @@ dispatch_async(dispatch_get_main_queue()) { [weak nodeConstructionOperation] in
 
 你依然没有 _实际_ 创建和开始操作。让我们现在来来吧。
 
-继续在 _RainforestCardCell.swift_ 里，改变 `configureCellDisplayWithCardInfo(cardInfo:)` 的方法签名为： 
+继续在 _RainforestCardCell.swift_ 里，改变 `configureCellDisplayWithCardInfo(cardInfo:)` 的方法签名为：
 
 ```Swift
 func configureCellDisplayWithCardInfo(
@@ -1107,7 +1107,7 @@ func configureCellDisplayWithCardInfo(
   nodeConstructionQueue: NSOperationQueue)
 ```
 
-这里添加了一个新的参数 `nodeConstructionQueue`。它就是一个用于 Node 创建操作的入队的 `NSOperationQueue` 。 
+这里添加了一个新的参数 `nodeConstructionQueue`。它就是一个用于 Node 创建操作的入队的 `NSOperationQueue` 。
 
 在 `configureCellDisplayWithCardInfo(cardInfo:nodeConstructionQueue:)` 底部，添加如下代码：
 
@@ -1161,14 +1161,14 @@ override func actionForKey(event: String!) -> CAAction! {
   if let action = super.actionForKey(event) {
     return action
   }
- 
+
   if event == "contents" && contents == nil {
     let transition = CATransition()
     transition.duration = 0.6
     transition.type = kCATransitionFade
     return transition
   }
- 
+
   return nil
 }
 ```
