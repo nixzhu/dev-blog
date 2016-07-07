@@ -18,10 +18,9 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
-    if let navigationController = navigationController {
-        guard navigationController.topViewController == self else {
-            return
-        }
+   guard let navigationController = navigationController
+        where navigationController.topViewController == self else {
+        return
     }
 
     // TODO: performSegueWithIdentifier...
@@ -42,10 +41,9 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
 
 ``` swift
 override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
-    if let navigationController = navigationController {
-        guard navigationController.topViewController == self else {
-            return
-        }
+   guard let navigationController = navigationController
+        where navigationController.topViewController == self else {
+        return
     }
 
     super.performSegueWithIdentifier(identifier, sender: sender)
