@@ -38,3 +38,4 @@ dev-blog
 - [自定义 UITextView 关键字高亮与点击检测](https://github.com/nixzhu/dev-blog/blob/master/2016-01-14-mention-in-textview.md)
 - [在 GitHub 上贡献开源项目的一般步骤](https://github.com/nixzhu/dev-blog/blob/master/2016-02-17-contribute-on-github.md)
 - [制作一个苦力](https://github.com/nixzhu/dev-blog/blob/master/2016-06-29-coolie.md)
+- [能偶尔用上的 awk](https://github.com/nixzhu/dev-blog/blob/master/2016-08-11-awk.md)
