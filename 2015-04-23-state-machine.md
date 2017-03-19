@@ -231,6 +231,10 @@ rocketView.stateTransitionAction = { (previousState, currentState) in
 
 虽然很多时候你不会面临很复杂的情况，但懂一些状态机的知识可以让你写出更易读的代码，维护起来更加轻松。而且很酷，对吧？
 
+# 补记
+
+一个迷你的状态机：[Redstone](https://github.com/nixzhu/Redstone)，实现简单，使用方便，可满足绝大部分需求。
+
 ===============
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
