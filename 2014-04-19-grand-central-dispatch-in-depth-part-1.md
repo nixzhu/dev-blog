@@ -98,7 +98,7 @@ GCD 提供有 `dispatch queues` 来处理代码块，这些队列管理你提供
 
 下图展示了一个示例任务执行计划，GCD 管理着四个并发任务：
 
-![Concurrent-Queue](http://cdn3.raywenderlich.com/wp-content/uploads/2014/01/Concurrent-Queue-480x272.png)
+![Concurrent-Queue](https://koenig-media.raywenderlich.com/uploads/2014/01/Concurrent-Queue.png)
 
 注意 Block 1,2 和 3 都立马开始运行，一个接一个。在 Block 0 开始后，Block 1等待了好一会儿才开始。同样， Block 3 在 Block 2 之后才开始，但它先于 Block 2 完成。
 
@@ -124,11 +124,11 @@ GCD 的“艺术”归结为选择合适的队列来调度函数以提交你的�
 
 GooglyPuff 是一个没有优化，线程不安全的应用，它使用 Core Image 的人脸检测 API 来覆盖一对曲棍球眼睛到被检测到的人脸上。对于基本的图像，可以从相机胶卷选择，或用预设好的URL从互联网下载。
 
-[点击此处下载项目](http://cdn4.raywenderlich.com/wp-content/uploads/2014/01/GooglyPuff_Start_1.zip)
+[点击此处下载项目](https://koenig-media.raywenderlich.com/uploads/2014/01/GooglyPuff_Start_1.zip)
 
 完成项目下载之后，将其解压到某个方便的目录，再用 Xcode 打开它并编译运行。这个应用看起来如下图所示：
 
-![Workflow](http://cdn3.raywenderlich.com/wp-content/uploads/2014/01/Workflow1.png)
+![Workflow](https://koenig-media.raywenderlich.com/uploads/2014/01/Workflow1.png)
 
 注意当你选择 `Le Internet` 选项下载图片时，一个 `UIAlertView` 过早地弹出。你将在本系列教程地第二部分修复这个问题。
 
@@ -295,7 +295,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
 
 编译并运行项目；查看控制台输出，你会看到多个单例被实例化，如下所示：
 
-![NSLog-Race-Condition](http://cdn2.raywenderlich.com/wp-content/uploads/2014/01/NSLog-Race-Condition-700x90.png)
+![NSLog-Race-Condition](https://koenig-media.raywenderlich.com/uploads/2014/01/NSLog-Race-Condition.png)
 
 注意到这里有好几行显示着不同地址的单例实例。这明显违背了单例的目的，对吧？:]
 
@@ -565,7 +565,7 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 
 在本教程中，你学习了如何让你的代码线程安全，以及在执行 CPU 密集型任务时如何保持主线程的响应性。
  
-你可以下载[ GooglyPuff 项目](http://cdn2.raywenderlich.com/wp-content/uploads/2014/01/GooglyPuff_End_1.zip)，它包含了目前所有本教程中编写的实现。在本教程的[第二部分](https://github.com/nixzhu/dev-blog/blob/master/2014-05-14-grand-central-dispatch-in-depth-part-2.md)，你将继续改进这个项目。
+你可以下载[ GooglyPuff 项目](https://koenig-media.raywenderlich.com/uploads/2014/01/GooglyPuff_End_1.zip)，它包含了目前所有本教程中编写的实现。在本教程的[第二部分](https://github.com/nixzhu/dev-blog/blob/master/2014-05-14-grand-central-dispatch-in-depth-part-2.md)，你将继续改进这个项目。
 
 如果你计划优化你自己的应用，那你应该用 `Instruments` 中的 `Time Profile` 模版分析你的工作。对这个工具的使用超出了本教程的范围，你可以看看 [如何使用Instruments](http://www.raywenderlich.com/23037/how-to-use-instruments-in-xcode) 来得到一个很好的概述。
 
