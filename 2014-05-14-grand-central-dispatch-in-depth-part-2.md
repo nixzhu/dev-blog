@@ -546,13 +546,13 @@ dispatch_source_t dispatch_source_create(
 [3]: http://cdn3.raywenderlich.com/wp-content/uploads/2014/03/Concurrency_vs_Parallelism.png "Learn about concurrency in this Grand Central Dispatch in-depth tutorial series."
 [4]: https://github.com/nixzhu/dev-blog/blob/master/2014-04-19-grand-central-dispatch-in-depth-part-1.md
 [5]: http://cdn2.raywenderlich.com/wp-content/uploads/2014/01/GooglyPuff_End_1.zip
-[6]: http://cdn5.raywenderlich.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-17-at-5.49.51-PM-308x500.png
+[6]: https://koenig-media.raywenderlich.com/uploads/2014/01/Screen-Shot-2014-01-17-at-5.49.51-PM.png
 [7]: http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/
 [8]: http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSURL_Class/
 [9]: http://nshipster.com/network-link-conditioner/
-[10]: http://cdn5.raywenderlich.com/wp-content/uploads/2014/01/Thread_All_The_Code_Meme.jpg
+[10]: https://koenig-media.raywenderlich.com/uploads/2014/01/Thread_All_The_Code_Meme.jpg
 [11]: http://www.raywenderlich.com/23037/how-to-use-instruments-in-xcode
-[12]: http://cdn1.raywenderlich.com/wp-content/uploads/2014/01/Gandalf_Semaphore.png
+[12]: https://koenig-media.raywenderlich.com/uploads/2014/01/Gandalf_Semaphore.png
 [13]: http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/
 [14]: http://en.wikipedia.org/wiki/Spinlock
 [15]: http://greenteapress.com/semaphores/
@@ -560,9 +560,9 @@ dispatch_source_t dispatch_source_create(
 [17]: https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/Reference/reference.html#//apple_ref/doc/constant_group/Dispatch_Source_Type_Constants
 [18]: https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/Reference/reference.html#//apple_ref/c/macro/DISPATCH_SOURCE_TYPE_SIGNAL"
 [19]: http://www.opensource.apple.com/source/xnu/xnu-1456.1.26/bsd/sys/signal.h
-[20]: http://cdn5.raywenderlich.com/wp-content/uploads/2014/01/What_Meme.jpg
-[21]: http://cdn5.raywenderlich.com/wp-content/uploads/2014/01/I_See_What_You_Did_Meme.png
-[22]: http://cdn5.raywenderlich.com/wp-content/uploads/2014/01/Dispatch_Sources_Xcode_Breakpoint_Console-650x500.png
-[23]: http://cdn3.raywenderlich.com/wp-content/uploads/2014/01/Dispatch_Sources_Debugger_Updating_UI-308x500.png
-[24]: http://cdn3.raywenderlich.com/wp-content/uploads/2014/01/GooglyPuff-Final.zip
+[20]: https://koenig-media.raywenderlich.com/uploads/2014/01/What_Meme.jpg
+[21]: https://koenig-media.raywenderlich.com/uploads/2014/01/I_See_What_You_Did_Meme.png
+[22]: https://koenig-media.raywenderlich.com/uploads/2014/01/Dispatch_Sources_Xcode_Breakpoint_Console.png
+[23]: https://koenig-media.raywenderlich.com/uploads/2014/01/Dispatch_Sources_Debugger_Updating_UI.png
+[24]: https://koenig-media.raywenderlich.com/uploads/2014/01/GooglyPuff-Final.zip
 [25]: http://www.raywenderlich.com/19788/how-to-use-nsoperations-and-nsoperationqueues
