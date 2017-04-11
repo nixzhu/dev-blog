@@ -296,14 +296,13 @@ func many1<A>(_ parser: @escaping Parser<A>) -> Parser<[A]> {
 有了上面的准备，`number`呼之欲出：
 
 ``` swift
-let number: Parser<Value> = { stream in
-    guard let (result, remainder) = many1(digit)(stream) else { return nil }
-    let numberString = String(result)
+let number: Parser<Value> = map(many1(digit)) {
+    let numberString = String($0)
     if let int = Int(numberString) {
-        return (Value.number(.int(int)), remainder)
+        return Value.number(.int(int))
     } else {
         let double = Double(numberString)!
-        return (Value.number(.double(double)), remainder)
+        return Value.number(.double(double))
     }
 }
 ```
@@ -313,4 +312,188 @@ let number: Parser<Value> = { stream in
 ``` swift
 test(number, "-123.34")
     .flatMap({ print($0) }) // 可能需要打印才能看到结果
+```
+
+为了写出`number`，我们耗费了不少脑细胞，不如再来回顾一下：
+
+1. `digit`：从digitParsers中遍历选择某一个能够解析成功的parser去解析；
+2. `many1`：将一个Parser至少重复一次，去不断地解析输入，直到失败为止；
+3. `number`: 利用解析出的字符数组生成字符串，再先尝试构造为Int，不成功就一定是Double。
+
+那么接下来就该`string`了。
+
+JSON里的字符串，不论作为Key还是Value，都是由双引号包裹的，形如`"key"`、`"value"`。这给了我们灵感，我们需要解析一个引号，再解析一个符合条件的字符串，最后再解析一个引号。虽然要连续解析三个部分，但我们关心的其实是中间的部分。因此，我们要写一个函数。它接受3个Parser，返回一个和中间的Parser一样类型的Parser：
+
+``` swift
+func between<A, B, C>(_ a: @escaping Parser<A>, _ b: @escaping Parser<B>, _ c: @escaping Parser<C>) -> Parser<B> {
+    let parser: Parser<B> = { stream in
+        guard let (_, remainder1) = a(stream) else { return nil }
+        guard let (result2, remainder2) = b(remainder1) else { return nil }
+        guard let (_, remainder3) = c(remainder2) else { return nil }
+        return (result2, remainder3)
+    }
+    return parser
+}
+```
+
+很明显，a、b、c三者都需要消耗输入，但我们只在乎第二个结果。由此：
+
+``` swift
+let quotedString: Parser<String> = {
+    let lowercaseParsers = "abcdefghijklmnopqrstuvwxyz".characters.map({ character($0) })
+    let uppercaseParsers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map({ character($0) })
+    let otherParsers = " \t_-".characters.map({ character($0) }) // TODO: more
+    let letter = one(of: lowercaseParsers + uppercaseParsers + otherParsers)
+    let _string = map(many1(letter)) { String($0) }
+    let quote = character("\"")
+    return between(quote, _string, quote)
+}()
+```
+
+和定义`digit`类似，我们定义了`letter`，进而定义了`_string`，乃至利用`between`得到`quotedString`。
+
+那么，`string`就有了，并测试：
+
+``` swift
+let string = map(quotedString) { Value.string($0) }
+test(string, "\"name\"")
+```
+
+不知不觉，我们就要来到关键的地方，再观察一下Value：
+
+``` swift
+enum Value {
+    case null
+    case bool(Bool)
+    enum Number {
+        case int(Int)
+        case double(Double)
+    }
+    case number(Number)
+    case string(String)
+    indirect case object([String: Value])
+    indirect case array([Value])
+}
+```
+
+我们已经能解析`null`、`bool`、`number`以及`string`，不过剩下的`object`和`array`不太一样，它们会递归使用Value，而我们的最终目的也是写一个`value`解析器。
+
+也就是说，在我们实现`value`前，我们不能实现`object`和`array`，但`value`又包含`object`和`array`（需要从包括它们的case中选择）。
+
+这算不算两难的境地呢？好在我们可以利用一个技巧，Swift的lazy特性，在真正需要执行前，函数未必会真的生成。
+
+``` swift
+var _value: Parser<Value>?
+let value: Parser<Value> = { stream in
+    if let parser = _value {
+        return parser(stream)
+    }
+    return nil
+}
+```
+
+如上所示， 解析器`value`会利用`_value`的实现，而我们可以推迟实现`_value`。
+
+所以，先来定义`object`：
+
+``` swift
+func and<A, B>(_ left: @escaping Parser<A>, _ right: @escaping Parser<B>) -> Parser<(A, B)> {
+    return { stream in
+        guard let (result1, remainder1) = left(stream) else { return nil }
+        guard let (result2, remainder2) = right(remainder1) else { return nil }
+        return ((result1, result2), remainder2)
+    }
+}
+
+func eatRight<A, B>(_ left: @escaping Parser<A>, _ right: @escaping Parser<B>) -> Parser<A> {
+    return { stream in
+        guard let (result1, remainder1) = left(stream) else { return nil }
+        guard let (_, remainder2) = right(remainder1) else { return nil }
+        return (result1, remainder2)
+    }
+}
+
+func list<A, B>(_ parser: @escaping Parser<A>, _ separator: @escaping Parser<B>) -> Parser<[A]> {
+    return { stream in
+        let separatorThenParser = and(separator, parser)
+        let parser = and(parser, many(separatorThenParser))
+        guard let (result, remainder) = parser(stream) else { return nil }
+        let finalResult = [result.0] + result.1.map({ $0.1 })
+        return (finalResult, remainder)
+    }
+}
+
+let object: Parser<Value> = {
+    let beginObject = character("{")
+    let endObject = character("}")
+    let colon = character(":")
+    let comma = character(",")
+    let keyValue = and(eatRight(quotedString, colon), value)
+    let keyValues = list(keyValue, comma)
+    return map(between(beginObject, keyValues, endObject)) {
+        var dictionary: [String: Value] = [:]
+        for (key, value) in $0 {
+            dictionary[key] = value
+        }
+        return Value.object(dictionary)
+    }
+}()
+```
+
+请一定不要被这看似较大的一步吓倒，因为并没有发生多么复杂的事情。根据JSON的定义，我们知道object是一个字典，也就是由大括号包围的由逗号分隔的键值对。
+
+为了实现键值对，我们实现了`and`和`eatRight`。其中`and`拼接两个Parser为一个，类似之前的`or`，而`eatRight`类似于`and`，只不过它丢弃了右边的结果。`list`要稍稍复杂以下，但也很好理解，它先利用`and`得到一个separatorThenParser，再利用`and`和`many`得到所需的parser，接着解析，再把结果整理出来。
+
+这样，`object`的实现也就没有什么奇怪的地方了。
+
+不过，若我们测试一下：
+
+``` swift
+test(object, "{\"name\":\"NIX\",\"age\":18}")
+```
+
+会发现并不会成功，原因也很明显，`_value`还没有具体的实现，不过我们还要先实现`array`：
+
+``` swift
+let array: Parser<Value> = {
+    let beginArray = character("[")
+    let endArray = character("]")
+    let comma = character(",")
+    let values = list(value, comma)
+    return map(between(beginArray, values, endArray)) { Value.array($0) }
+}()
+```
+
+得益于已有的`list`，依据JSON的定义，array不过是中括号包围的由逗号分隔的一些value而已。最后，我们再补上`_value`的实现：
+
+``` swift
+_value = one(of: [null, bool, number, string, array, object])
+```
+
+这是，再测试一下：
+
+``` swift
+test(object, "{\"name\":\"NIX\",\"age\":18}")
+    .flatMap({ print($0) })
+```
+
+甚至更复杂的：
+
+``` swift
+let jsonString = "{\"name\":\"NIX\",\"age\":18,\"detail\":{\"skills\":[\"Swift on iOS\",\"C on Linux\"],\"projects\":[{\"name\":\"coolie\",\"intro\":\"Generate models from a JSON file\"},{\"name\":\"parser\",\"intro\":null}]}}"
+test(value, jsonString)
+    .flatMap({ print($0) })
+
+let jsonString2 = "[{\"name\":\"coolie\",\"intro\":\"Generate models from a JSON file\"},{\"name\":\"parser\",\"intro\":null}]"
+test(value, jsonString2)
+    .flatMap({ print($0) })
+```
+
+输出大概类似：
+
+``` swift
+(__lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("NIX"), "age": __lldb_expr_71.Value.number(__lldb_expr_71.Value.Number.int(18)), "detail": __lldb_expr_71.Value.object(["projects": __lldb_expr_71.Value.array([__lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("coolie"), "intro": __lldb_expr_71.Value.string("Generate models from a JSON file")]), __lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("parser"), "intro": __lldb_expr_71.Value.null])]), "skills": __lldb_expr_71.Value.array([__lldb_expr_71.Value.string("Swift on iOS"), __lldb_expr_71.Value.string("C on Linux")])])]), "")
+
+(__lldb_expr_71.Value.array([__lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("coolie"), "intro": __lldb_expr_71.Value.string("Generate models from a JSON file")]), __lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("parser"), "intro": __lldb_expr_71.Value.null])]), "")
+
 ```
