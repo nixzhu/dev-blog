@@ -1,6 +1,6 @@
 # 解析器组合子
 
-实现小巧的JSON解析器
+在实现小巧的JSON解析器的过程中，体会函数式编程的含义。
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
@@ -12,7 +12,7 @@
 
 后来又断断续续地看了一些资料，也尝试着去了解一些相关如Monad的知识。到现在我依然觉得Monad太高深了（可能是没有对应的数学知识储备），不过我们并不需要完全理解它（本文亦不会再提及它）。
 
-写解析器组合子的文章已经不少了，为何我又来写一篇？因为，我希望读者看完本文后会有豁然开朗的感觉，我有这样的野心。
+写解析器组合子的文章已经不少，为何我又来写一篇？因为，我希望读者看完本文后会有豁然开朗的感觉，至少我希望我能在半年前看到我自己写的这篇文章。
 
 依然请先看看JSON的定义[http://www.json.org/json-zh.html](http://www.json.org/json-zh.html)，简单来说，一个JSON的Value可能是一个字符串，一个数字，一个对象，一个数组，布尔值以及null，而其中“对象”和“数组”又由Value递归定义，即，对象是关于Value的字典，数组是关于Value的数组。可用代码描述如下：
 
@@ -40,7 +40,7 @@ typealias Stream = String.CharacterView
 typealias Parser<A> = (Stream) -> (A, Stream)?
 ```
 
-这里先定义一个`Stream`有性能方面的考虑，不算重要。而结果是可选值表示解析有可能失败。
+这里先定义一个`Stream`有性能方面的考虑，但不算重要。而结果是可选值表示解析有可能失败。
 
 现在来实现一个解析字母`a`的解析器，它的类型一定是`Parser<Character>`：
 
@@ -65,9 +65,9 @@ let a: Parser<Character> = { stream in
 }
 ```
 
-我们利用guard关键字来确保`stream`以字母`a`开头，不然返回`nil`表示解析失败。之后当然表示解析成功，因此直接返回符合Parser定义的tuple。
+我们利用guard来确保`stream`以字母`a`开头，不然返回`nil`表示解析失败。之后当然表示解析成功，因此直接返回符合Parser定义的tuple。
 
-虽然这个解析器只能解析字母`a`，但我们也应该测试一下��：
+虽然这个解析器只能解析字母`a`，但我们也应该测试一下：
 
 ``` swift
 a("abc".characters)
@@ -90,7 +90,7 @@ test(a, "abc")
 
 右边栏看到的输出将类似`(.0 "a", .1 "bc")`，此tuple的第0个元素是字符`a`，第1个元素表示余下的输入部分，即字符串`bc`。
 
-我们已经又了一个可以解析字母`a`的解析器，但它的用处不大。如果我们可以写一个函数，它能根据输入的字符帮我们生成一个解析器，那就很有用了，我们可以直接写出其签名：。
+我们已经有了一个可以解析字母`a`的解析器，但它的用处不大。如果我们可以写一个函数，它能根据输入的字符帮我们生成一个解析器，那就很有用了，我们可以直接写出其签名：
 
 ``` swift
 func character(_ character: Character) -> Parser<Character> {
@@ -121,7 +121,7 @@ func character(_ character: Character) -> Parser<Character> {
 }
 ```
 
-然后，我们可以写出`b`，并测试它：
+然后，我们可以很容易地写出`b`，并测试它：
 
 ``` swift
 let b = character("b")
@@ -156,7 +156,7 @@ let null = word("null")
 test(null, "null!")
 ```
 
-输出的tuple里第0个元素是字符串，我们希望将其改成Value的null case，该怎么办呢？我们可以将结果tuple送入一个函数，它将第0个元素做变换再输。不过我们也可以写一个更通用的函数，思路与前面一样，它接受一个Parser和一个转换函数，并生成一个新的Parser，如下：
+输出的tuple里第0个元素是字符串，我们希望将其改成Value的null case，该怎么办呢？我们可以将结果tuple送入一个函数，它将第0个元素做变换再输出。不过我们也可以写一个更通用的函数，思路与前面一样，它接受一个Parser和一个转换函数，并生成一个新的Parser，如下：
 
 ``` swift
 func map<A, B>(_ parser: Parser<A>, _ transform: (A) -> B) -> Parser<B> {
@@ -176,7 +176,7 @@ func map<A, B>(_ parser: @escaping Parser<A>, _ transform: @escaping (A) -> B) -
 }
 ```
 
-注意又加了`@escaping`标记，因此`parser`也是函数，它和`transform`都会逃逸。
+注意又加了`@escaping`标记，因为`parser`也是函数，它和`transform`都会逃逸。
 
 由此，我们可以重新定义`null`并测试（记得注释掉之前的null）:
 
@@ -201,7 +201,7 @@ test(`true`, "true?")
 test(`false`, "false?")
 ```
 
-可惜Value里只有bool case，也就是说，我们需要将`true`或`false`转换为`bool`，很明显map可以做这件事，但我们缺少一个“或”，它当然也是一个函数，接受两个Parser，生成一个新的Parser：
+可惜Value里只有bool case，也就是说，我们需要将`true`或`false`转换为`bool`。很明显map可以做这件事，但我们缺少一个“或”。它当然也是一个函数，接受两个Parser，生成一个新的Parser：
 
 ``` swift
 func or<A>(_ leftParser: @escaping Parser<A>, _ rightParser: @escaping Parser<A>) -> Parser<A> {
@@ -233,7 +233,7 @@ let digitParsers = digitCharacters.map { character($0) }
 
 稍微注意这里考虑了小数点和负数。
 
-那么，一个`digit`Parser就是尝试从digitParsers中选一个来匹配输入的stream的第一个字符，所以我们需要一个新函数，它接受一个Parser数组，并生成一个新的Parser。它要做的，就是让这个Parser数组里的每一个都去尝试解析stream，若又一个成功就算成功，若都没有成功，就算失败：
+那么，一个`digit`Parser就是尝试从digitParsers中选一个来匹配输入的stream的第一个字符，所以我们需要一个新函数。它接受一个Parser数组，并生成一个新的Parser。它要做的，就是让这个Parser数组里的每一个都去尝试解析stream，若有一个成功就算成功，若都没有成功，就算失败：
 
 ``` swift
 func one<A>(of parsers: [Parser<A>]) -> Parser<A> {
@@ -442,7 +442,7 @@ let object: Parser<Value> = {
 
 请一定不要被这看似较大的一步吓倒，因为并没有发生多么复杂的事情。根据JSON的定义，我们知道object是一个字典，也就是由大括号包围的由逗号分隔的键值对。
 
-为了实现键值对，我们实现了`and`和`eatRight`。其中`and`拼接两个Parser为一个，类似之前的`or`，而`eatRight`类似于`and`，只不过它丢弃了右边的结果。`list`要稍稍复杂以下，但也很好理解，它先利用`and`得到一个separatorThenParser，再利用`and`和`many`得到所需的parser，接着解析，再把结果整理出来。
+为了实现键值对，我们实现了`and`和`eatRight`。其中`and`拼接两个Parser为一个，类似之前的`or`，而`eatRight`类似于`and`，只不过它丢弃了右边的结果。`list`要稍稍复杂一些，但也很好理解，它先利用`and`得到一个separatorThenParser，再利用`and`和`many`得到所需的parser，接着解析，再把结果整理出来。
 
 这样，`object`的实现也就没有什么奇怪的地方了。
 
@@ -470,7 +470,7 @@ let array: Parser<Value> = {
 _value = one(of: [null, bool, number, string, array, object])
 ```
 
-这是，再测试一下：
+这时，再测试一下：
 
 ``` swift
 test(object, "{\"name\":\"NIX\",\"age\":18}")
@@ -497,3 +497,22 @@ test(value, jsonString2)
 (__lldb_expr_71.Value.array([__lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("coolie"), "intro": __lldb_expr_71.Value.string("Generate models from a JSON file")]), __lldb_expr_71.Value.object(["name": __lldb_expr_71.Value.string("parser"), "intro": __lldb_expr_71.Value.null])]), "")
 
 ```
+
+作为读者，如果你坚持到了这一步，那么我要恭喜你！如果中间有不明白的步骤，请多思考函数的类型（参数的类型，返回值的类型），结合JSON的定义。
+
+最终的`value`解析器仍然有待改进，比如，现在还不能处理JSON里的空格，字符串与数字的定义有待完善等（我相信有心的读者可以自己修改实现），或者提供更好的错误提示，等等。
+
+## 小结
+
+得益于Swift 3.1的改进，上面所有的解析器组合子都是函数。我们思考的过程也是先想要做某件事，假设有某个函数，再考虑这个函数的类型（参数和返回值），最后才考虑具体的实现。也就是说，这是一种自顶向下的思维方式。反过来，我们实现的复杂的解析器都是由简单的解析器通过一些函数组合而成的。
+
+而且要注意，我故意没有使用任何自定义运算符，虽然它们可能会让代码看起来更酷，但会增加理解负担。
+
+最后，我们似乎体会到一种Lisp风格。
+
+---
+
+参考资料：
+
+1. [Functional Swift](https://www.objc.io/books/functional-swift/)
+2. [The "Understanding Parser Combinators" series](http://fsharpforfunandprofit.com/series/understanding-parser-combinators.html)
