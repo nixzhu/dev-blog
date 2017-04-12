@@ -519,7 +519,7 @@ test(value, jsonString2)
 1. [Functional Swift](https://www.objc.io/books/functional-swift/)
 2. [The "Understanding Parser Combinators" series](http://fsharpforfunandprofit.com/series/understanding-parser-combinators.html)
 
-===
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
  
