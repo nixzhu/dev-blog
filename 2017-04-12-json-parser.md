@@ -380,7 +380,7 @@ enum Value {
 
 也就是说，在我们实现`value`前，我们不能实现`object`和`array`，但`value`又包含`object`和`array`（需要从包括它们的case中选择）。
 
-这算不算两难的境地呢？好在我们可以利用一个技巧，Swift的lazy特性，在真正需要执行前，函数未必会真的生成。
+这算不算两难的境地呢？好在我们可以利用一个技巧，Swift的闭包特性，让`value`捕获一个变量，而这个变量将在之后被赋值：
 
 ``` swift
 var _value: Parser<Value>?
@@ -392,9 +392,9 @@ let value: Parser<Value> = { stream in
 }
 ```
 
-如上所示， 解析器`value`会利用`_value`的实现，而我们可以推迟实现`_value`。
+如上所示， 解析器`value`会利用`_value`的实现，而我们可以推迟实现`_value`。注意，其实`value`变成了一个“闭包”，因为它捕获了一个外部变量。
 
-所以，先来定义`object`：
+这样的话，我们就能定义`object`了：
 
 ``` swift
 func and<A, B>(_ left: @escaping Parser<A>, _ right: @escaping Parser<B>) -> Parser<(A, B)> {
