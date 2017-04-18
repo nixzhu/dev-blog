@@ -504,6 +504,8 @@ test(value, jsonString2)
 
 本文的Playground也放在了GitHub：[json-parser.playground](https://github.com/nixzhu/json-parser.playground)，但我希望读者已经跟随本文写出了它，仅供参考。
 
+补记：趁着周末的时间，利用解析器组合子，写了一个[Baby](https://github.com/nixzhu/Baby)。功能类似Coolie，从JSON文件生成Swift模型。目前还没有Coolie强，但它会变得更强。
+
 ## 小结
 
 得益于Swift 3.1的改进，上面所有的解析器组合子都是函数。我们思考的过程也是先想要做某件事，假设有某个函数，再考虑这个函数的类型（参数和返回值），最后才考虑具体的实现。也就是说，这是一种自顶向下的思维方式。反过来，我们实现的复杂的解析器都是由简单的解析器通过一些函数组合而成的。
