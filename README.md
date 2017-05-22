@@ -3,8 +3,6 @@ dev-blog
 
 翻译、开发心得或学习笔记
 
-欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
-
 - [AutoLayout Tips](https://github.com/nixzhu/dev-blog/blob/master/autolayout-tips.md)
 - 翻译：[GCD 深入理解：第一部分](https://github.com/nixzhu/dev-blog/blob/master/2014-04-19-grand-central-dispatch-in-depth-part-1.md)
 - 翻译：[为一个 iOS 应用编写一个简单的 Node.js/MongoDB Web 服务](https://github.com/nixzhu/dev-blog/blob/master/2014-04-21-write-a-simple-nodejs-mongodb-web-service-for-an-ios-app.md)
@@ -42,3 +40,6 @@ dev-blog
 - [制作一个苦力](https://github.com/nixzhu/dev-blog/blob/master/2016-06-29-coolie.md)
 - [能偶尔用上的 awk](https://github.com/nixzhu/dev-blog/blob/master/2016-08-11-awk.md)
 - [解析器组合子](https://github.com/nixzhu/dev-blog/blob/master/2017-04-12-json-parser.md)
+- [基于栈的HTML解析器](https://github.com/nixzhu/dev-blog/blob/master/2017-05-22-stack-based-html-parser.md)
+
+欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
