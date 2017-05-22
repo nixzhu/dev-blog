@@ -502,7 +502,7 @@ test(value, jsonString2)
 
 最终的`value`解析器仍然有待改进，比如，现在还不能处理JSON里的空格，字符串与数字的定义有待完善等（我相信有心的读者可以自己修改实现），或者提供更好的错误提示，等等。
 
-本文的Playground也放在了GitHub：[json-parser.playground](https://github.com/nixzhu/json-parser.playground)，但我希望读者已经跟随本文写出了它，仅供参考。
+本文的Playground也放在了[GitHub](https://github.com/nixzhu/algorithm-playgrounds/blob/master/json-parser.playground/Contents.swift)，但我希望读者已经跟随本文写出了它，仅供参考。
 
 补记：趁着周末的时间，利用解析器组合子，写了一个[Baby](https://github.com/nixzhu/Baby)。功能类似Coolie，从JSON文件生成Swift模型。目前还没有Coolie强，但它会变得更强。
 
