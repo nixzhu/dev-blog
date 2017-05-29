@@ -193,8 +193,11 @@ Don't worry if you don't quite grok the syntax yet — it'll be discussed in mor
 
 For the purpose of this GraphQL & Apollo on iOS tutorial, you're going to use a service called [Graphcool][13] to generate a full-blown GraphQL server based on a data model.
 
+为了本教程之目的，你将基于一个数据模型使用一个叫做[Graphcool][13]地服务来生成一个GraphQL服务器。
+
 Speaking of the data model, here is what it looks like for the application, expressed in a syntax called [GraphQL Interface Definition Language][14] (IDL):
-    
+
+说到数据模型，下面是其样子，它的语法叫做[GraphQL Interface Definition Language][14] (IDL)：
     
     
     type Conference {
@@ -214,17 +217,22 @@ Speaking of the data model, here is what it looks like for the application, expr
 
 GraphQL has its own type system you can build upon. The types in this case are `Conference` and `Attendee`. Each type has a number of properties, called _fields_ in GraphQL terminology. Notice the `!` following the type of each field, which means this field is required.
 
+GraphQL有它自己的类型系统，你更可在其上构建自己的类型。如本例中的`Conference`和`Attendee`类型。每个类型都有一些属性，GraphQL术语叫做_fields_。注意跟在每个类型后的`!`，它表示此field是必须的。
+
 Enough talking, go ahead and create your well-deserved GraphQL server!
+
+话不多说，开始创建你应得的GraphQL服务器吧！
 
 Install the [Graphcool CLI][15] with npm. Open a Terminal window and type the following:
     
-    
+通过npm安装[Graphcool CLI][15]。打开终端，键入：
     
     npm install -g graphcool
     
 
 Use `graphcool` to create your GraphQL server by typing the following into a Terminal window:
-    
+
+使用`graphcool`创建服务器：
     
     
     graphcool init --schema http://graphqlbin.com/conferences.graphql --name ConferencePlanner
@@ -232,11 +240,17 @@ Use `graphcool` to create your GraphQL server by typing the following into a Ter
 
 This command will create a Graphcool project named `ConferencePlanner`. Before the project is created, it'll also open up a browser window where you need to create a Graphcool account. Once created, you'll have access to the full power of GraphQL:
 
+这个命令会创建一个叫做`ConferencePlanner`的Graphcool项目。在此之前，它还会打开一个浏览器窗口，你需要创建一个Graphcool账户。一旦建立好，你就有获得了GraphQL的全部能力。
+
 ![GraphCool command output showing Simple API and Relay API][16]
 
 Copy the endpoint for the `Simple API` and save it for later usage.
 
+拷贝`Simple API`端点留作之后使用。
+
 That's it! You now have access to a fully-fledged GraphQL API you can manage in the [Graphcool console][17].
+
+搞定！你现在能访问完整的GraphQL API并通过[Graphcool console][17]管理。
 
 ### Entering Initial Conference Data
 
