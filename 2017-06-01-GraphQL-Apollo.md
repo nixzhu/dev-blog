@@ -122,12 +122,21 @@ The response of this query will contain an array of conferences, each carrying a
 
 GraphQL isn't very popular in the mobile developer communities (yet!), but that might change with more tooling evolving around it. A first step in that direction is the [Apollo iOS client][4], which implements handy features you'll need when working with APIs.
 
+GraphQL在移动开发者社区中还不是很流行，不过很可能会随着更多相关工具的改进而改变。这种势头表现在[Apollo iOS client][4]上，它实现了许多方便特性，让你与API合作时更轻松。
+
 Currently, its major features are as follows:
 
 1. Static type generation based on your data requirements
 2. Caching and watching queries
 
+目前，它的主要特性如下：
+
+1. 基于数据要求的静态类型生成
+2. 缓存与察看查询
+
 You'll get experience with both of these extensively throughout this GraphQL & Apollo on iOS tutorial.
+
+通过本教程，你对这两个特性都会有所体会。
 
 ### Interacting with GraphQL
 
@@ -136,13 +145,22 @@ When interacting with an API, the main goals generally are:
 * Fetching data
 * Creating, updating and deleting data
 
+当与API交互时，主要目标通常是：
+
+* 获取数据
+* 创建、更新和删除数据
+
 In GraphQL, _fetching_ data is done using _queries_, while _writing_ to the database can be achieved through _mutations_.
+
+在GraphQL中，_获取_数据通过_queries_完成，而写入数据库通过_mutations_来达成。
 
 A mutation, much like a query, also allows you to declare information to be returned by the server and thus enables you to retrieve the updated information in a single roundtrip!
 
+一个mutation看起来很像一个query，一样允许你申明需要服务器返回的信息，这就确保了在一个单程往返中你就可以获取更新后的信息。
+
 Consider the following two simple examples:
     
-    
+考虑如下两个简单例子：
     
     query AllConferences {
       allConferences {
@@ -154,7 +172,7 @@ Consider the following two simple examples:
 
 This query retrieves all the conferences and returns a JSON array where each object carries the `id` and `name` of a conference.
     
-    
+次查询获取所有的会议并返回一个JSON数组，其中每个对象包含有会议的`id`和`name`。
     
     mutation CreateConference {
       createConference(name: "WWDC", city: "San Jose", year: "2017") {
@@ -165,7 +183,11 @@ This query retrieves all the conferences and returns a JSON array where each obj
 
 This mutation creates a new conference and likewise returns its `id`.
 
+这个mutation创建了一个新会议并类似地返回其`id`。
+
 Don't worry if you don't quite grok the syntax yet — it'll be discussed in more detail later!
+
+如果你对这种语法还没什么感觉，别担心，稍后会探讨更多细节。
 
 ## Preparing Your GraphQL Server
 
