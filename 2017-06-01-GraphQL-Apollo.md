@@ -256,10 +256,15 @@ That's it! You now have access to a fully-fledged GraphQL API you can manage in 
 
 Before continuing, you'll add some initial data to the database.
 
+在继续之前，先准备一些初始数据到数据库中。
+
 Copy the endpoint from the `Simple API` you received in the previous step and paste it in the address bar of your browser. This will open a [GraphQL Playground][18] that lets you explore the API in an interactive manner.
 
+将前一步中`Simple API`返回的端点拷贝到浏览器地址栏中。这将打开一个[GraphQL Playground][18]，你可在其中已交互式的方式探索API。
+
 To create some initial data, add the following GraphQL code into the left section of the Playground:
-    
+
+添加如下GraphQL代码到Playground左边的输入框，以创建一些初始数据：
     
     
     mutation createUIKonfMutation {
@@ -277,9 +282,13 @@ To create some initial data, add the following GraphQL code into the left sectio
 
 This snippet contains code for two GraphQL mutations. Click the _Play_ button and _select each of the mutations displayed in the dropdown only once_:
 
+这个代码片段包含两个GraphQL mutation。点击_Play_按钮并通过下拉菜单将每个mutaiton都选择一次：
+
 ![GraphQL playground][19]
 
 This will create two new conferences. To verify the conferences have been created, you can either view the current state of your database using the [data browser][20] in the [Graphcool console][17] or send the `allConferences` query you saw before in the Playground:
+
+这就创建了两个新会议。为了验证已经创建成功，你可以通过[Graphcool console][17]中的[data browser][20]查看当前数据库的状态，或者发送之前见过的`allConferences` query。
 
 ![GraphQL Playground AllConferences query result][21]
 
