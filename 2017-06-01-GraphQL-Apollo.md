@@ -296,16 +296,27 @@ This will create two new conferences. To verify the conferences have been create
 
 As mentioned before, the Apollo iOS client features _static type generation_. This means you effectively don't have to write the _model_ types which you'd use to represent the information from your application domain. Instead, the Apollo iOS client uses the information from your GraphQL queries to generate the Swift types you need!
 
+之前提到，Apollo iOS client能_静态类型生成_。也就是说，你不再需要写模型来表示来自你应用域名的信息了。作为替代，Apollo iOS client使用GraphQL query中的信息来生成对应的Swift类型。
+
 _Note:_ This approach eliminates the inconvenience of parsing JSON in Swift. Since JSON is not typed, the only real safe approach to parse it is by having _optional_ properties on the Swift types, since you can never be 100% sure whether a particular property is actually included in the JSON data. 
+
+注意：这种方式消除了Swift中JSON解析的不便。由于JSON没有类型，唯一真正安全的解析方式是在Swift类型上使用可选值，因为你不能100%确定JSON数据中包含某个特定类型的属性。
 
 To benefit from static type generation in Xcode, you'll have to go through some configuration steps:
 
+要在Xcode中实现静态类型生成，你要先配置几步：
+
 _1\. Install apollo-codegen_
+
+安装apollo-codegen
 
 [`apollo-codegen`][22] will search for GraphQL code in the Xcode project and generate the Swift types.
 
+[`apollo-codegen`][22]会搜索Xcode中的GraphQL代码，并生成Swift类型。
+
 Open a Terminal window and type the following command:
-    
+
+打开终端，输入：
     
     
     npm install -g apollo-codegen
@@ -315,16 +326,25 @@ Open a Terminal window and type the following command:
 
 _2\. Add a build phase_
 
+添加build phase
+
 In Xcode, select the _ConferencePlanner_ in the _Project Navigator_. Select the application target called _ConferencePlanner_. Select the _Build Phases_ tab on top, and click the _+_ button on the top left. 
 
+在Xcode中，选择_Project Navigator_中的_ConferencePlanner_。选择名为_ConferencePlanner_的target。选择_Build Phases_栏，再点击左上角的_+_按钮。
+
 Select _New Run Script Phase_ from the menu: 
+
+从菜单中选择_New Run Script Phase_：
 
 ![Xcode altering build phases adding new run script][24]
 
 Rename the newly added build phase to _Generate Apollo GraphQL API_. Drag and drop the build phase to be above the _Compile Sources_.
 
+重命名新建的build phase为_Generate Apollo GraphQL API_。并拖动它到_Compile Sources_上方。
+
 Copy the following code snippet into the field that currently says: _Type a script or drag a script file from your workspace to insert its path_:
-    
+
+拷贝如下代码片段到输入框（目前写着_Type a script or drag a script file from your workspace to insert its path_）中：
     
     
     APOLLO_FRAMEWORK_PATH="$(eval find $FRAMEWORK_SEARCH_PATHS -name "Apollo.framework" -maxdepth 1)"
@@ -340,12 +360,17 @@ Copy the following code snippet into the field that currently says: _Type a scri
 
 Verify your _Build Phases_ look like this:
 
+检查一下，你的_Build Phases_看起来如下：
+
 ![Build Script Run Phase Code to Run][25]
 
 _3\. Add the schema file_
 
+添加schema文件
+
 This is where you need the endpoint for the `Simple API` again. Open a Terminal window and type the following command (replacing `__SIMPLE_API_ENDPOINT__` with the custom GraphQL endpoint you previously generated):
-    
+
+在此你又会用到`Simple API`的端点。打开终端，输入如下命令（替换其中的`__SIMPLE_API_ENDPOINT__`为你之前生成的自定义GraphQL端点）：
     
     
     apollo-codegen download-schema __SIMPLE_API_ENDPOINT__ --output schema.json
@@ -354,7 +379,11 @@ This is where you need the endpoint for the `Simple API` again. Open a Terminal 
 _Note:_ If you lose your GraphQL endpoint, you can always find it in the [Graphcool console][17] by clicking the _ENDPOINTS_ button in the bottom-left corner:  
 ![GraphCool Endpoint Console][26]
 
+注意：如果你丢失了GraphQL端点，你可以在[Graphcool console][17]中点击左下角的_ENDPOINTS_按钮找回。
+
 Next, move this file into the root directory of the Xcode project. This is the same directory where _AppDelegate.swift_ is located — _ConferencePlanner-starter/ConferencePlanner_:
+
+下面，将此文件放到Xcode工程的根目录。和_AppDelegate.swift_在同一个目录，即_ConferencePlanner-starter/ConferencePlanner_。
 
 ![Finder File Listing showing Schema.json][27]
 
@@ -364,13 +393,21 @@ Here is a quick summary of what you just did:
 * Next, you added a build phase to the Xcode project where `apollo-codegen` will be invoked on every build just before compilation.
 * Next to your actual GraphQL queries (which you're going to add in just a bit), `apollo-codegen` requires a schema file to be available in the root directory of your project which you downloaded in the last step.
 
+快速小结一下刚刚做的事：
+
+* 首先安装`apollo-codegen`，它用于生成Swift类型
+* 接着，在Xcode中添加一个build phase，它会在编译之前让`apollo-codegen`介入
+* 之后到你实际的GraphQL guery（稍后添加），`apollo-codegen`要求跟目录有一个上一步已下载的schema文件
+
 ## Instantiate the ApolloClient
 
 You're finally going to write some actual code!
 
+终于要写点儿实际的代码了！
+
 Open _AppDelegate.swift_, and add the following code replacing `__SIMPLE_API_ENDPOINT__` with your own endpoint for the `Simple API`:
     
-    
+打开_AppDelegate.swift_，添加如下代码，注意替换其中的`__SIMPLE_API_ENDPOINT__`为你自己的端点。
     
     import Apollo
     
@@ -379,6 +416,8 @@ Open _AppDelegate.swift_, and add the following code replacing `__SIMPLE_API_END
     
 
 You need to pass the endpoint for the `Simple API` to the initializer so the `ApolloClient` knows which GraphQL server to talk to. The resulting `apollo` object will be your main interface to the API.
+
+
 
 ## Creating Your Attendee and Querying the Conference List
 
