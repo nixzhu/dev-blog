@@ -417,20 +417,25 @@ Open _AppDelegate.swift_, and add the following code replacing `__SIMPLE_API_END
 
 You need to pass the endpoint for the `Simple API` to the initializer so the `ApolloClient` knows which GraphQL server to talk to. The resulting `apollo` object will be your main interface to the API.
 
-
+传递了`Simple API`端点后，`ApolloClient`就知道该和哪个GraphQL服务器通信了。生成的`apollo`对象将是你API的主要界面。
 
 ## Creating Your Attendee and Querying the Conference List
 
 You're all set to start interacting with the GraphQL API! First, make sure users of the app can register themselves by picking a username.
 
+所有与GraphQL API交互的准备工作都已搞定！首先，确保使用此app的用户能通过取个名字来进行注册。
+
 ### Writing Your First Mutation
 
 Create new file in the _GraphQL_ Xcode group using the _Empty_ file template from the _Other_ section and name it _RegisterViewController.graphql_:
 
+在Xcode中的_GraphQL_ group中建一个新文件，记得用_Other_下的_Empty_模版，命名为_RegisterViewController.graphql_：
+
 ![Xcode New File Picker][28]
 
 Next, add the following mutation into that file:
-    
+
+接下来，添加如下mutation到文件中：
     
     
     # 1
@@ -450,21 +455,37 @@ Here's what's going on in that mutation:
 2. `createAttendee` refers to a mutation exposed by the GraphQL API. Graphcool Simple API provides `create`-mutations for each type out of the box.
 3. The _payload_ of the mutation, i.e. the data you'd like the server to return after the mutation was performed.
 
+稍微解释一下：
+
+1. 这里用了mutation签名（类似Swift的函数）。这个mutation叫做`CreateAttendee`，接受一个名为`name`且类型为`String`的参数。感叹号表示这个参数必须传递。
+2. `createAttendee`引用了GraphQL API所暴露的一个mutaion。Graphcool Simple API给每个类型都默认提供一个`create`-mutation。
+3. 此mutation的_payload_，例如你希望服务器执行此mutation后要返回的数据。
+
 On next build of the project, `apollo-codegen` will find this code and generate a Swift representation for the mutation from it. Hit _Cmd+B_ to build the project.
+
+在下一次构建项目时，`apollo-codegen`就会找到这些代码并为这个mutation生成Swift表示。用快捷键_Cmd+B_构建吧。
 
 _Note:_ If you'd like to have _syntax highlighting_ for your GraphQL code, you can follow the instructions [here][29] to set it up. 
 
+注意：如果你想给GraphQL代码增加语法高亮，请参考[这里][29]的指导。
+
 The first time `apollo-codegen` runs, it creates a new file in the root directory of the project named _API.swift_. All subsequent invocations will just update the existing file.
 
+当`apollo-codegen`初次运行，它会在项目根目录创建一个叫做_API.swift_的新文件。所有后续的生成只会更新此文件。
+
 The generated _API.swift_ file is located in the root directory of the project, but you still need to add it to Xcode. Drag and drop it into the _GraphQL_ group. Make sure to _uncheck_ the _Copy items if needed_ checkbox!
+
+生成的_API.swift_文件位于项目根目录，但你还需要将其添加到Xcode中，拖动它到_GraphQL_ group里。注意不要选中_Copy items if needed_！
 
 ![Xcode Project Navigator showing API.swift in the GraphQL group][30]
 
 When inspecting the contents of _API.swift_, you'll see a class named `CreateAttendeeMutation`. Its initializer takes the `name` variable as an argument. It also has a nested struct named `Data` which nests a struct called `CreateAttendee`. This will carry the `id` and the `name` of the attendee you specified as return data in the mutation.
 
+观察_API.swift_文件的内容，你会看到一个叫做`CreateAttendeeMutation`的类。它的初始化方法接受一个`name`变量作为参数。它还有一个嵌套的结构体，叫做`Data`，它又嵌套另一个结构体，叫做`CreateAttendee`。这会作为mutation的返回数据，包含attendee的`id`和`name`。
+
 Next, you'll incorporate the mutation. Open _RegisterViewController.swift_ and implement the `createAttendee` method like so:
     
-    
+接下来，你要合并mutation。打开_RegisterViewController.swift_并实现`createAttendee`方法如下：
     
     func createAttendee(name: String) {
       activityIndicator.startAnimating()
@@ -496,10 +517,19 @@ In the code above, you:
 2. Use the `apollo` instance to send the mutation to the API.
 3. Retrieve the data returned by the server and store it globally as information about the current user.
 
+上面的代码：
+
+1. 用用户提供的名字初始化mutation
+2. 使用`apollo`实例发送此mutation到API
+3. 接受从服务器返回的数据，并存在全局变量上，代表当前的用户
+
 _Note:_ All the API calls you'll be doing in this GraphQL & Apollo on iOS tutorial will follow this pattern: First instantiate a query or mutation, then pass it to the `ApolloClient` and finally make use of the results in a callback. 
 
+注意：本教材所有的API调用都遵循如下模式：首先生成一个query或mutation的实例，然后将其传递给`ApolloClient`，最后在回调中使用结果。
+
 Since users are allowed to change their usernames, you can add the second mutation right away. Open _RegisterViewController.graphql_ and add the following code at the end:
-    
+
+因为允许用户改名，你可添加第二个mutation。打开_RegisterViewController.graphql_并添加如下代码：
     
     
     mutation UpdateAttendeeName($id: ID!, $newName: String!) {
@@ -512,7 +542,7 @@ Since users are allowed to change their usernames, you can add the second mutati
 
 Press _Cmd+B_ to make `apollo-codegen` generate the Swift code for this mutation. Next, open _RegisterViewController.swift_ and replace `updateAttendee` with the following:
     
-    
+按下_Cmd+B_让`apollo-codegen`为此mutation生成Swift代码。之后，打开_RegisterViewController.swift_并替换`updateAttendee`如下：
     
     func updateAttendee(id: String, newName: String) {
       activityIndicator.startAnimating()
@@ -534,13 +564,19 @@ Press _Cmd+B_ to make `apollo-codegen` generate the Swift code for this mutation
     }
     
 
-The code is almost identical to `createAttendee`, except this time you also pass the `id` of the user so the GraphQL server knows which user it should update.
+The code is almost identica to `createAttendee`, except this time you also pass the `id` of the user so the GraphQL server knows which user it should update.
+
+这些代码和`createAttendee`几乎一样，除了要传递一个`id`来指代你要更新的是哪一个用户。
 
 Build and run the app, type a name into the text field, then click the _Save_ button. A new attendee will be created in the GraphQL backend.
+
+编译并运行，输入一个名字，然后点击_Save_ 按钮。一个新的attentee就在GraphQL后端被创建好了。
 
 ![User Settings page for the application][31]
 
 You can validate this by checking the data browser or sending the `allAttendees` query in a Playground:
+
+你可在Playground中验证，发送`allAttendees` query即可：
 
 ![GraphCool Playground showing AllAttendees query][32]
 
@@ -548,9 +584,11 @@ You can validate this by checking the data browser or sending the `allAttendees`
 
 The next goal is to display all the conferences in the `ConferencesTableViewController`.
 
+下一步要在`ConferencesTableViewController`中显示所有的会议。
+
 Create a new file in the GraphQL group, name it _ConferenceTableViewController.graphql_ and add the following GraphQL code:
     
-    
+在GraphQL group中创建一个新文件，命名为_ConferenceTableViewController.graphql_并添加如下代码：
     
     fragment ConferenceDetails on Conference {
       id
@@ -571,14 +609,23 @@ Create a new file in the GraphQL group, name it _ConferenceTableViewController.g
 
 What's that _fragment_ thing there?
 
+这里的_fragment_是什么东西？
+
 [Fragments][33] are simply _reusable sub-parts_ that bundle a number of fields of a GraphQL type. They come in very handy in combination with the static type generation since they enhance the reusability of the information returned by the GraphQL server, and each fragment will be represented by its own struct.
+
+简单来说，[Fragments][33]是可重用的零件，它能包装GraphQL类型的一些字段。它们与静态类型一起使用非常方便，因为它们增强了GraphQL服务器返回的信息的可重用性，并且每个片段将由其自己的结构体表示。
 
 Fragments can be integrated in any query or mutation using `...` plus the fragment name. When the `AllConferences` query is sent, `...ConferenceDetails` is replaced with all the fields contained within the `ConferenceDetails` fragment.
 
+Fragment能通过`...`加上片段名集成到任何query或mutation中。当`AllConferences`query被发出时，`...ConferenceDetails`就被`ConferenceDetails`片段中包含的所有字段替换。
+
 Next it's time to use the query to populate the table view.
 
+接下来该使用query填充table view了。
+
 Press _Cmd+B_ to make sure the types for the new query and fragment are generated, then open _ConferencesTableViewController.swift_ and add a new property at the top:
-    
+
+按下_Cmd+B_以确保生成新的query和fragment代码，然后打开_ConferencesTableViewController.swift_并添加如下属性到其顶部：
     
     
     var conferences: [ConferenceDetails] = [] {
@@ -590,7 +637,7 @@ Press _Cmd+B_ to make sure the types for the new query and fragment are generate
 
 At the end of `viewDidLoad`, add the following code to send the query and display the results:
     
-    
+在`viewDidLoad`最后，添加如下代码以发送query并显示结果：
     
     let allConferencesQuery = AllConferencesQuery()
     apollo.fetch(query: allConferencesQuery) { [weak self] result, error in
@@ -601,11 +648,15 @@ At the end of `viewDidLoad`, add the following code to send the query and displa
 
 You're using the same pattern you saw in the first mutations, except this time you're sending a query instead. After instantiating the query, you pass it to the `apollo` instance and retrieve the lists of conferences in the callback. This list is of type [`AllConferencesQuery.Data.AllConference]`, so in order to use its information you first must retrieve the values of type `ConferenceDetails` by mapping over it and accessing the `fragments`.
 
+和你在第一个mutation所看到的一样，你使用的同样的模式，不过这次你发送的是一个query。在初始化此query之后，你将其传递给`apollo`实例并在回调中获取会议列表。这个列表的类型是[`AllConferencesQuery.Data.AllConference]`，所以为了使用这个信息，你要访问每个元素的`fragments`并将其映射出`ConferenceDetails`。
+
 All that's left to do is tell the `UITableView` how to display the conference data.
+
+剩下的就是告知`UITableView`如何显示会议数据了。
 
 Open _ConferenceCell.swift_, and add the following property:
     
-    
+打开_ConferenceCell.swift_并添加如下属性：
     
     var conference: ConferenceDetails! {
       didSet {
@@ -619,9 +670,11 @@ Open _ConferenceCell.swift_, and add the following property:
 
 Notice the code doesn't compile since `numberOfAttendees` is not available. You'll fix that in a second
 
+注意代码还不能通过编译，因为`numberOfAttendees`还不可用。你稍后会修复它。
+
 Next, open _ConferencesTableViewController.swift_, and replace the current implementation of `UITableViewDataSource` with the following:
     
-    
+接下来，打开_ConferencesTableViewController.swift_并替换`UITableViewDataSource`实现如下：
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return conferences.count
@@ -639,10 +692,15 @@ Next, open _ConferencesTableViewController.swift_, and replace the current imple
 
 This is a standard implementation of `UITableViewDataSource`. However, the compiler complains `isAttendedBy` can't be found on the `ConferenceDetails` type.
 
+这是标准的`UITableViewDataSource`实现。然而，编译器会抱怨不能在`ConferenceDetails`中找到`isAttendedBy`。
+
 Both `numberOfAttendees` and `isAttendedBy` represent useful information that could be expected as utility functions on the "model" `ConferenceDetails`. However, remember `ConferenceDetails` is a generated type and lives in _API.swift_. You should never make manual changes in that file, since they'll be overridden the next time Xcode builds the project!
 
+`numberOfAttendees`和`isAttendedBy`都表示了有用的信息，我们希望它们作为“模型”的工具函数。然而，记得吗，`ConferenceDetails`是自动生成在_API.swift里的。你不应该手动修改这个文件，因为你的改动会在Xcode下次构建时被覆盖！
+
 A way out of this dilemma is to create an _extension_ in a different file where you implement the desired functionality. Open _Utils.swift_ and add the following extension:
-    
+
+逃离此困境的方法之一是在另外一个文件中创建一个_extension_来实现你想要的功能。打开_Utils.swift_并添加如下extension：
     
     
     extension ConferenceDetails {
@@ -658,6 +716,8 @@ A way out of this dilemma is to create an _extension_ in a different file where 
     
 
 Run the app and you'll see the conferences you added in the beginning displayed in the table view:
+
+运行app，你会看到之前添加的会议都出现在列表中。
 
 ![Listing of the conferences][34]
 
