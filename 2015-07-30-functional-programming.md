@@ -4,7 +4,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 先考虑一个过程。假设您性别男，爱好女。有位优雅的女士愿意与您做爱，不过这位女士对做爱有些要求：前戏至少要15分钟，性交要求在3到5分钟之间，最后要抱抱30分钟，说些情话。
 
@@ -221,12 +221,6 @@ let satisfied = foreplay(foreplayMinutes) >>> sexualIntercourse(sexualIntercours
 
 如果你已开始用 Swift 写代码，可以考虑在某些地方试用这样的抽象观点，必有益处。
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/626657833908473856](https://twitter.com/nixzhu/status/626657833908473856) 或微博 [http://weibo.com/2076580237/CtvAkhZB5](http://weibo.com/2076580237/CtvAkhZB5)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
