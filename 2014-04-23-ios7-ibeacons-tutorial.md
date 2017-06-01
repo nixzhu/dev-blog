@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-===========================================
+---
 
 你是否希望过你的手机能够显示你在一栋大楼里的位置？例如[商场](http://techcrunch.com/2014/01/06/inmarket-rolls-out-ibeacons-to-200-safeway-giant-eagle-grocery-stores-to-reach-shoppers-when-it-matters/)或[棒球场](http://www.macrumors.com/2014/01/30/mlb-ibeacon-rollout/)。
 
@@ -586,12 +586,6 @@ iBeacon 并不局限于自定义应用；你也可以将它们与 Passbook 的�
 如果你有关于本教程的任何问题或评论，或着任何使用 iBeacon 的新点子，欢迎加入下面的讨论！
 
 
-===============
+---
 
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B138xzUwI](http://weibo.com/2076580237/B138xzUwI) 以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
