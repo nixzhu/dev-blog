@@ -4,7 +4,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 # AsyncDisplayKit 教程：达到 60 FPS 的滚动帧率
 
@@ -1220,14 +1220,6 @@ AsyncDisplayKit 的指导在[这里](http://asyncdisplaykit.org/guide/ "here")�
 
 这个库的作者在收集 API 设计的反馈。你可以在 Facebook 上 的 Paper Engineering Community group 分享你的想法，或者直接参与到 AsyncDisplayKit 的开发中，通过 [GitHub](https://github.com/facebook/AsyncDisplayKit) 贡献你的 pull request。
 
-===============
+---
 
-译者注：最近我所在公司开发的[秒视 CatchChat](http://catchchat.me/) 推出了1.6版，它是一个可以发送与接收图片以及限定时长视频的社交应用，具有设计精美，操作快速的特点，欢迎使用！我的秒视ID是 nixzhu，也欢迎来扰！
-
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博 [http://weibo.com/2076580237/Bxu0rq1D0](http://weibo.com/2076580237/Bxu0rq1D0) 或 Tweet [https://twitter.com/nixzhu/status/536130283070685184](https://twitter.com/nixzhu/status/536130283070685184) 以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
