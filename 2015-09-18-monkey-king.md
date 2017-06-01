@@ -4,7 +4,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 听说微信之前是支持系统分享的，后来不知道是何原因去掉了。这给开发者带来了不小的麻烦。一方面，用户对系统分享最熟悉，开发者也省心省力；另一方面，这也是唯一支持 AirDrop 的办法。
 
@@ -231,12 +231,6 @@ class WeChatActivity: UIActivity {
 [1]: https://github.com/100apps/openshare
 [2]: https://github.com/nixzhu/MonkeyKing
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/644703031091552256](https://twitter.com/nixzhu/status/644703031091552256) 或微博 [http://weibo.com/2076580237/CB51o5Zke](http://weibo.com/2076580237/CB51o5Zke)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
