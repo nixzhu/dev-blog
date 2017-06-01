@@ -5,7 +5,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-==========================================
+---
 
 欢迎回到本教程系列的第二部分，创建一个以 Node.js 和 MongoDB 为后端的 iOS 应用。
 
@@ -839,17 +839,9 @@ MongoDB 对于从数据库中筛选数据提供了众多选项；也有很多服
 
 希望你在这个尝试 Node.js 、 Express 和 MongoDB 的过程中收获了乐趣——如果你有任何问题或评论，欢迎加入下面的讨论！
 
-===============
+---
 
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博[http://weibo.com/2076580237/B20mzy00X](http://weibo.com/2076580237/B20mzy00X) 以分享给更多人。
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
 
    [1]: http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/MongoDB.png
    [2]: https://github.com/nixzhu/dev-blog/blob/master/2014-04-21-write-a-simple-nodejs-mongodb-web-service-for-an-ios-app.md
