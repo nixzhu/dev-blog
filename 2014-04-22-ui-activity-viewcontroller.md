@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-==========================================
+---
 
 数据与代码的关系一直都让人好奇。
 
@@ -20,7 +20,7 @@ OS X 的 `Core Services 框架`与 iOS 的`移动 Core Services 框架`都提供
 
 很明显我们需要其它的某种东西。那 UIActivityViewController 能成为我们拼命追求的解决办法吗？
 
-====
+---
 
 UIActivityViewController ，出现于 iOS 6，在应用里为分享和操作数据提供了一个统一的服务接口。
 
@@ -627,12 +627,6 @@ IntentKit 合并了连接到这些最流行的服务（如 Web、地图、邮件
 
 公开的 [远程视图控制器（remote view controller）](http://oleb.net/blog/2012/10/remote-view-controllers-in-ios-6/) API 的未来前景给了我关于iOS上分享的未来希望。虽然对现在来说，我们当然可以做得比 UIActivityViewController 更差。（译者注：是这个意思吗？ For now, though, we could certainly do much worse than UIActivityViewController.）
 
-===============
+---
 
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B0VJyuBJ7](http://weibo.com/2076580237/B0VJyuBJ7) 以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
