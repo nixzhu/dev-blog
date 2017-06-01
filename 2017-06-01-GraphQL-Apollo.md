@@ -725,10 +725,15 @@ Run the app and you'll see the conferences you added in the beginning displayed 
 
 The `ConferenceDetailViewController` will display information about the selected conference, including the list of attendees.
 
+`ConferenceDetailViewController`会显示被选中的会议的详细信息，包括参与者的列表。
+
 You'll prepare everything by writing the GraphQL queries and generating the required Swift types.
 
+你将通过编写GraphQL query并生成Swift类型来准备。
+
 Create a new file named _ConferenceDetailViewController.graphql_ and add the following GraphQL code:
-    
+
+创建一个新文件_ConferenceDetailViewController.graphql_并添加如下代码：
     
     
     query ConferenceDetails($id: ID!) {
@@ -757,14 +762,20 @@ Create a new file named _ConferenceDetailViewController.graphql_ and add the fol
 
 In the first query, you ask for a specific conference by providing an `id`. The second query returns all attendees for a specific conference where for each attendee, all the info is specified in `AttendeeDetails` will be returned by the server. That includes the attendee's `id`, `name` and the number of conferences they're attending.
 
+在第一个query中，你提供一个`id`来请求特定的会议。第二个query返回此会议所有的参与者，对于每一个参与者，所有信息都由`AttendeeDetails`指定，包括`id`和`name`，以及参与者参加的所有会议的数量。
+
 The `_conferencesMeta` field in `AttendeeDetails` fragment allows you to retrieve additional information about the relation. Here you're asking for the number of attendees using `count`.
 
+`AttendeeDetails`fragment中的`_conferencesMeta`字段让你可以获取额外的关系信息。你通过使用`count`得到参与者所有会议的数量。
+
 Build the application to generate the Swift types.
+
+构建应用生成Swift类型。
 
 Next, open _ConferenceDetailViewController.swift_ and add the following properties below the  
 `IBOutlet` declarations:
     
-    
+下面，打开_ConferenceDetailViewController.swift_并添加如下属性到`IBOutlet`声明的下方：
     
     var conference: ConferenceDetails! {
       didSet {
@@ -787,9 +798,11 @@ Next, open _ConferenceDetailViewController.swift_ and add the following properti
 
 The first two properties implement the `didSet` property observer to make sure the UI gets updated after they're set. The last one computes if the current user attends the conference being displayed.
 
+头两个属性实现的`didSet`属性监听器确保UI的即时更新。最后一个计算当前用户参与的会议是否被显示。
+
 The `updateUI` method will configure the UI elements with the information about the selected conference. Implement it as follows:
     
-    
+`updateUI`方法将用选择的会议信息来配置UI元素。实现如下：
     
     func updateUI() {
       nameLabel.text = conference.name
@@ -801,7 +814,7 @@ The `updateUI` method will configure the UI elements with the information about 
 
 Finally, in _ConferenceDetailViewcontroller.swift_, replace the current implementation of `tableView(_:numberOfRowsInSection:)` and `tableView(_:cellForRowAt:)` with the following:
     
-    
+最后，在_ConferenceDetailViewcontroller.swift_中替换`tableView(_:numberOfRowsInSection:)`和`tableView(_:cellForRowAt:)`的实现如下：
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return attendees?.count ?? 0
@@ -821,9 +834,11 @@ Finally, in _ConferenceDetailViewcontroller.swift_, replace the current implemen
 
 Similarly to what you saw before, the compiler complains about `numberOfConferencesAttending` not being available on `AttendeeDetails`. You'll fix that by implementing this in an extension of `AttendeeDetails`.
 
+如之前所见，编译器会抱怨`AttendeeDetails`中没有`numberOfConferencesAttending`。你同样通过将其实现在extension中来修复它。
+
 Open _Utils.swift_ and add the following extension:
     
-    
+打开_Utils.swift_添加如下extension：
     
     extension AttendeeDetails {
       
@@ -836,7 +851,7 @@ Open _Utils.swift_ and add the following extension:
 
 Finish up the implementation of `ConferenceDetailViewController` by loading the data about the conference in `viewDidLoad`:
     
-    
+最后通过在`viewDidLoad`中加载数据来完成`ConferenceDetailViewController`：
     
     let conferenceDetailsQuery = ConferenceDetailsQuery(id: conference.id) 
     apollo.fetch(query: conferenceDetailsQuery) { result, error in
@@ -853,9 +868,11 @@ Finish up the implementation of `ConferenceDetailViewController` by loading the 
 
 Finally, you need to pass the information about which conference was selected to the `ConferenceDetailViewController`, this can be done right before the segue is performed.
 
+最后，你需要传递被选中会议的信息给`ConferenceDetailViewController`，这刚好可在segue被执行时搞定。
+
 Open _ConferencesTableViewController.swift_ and implement `prepare(for:sender:)` like so:
     
-    
+打开_ConferencesTableViewController.swift_并实现`prepare(for:sender:)`如下：
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       let conferenceDetailViewController = segue.destination as! ConferenceDetailViewController
@@ -865,11 +882,15 @@ Open _ConferencesTableViewController.swift_ and implement `prepare(for:sender:)`
 
 That's it! Run the app and select one of the conferences in the table view. On the details screen, you'll now see the info about the selected conference being displayed:
 
+好了！允许app并从列表中选择一个会议。在详细界面，你会看到被选中会议的信息。
+
 ![][35]
 
 ## Automatic UI Updates When Changing the Attending Status
 
 A major advantage of working with the Apollo iOS client is it [normalizes and caches][36] the data from previous queries. When sending a mutation, it knows what bits of data changed and can update these specifically in the cache without having to resend the initial query. A nice side-effect is it allows for "automatic UI updates", which you'll explore next.
+
+
 
 In `ConferenceDetailViewController`, there's a button to allow the user to change their attending status of the conference. To change that status in the backend, you first have to create two mutations in _ConferenceDetailViewController.graphql_:
     
