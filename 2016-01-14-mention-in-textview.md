@@ -86,14 +86,3 @@ extension MentionDetectableTextView: UITextViewDelegate {
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条
-
-* Tweet [https://twitter.com/nixzhu/status/687456414386622464](https://twitter.com/nixzhu/status/687456414386622464) 或
-* 微博 [http://weibo.com/2076580237/Dd3N0869i](http://weibo.com/2076580237/Dd3N0869i)  
-
-以分享此文或参与讨论！
-
-虽然我留了一个捐助的二维码，但似乎读者很少给机会让我买早餐：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
