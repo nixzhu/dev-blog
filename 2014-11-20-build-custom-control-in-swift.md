@@ -5,7 +5,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 # 使用 Swift 构建自定义（且“可设计”的）控件
 
@@ -459,17 +459,9 @@ Ciao!
 
 [下载源代码][8] ，[关注 @bitwaker][9]
 
-===============
+---
 
-译者注：最近我所在公司开发的[秒视 CatchChat](http://catchchat.me/) 推出了1.6版，它是一个可以发送与接收图片以及限定时长视频的社交应用，具有设计精美，操作快速的特点，欢迎使用！我的秒视ID是 nixzhu，也欢迎来扰！
-
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博 [http://weibo.com/2076580237/Bx8x1DKMD](http://weibo.com/2076580237/Bx8x1DKMD) 或 Tweet [https://twitter.com/nixzhu/status/535304706990415872](https://twitter.com/nixzhu/status/535304706990415872) 以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
 
 [1]: http://www.thinkandbuild.it/wp-content/uploads/2013/02/slider_bg-150x150.png "slider_bg"
 [2]: http://www.thinkandbuild.it/wp-content/uploads/2014/11/slider_active-150x150.png "slider_active"
