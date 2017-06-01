@@ -6,7 +6,7 @@
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
 
-=================================
+---
 
 因为一个开发中 WATCH App，我需要一个图表生成工具，即，它可以根据输入的一串形如 `(String: Double)` 的数据（也就是一串 name 和 value，例如 `[("Hello": 50), ("World": 150), ("NIX ZHU": 100)]`），在给定的图片尺寸和 name 字体时，生成一张柱状图。
 
@@ -105,12 +105,6 @@ var barRightMargin = currentTryRightMargin
 我打算根据上面的工作做出一个小巧的图表图片库，专门用于 WATCH。目前已有代码放在 [https://github.com/nixzhu/AdaptiveChartDemo](https://github.com/nixzhu/AdaptiveChartDemo) ，可以画出柱状图和折线图，待增添更多样式。
 
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/585622265154428928](https://twitter.com/nixzhu/status/585622265154428928) 或微博 [http://weibo.com/2076580237/Cci3ReTIf](http://weibo.com/2076580237/Cci3ReTIf)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
