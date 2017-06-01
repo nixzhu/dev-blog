@@ -2,7 +2,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 最近做的一个需求：[我们的App](http://catchchat.me/) 会收到不同类型的远程推送通知，在某些推送到达时，若用户是通过点击通知（从通知栏、通知中心或锁屏通知）进入应用，那需要做一些额外的操作（例如执行一些后台请求、显示某个界面等）。当然，若是从 SpringBoard 启动应用，就不做这些额外的操作。
 
@@ -33,14 +33,6 @@
 >在实际的代码中，需要注意当应用在前台时，若用户下拉通知中心（或上拉控制中心），app 也是处于 inactive 状态的。要和真正的 background -> inactive -> active 区分，不然就可能会判断不准确。
 
 
-=====================
+---
 
-作者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/BppoGzTKb](http://weibo.com/2076580237/BppoGzTKb)  以分享给更多人！
-
-如果你认为这篇原创文章不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
