@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-==========================================
+---
 
 默认情况下，`CALayer` 及其子类的绝大部分标准属性都可以执行动画，无论是添加一个 `CAAnimation` 到 Layer（显式动画），亦或是为属性指定一个动作然后修改它（隐式动画）。
 
@@ -514,14 +514,6 @@ const NSInteger hoursOnAClockFace = 12;
 通过使用这些属性，我们不仅仅避免了重复造轮子，同时还确保了我们的自定义动画能与标准动画的时机和控制函数协同工作，以此就能非常容易地与其它动画属性同步。
 
 
-===============
+---
 
-译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B3CtbFvP6](http://weibo.com/2076580237/B3CtbFvP6) 以分享给更多人！ 
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
