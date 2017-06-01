@@ -61,14 +61,3 @@ override func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条
-
-* Tweet [https://twitter.com/nixzhu/status/683855985752932353](https://twitter.com/nixzhu/status/683855985752932353) 或
-* 微博 [http://weibo.com/2076580237/Dby78hFrM](http://weibo.com/2076580237/Dby78hFrM)  
-
-以分享此文或参与讨论！
-
-读者开心了可请作者吃早餐：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
