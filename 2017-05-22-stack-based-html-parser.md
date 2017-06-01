@@ -207,10 +207,3 @@ func parse(_ tokens: [Token]) -> Value {
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条
- 
-* Tweet [https://twitter.com/nixzhu/status/866508356856328192](https://twitter.com/nixzhu/status/866508356856328192) 或
-* 微博 [http://weibo.com/2076580237/F4gOY1vgz](http://weibo.com/2076580237/F4gOY1vgz)
-
-以分享此文或参与讨论！
