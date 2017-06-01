@@ -8,7 +8,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 Square Engineering Blog 上有一篇很棒的文章，为 Android 带来了[更流畅的签名](http://corner.squareup.com/2012/07/smoother-signatures.html)，但我没有找到任何与 iOS 相关的介绍。所以，在 iOS 设备上捕捉用户签名的最好方式是什么呢？
 
@@ -127,14 +127,6 @@ static CGPoint midpoint(CGPoint p0, CGPoint p1) {
 
 >译者注：[原文](https://www.altamiracorp.com/blog/employee-posts/capture-a-signature-on-ios)后的评论也值得一看哦！
 
-=====================
+---
 
-译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B6ff98eWs](http://weibo.com/2076580237/B6ff98eWs)  以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
