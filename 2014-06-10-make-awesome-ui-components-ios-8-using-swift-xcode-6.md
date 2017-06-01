@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 Apple 在 Xcode 6 里介绍了两个新的 Interface Buidler 声明属性：`IBInspectable` 和 `IBDesignable`；`IBInspectable` 将类的属性暴露在 Interface Buidler 的 Attribute Inspector 里，而用了 `IBDesignable` 后就可以**实时更新视图**了！这简直就像魔法！
 
@@ -172,18 +172,9 @@ alt="IBDesignable - IBInspectable Demo" width="480" height="360" border="1" /></
 
 如果你发现这篇文章很有用，记得和你的朋友分享哦 😄
 
-=====================
+---
 
-译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B8nNYAEV4](http://weibo.com/2076580237/B8nNYAEV4)  以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
-
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
 
 [1]: https://www.github.com/
 [2]: http://cocoapods.org/
