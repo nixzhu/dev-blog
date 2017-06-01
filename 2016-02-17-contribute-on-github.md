@@ -59,10 +59,3 @@ Yep 的开发使用了 Git Flow，但作为外部开发者，你也不一定非�
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条
-
-* Tweet [https://twitter.com/nixzhu/status/699799194731569152](https://twitter.com/nixzhu/status/699799194731569152) 或
-* 微博 [http://weibo.com/2076580237/DieRCrPVR](http://weibo.com/2076580237/DieRCrPVR)  
-
-以分享此文或参与讨论！
