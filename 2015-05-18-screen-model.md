@@ -4,7 +4,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 虽然有所谓的 Adaptive Layout，但依其对屏幕的区分方式，我们并不能区分 iPhone 的不同屏幕尺寸，至少在应用竖屏时不行。
 
@@ -96,12 +96,6 @@ extension UIDevice {
 
 7月22日补记：已有更合理的 Repo：[https://github.com/nixzhu/Ruler](https://github.com/nixzhu/Ruler)
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/600130762294202368](https://twitter.com/nixzhu/status/600130762294202368) 或微博 [http://weibo.com/2076580237/CinuFffMq](http://weibo.com/2076580237/CinuFffMq)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
