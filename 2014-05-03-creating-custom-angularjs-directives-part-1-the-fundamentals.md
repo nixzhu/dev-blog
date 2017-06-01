@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-==========================================
+---
 
 [AngularJS][3] 提供了很多指令（Directive）用于操作 DOM、将事件路由到事件处理器、执行数据绑定、关联控制器/scope到View上，等等很多。例如 **ng-click**、 **ng-show/ng-hide**、 **ng-repeat** ，以及许多其它能在 AngularJS 核心代码里找到的指令能让我们非常轻松地开始使用这一框架。
 
@@ -241,15 +241,9 @@ app.directive('myDomDirective', function () {
 
 在这关于 AngularJS 指令的第一篇文章中，你了解了一些基础知识，并学会了如何创建两个基本的指令。但我们还只是懂了一点儿皮毛而已。在下一篇文章中我会讨论孤立 scope 和一些不同的属性（它们被称为 **局部 scope 属性** ，可用于数据绑定等更多情况上）。
 
-===============
+---
 
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B2Bs62jQG](http://weibo.com/2076580237/B2Bs62jQG) 以分享给更多人。
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
 
    [1]: http://weblogs.asp.net/dwahlin/archive/2014/03/24/the-angularjs-jumpstart-video-training-course-has-been-released.aspx
    [2]: http://weblogs.asp.net/blogs/dwahlin/AngularJSCourseLogoYellow.png
