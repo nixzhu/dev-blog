@@ -4,7 +4,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 假如你正在写的 App 是有用户系统的，也就是用户需要管理自己的信息，如修改名字、头发颜色之类的。
 
@@ -183,8 +183,8 @@ class UserInfo {
     class func bindNameListener(name: String, action: NameListener.Action) {
         let nameListener = NameListener(name: name, action: action)
 
-        self.sharedInstance.nameListenerSet.insert(nameListener)
-    }
+        self.sharedInstance.nameListenerSet.insert(nameListener) // TODO：需要处理同名替换
+    }
 
     class func bindAndFireNameListener(name: String, action: NameListener.Action) {
         bindNameListener(name, action: action)
@@ -230,14 +230,6 @@ UserInfo.bindAndFireNameListener("FirstViewController.nameButton") { name in
 
 （最终的）更好的泛型实现在分支 [generic](https://github.com/nixzhu/PropertyListenerDemo/tree/generic) 里，它的关键就是利用泛型实现一个 `class Listenable<T>` 以对应任何类型的属性，它内部再实现监听系统即可。当然，我们也让监听者支持泛型（`struct Listener<T>`）以便执行 action 时可以传递任意类型的参数。还有少许细节不同，例如 UserInfo 里直接使用 static 变量更方便，不需要用一个单独的单例再访问其属性。
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/593600214688141313](https://twitter.com/nixzhu/status/593600214688141313) 或微博 [http://weibo.com/2076580237/CfDByqmL6](http://weibo.com/2076580237/CfDByqmL6)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-真的到了最后，来个小广告：如果你喜欢围棋，喜欢偶尔阅读大师们的对局谱，那我推荐我自写自用的[围棋谱](https://appsto.re/cn/Cfc1M.i)。
