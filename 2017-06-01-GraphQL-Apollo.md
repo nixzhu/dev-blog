@@ -8,8 +8,6 @@
 
 ---
 
-![Getting started with GraphQL & Apollo on iOS][1]
-
 当你配合一个REST API工作时，因为某个端点没有给你所需要的数据用于app的某些视图，你是否有感到过沮丧呢？例如需要多个请求才能从服务器获取到正确的信息，或者你需要报bug通知后端开发者才能调整API？现在，你无需再担忧，_GraphQL_和_Apollo_将拯救你。
 
 [GraphQL][2]是一种新的API设计范式，由Facebook在2015年开源，不过早在2012，他们就开始用于给自家的app提供支持了。它消除了当今[REST][3] API的许多低效之处。对比REST，GraphQL只需要暴露一个端点，API的消费者就能精确地指定他们所需要的数据。
@@ -195,7 +193,7 @@ GraphQL有它自己的类型系统，你可在其上构建自己的类型。如�
     }
 ```
 
-这个代码片段包含两个GraphQL mutation。点击_Play_按钮并通过下拉菜单将每个mutaiton都选择一次（译者注：没次执行一个mutation）：
+这个代码片段包含两个GraphQL mutation。点击Play按钮并通过下拉菜单将每个mutaiton都选择一次（译者注：没次执行一个mutation）：
 
 ![GraphQL playground][19]
 
