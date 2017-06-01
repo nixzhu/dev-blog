@@ -5,7 +5,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 下图是一个火箭（你可能会觉得不像），上面有两个按钮，Fire 就是“点火”，Abort 就是“中止”。在点火之后，会倒计时 5 秒，如果在这 5 秒之内没有被中止，那么火箭就会发射。
 
@@ -235,12 +235,6 @@ rocketView.stateTransitionAction = { (previousState, currentState) in
 
 一个迷你的状态机：[Redstone](https://github.com/nixzhu/Redstone)，实现简单，使用方便，可满足绝大部分需求。
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/591072888003776512](https://twitter.com/nixzhu/status/591072888003776512) 或微博 [http://weibo.com/2076580237/CezRcFOGY](http://weibo.com/2076580237/CezRcFOGY)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
