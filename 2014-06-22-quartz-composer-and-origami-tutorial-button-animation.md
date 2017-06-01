@@ -6,11 +6,11 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-*******************************************************
+---
 
 本教程所使用的工具要求 OS X 10.8 或更新的系统。[Jay Thrash][5] 制作了一个非常棒的[视频][4]，以四分钟的长度介绍了 Quartz Composer 和 Origami 。
 
-*******************************************************
+---
 
 ![Demo of the animation][6]
 
@@ -157,18 +157,9 @@
 
 >译者注：这一篇[《次时代交互原型神器Origami档案》](http://www.csdn.net/article/2014-06-09/2820131)挺不错，它比较详尽地介绍了 Origami 的各个 Patch，可当作手册阅读。
 
-************************************
+---
 
-译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/BabP66WY0](http://weibo.com/2076580237/BabP66WY0)  以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
-
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
 
 [1]: http://www.punchkickinteractive.com/blog "View all posts in Blog"
 [2]: http://www.punchkickinteractive.com/blog/2014/04/01/quartz-composer-and-origami-tutorial-button-animation
