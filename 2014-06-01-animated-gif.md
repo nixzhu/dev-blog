@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 Flipboard 一直谋求的是“烹饪原始Web”并将其转化为如杂志般优雅的东西。我们考虑到许多细节——从文章的排版到相片的布局——以尽可能忠实地展现内容的本质。
 
@@ -120,17 +120,9 @@ Flipboard 的读者已创造了许多动态杂志，例如“[GIF Me A Break][18
 
 有许多事情我们都没有亲眼所见，但并不能表示我们可以有意或无意地忽略它们。请耐心了解一段历史：[六四事件](http://zh.wikipedia.org/wiki/%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6)。
 
-=====================
+---
 
-译者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B71QTszAh](http://weibo.com/2076580237/B71QTszAh)  以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦（译者前两天都在腹泻，快挂了，要买补品？）：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
 
 [1]: http://en.wikipedia.org/wiki/Graphics_Interchange_Format#Animated_GIF "Wikipedia: Animated GIF format description"
 [2]: http://inside.flipboard.com/2013/08/14/new-flipboard-update-is-out-with-gifs-for-all-and-top-stories/ "Inside Flipboard: New Flipboard Update Is Out, With GIFs For All and Top Stories"
