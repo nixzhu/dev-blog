@@ -6,7 +6,7 @@
 
 分析作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 我希望你已经下载了 LTBouncyPlaceholder 的 [Demo](https://github.com/lexrus/LTBouncyPlaceholder) ，用 Xcode 6 打开并编译、运行，然后在界面中显示的几个 UITextField 里输入一些文字来体验这个扩展。看到 Placeholder 的动画了吗？PS：iOS 8 的键盘也挺带感。
 
@@ -172,14 +172,6 @@ func _didChange (notification: NSNotification) {
 
 若本文的分析有任何不当之处，请读者指出，提 Issue 或者直接发送 PR 都可以！
 
-=====================
+---
 
-作者注：欢迎非商业转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B8CSosnAz](http://weibo.com/2076580237/B8CSosnAz)  以分享给更多人！
-
-如果你认为这篇原创文章不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳作者的辛苦（PS：作者刚刚辞职）：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-版权声明：自由转载-非商用-非衍生-保持署名 | [Creative Commons BY-NC-ND 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
