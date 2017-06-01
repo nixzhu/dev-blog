@@ -4,7 +4,7 @@
 
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
+---
 
 近日在 iOS 9 beta4 上，我更观察到 `UIKeyboardWillShowNotification` 可能会少发，导致之前根据其发送次数做的算法不能正常工作，结果就是在使用中文拼音键盘时，本该处于键盘上方的输入框会被键盘挡住大部分。
 
@@ -169,13 +169,6 @@ public var postKeyboardInfo: ((keyboardMan: KeyboardMan, keyboardInfo: KeyboardI
 
 最后是个预告，我最近在写一本关于算法的书（代码用 Swift 2），不会是系统的算法讲解，而是从具体例子实现一些“综合性”的算法，重点在于分析的过程。但只刚开了个头，希望能在 Swift 2 正式版发布前完成，似乎时间不多了，不敢保证。
 
-===============
+---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条 Tweet [https://twitter.com/nixzhu/status/625544225908637696](https://twitter.com/nixzhu/status/625544225908637696) 或微博 [http://weibo.com/2076580237/Ct2C8ouJh](http://weibo.com/2076580237/Ct2C8ouJh)  以分享此文！
-
-如果你认为这篇文章不错，也有闲钱，那你可以用支付宝扫描下方二维码随便捐助一点，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
