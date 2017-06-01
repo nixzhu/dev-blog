@@ -890,11 +890,11 @@ That's it! Run the app and select one of the conferences in the table view. On t
 
 A major advantage of working with the Apollo iOS client is it [normalizes and caches][36] the data from previous queries. When sending a mutation, it knows what bits of data changed and can update these specifically in the cache without having to resend the initial query. A nice side-effect is it allows for "automatic UI updates", which you'll explore next.
 
-
+使用Apollo iOS client的一大优势是它对之前查询的[规范化和缓存][36]。当发送一个mutation，它知道数据中的哪些比特改变了，然后特定更新缓存，而不需要重新发送原始的query。一个很棒的“副作用”是它允许“自动UI更新”，接下来体会。
 
 In `ConferenceDetailViewController`, there's a button to allow the user to change their attending status of the conference. To change that status in the backend, you first have to create two mutations in _ConferenceDetailViewController.graphql_:
     
-    
+在`ConferenceDetailViewController`中，有个按钮允许用户修改他们参加会议的意愿。为了改变后端的状态，你需要先在_ConferenceDetailViewController.graphql_中创建两个mutation：
     
     mutation AttendConference($conferenceId: ID!, $attendeeId: ID!) {
       addToAttendees(conferencesConferenceId: $conferenceId, attendeesAttendeeId: $attendeeId) {
@@ -921,11 +921,15 @@ In `ConferenceDetailViewController`, there's a button to allow the user to chang
 
 The first mutation is used to add an attendee to a conference; the second, to remove an attendee.
 
+第一个mutation用于添加一个attendee到会议；第二个移除一个attendee。
+
 Build the application to make sure the types for these mutations are created.
+
+构建应用确保所有的mutation的类型都被创建。
 
 Open, _ConferenceDetailViewController.swift_ and replace the `attendingButtonPressed` method with the following:
     
-    
+打开_ConferenceDetailViewController.swift_并替换`attendingButtonPressed`方法如下：
     
     @IBAction func attendingButtonPressed() {
       if isCurrentUserAttending {
@@ -944,11 +948,15 @@ Open, _ConferenceDetailViewController.swift_ and replace the `attendingButtonPre
 
 If you run the app now, you'll be able to change your attending status on a conference (you can verify this by using the data browser in the [Graphcool console][17]). However, this change is not yet reflected in the UI.
 
+如果你现在运行app，你将能改变参加的某个会议的状态（你可通过在[Graphcool console][17]的数据浏览器中验证）。但目前这个改变还不会反映到UI上。
+
 No worries: The Apollo iOS client has you covered! With the [`GraphQLQueryWatcher`][37], you can observe changes occurring through mutations. To incorporate the `GraphQLQueryWatcher`, a few minor changes are required.
+
+别担心，Apollo iOS client会罩着你！通过使用[`GraphQLQueryWatcher`][37]，你能监听mutation带来的改变。要使用`GraphQLQueryWatcher`，只需做如下少量修改。
 
 First, open _ConferenceDetailViewController.swift_ and add two more properties to the top:
     
-    
+首先，打开_ConferenceDetailViewController.swift_并添加两个属性在顶部：
     
     var conferenceWatcher: GraphQLQueryWatcher?
     var attendeesWatcher: GraphQLQueryWatcher?
@@ -956,7 +964,7 @@ First, open _ConferenceDetailViewController.swift_ and add two more properties t
 
 Next, you have to change the way you send the queries in `viewDidLoad` by using the method `watch` instead of `fetch` and assigning the return value of the call to the properties you just created:
     
-    
+接下来，你要修改`viewDidLoad`中发送query的方式，使用方法`watch`替换`fetch`，并将返回值赋给上面创建的属性：
     
     ...
     let conferenceDetailsQuery = ConferenceDetailsQuery(id: conference.id)
@@ -981,30 +989,39 @@ and
 
 Every time data related to the `ConferenceDetailsQuery` or to the `AttendeesForConferenceQuery` changes in the cache, the trailing closure you're passing to the call to `watch` will be executed, thus taking care of updating the UI.
 
+每一次与`ConferenceDetailsQuery`相关的数据或`AttendeesForConferenceQuery`在缓存中的修改，都会导致传递给`watch`的尾随闭包的的执行，从而更新UI。
+
 One last thing you've to do for the watchers to work correctly is implement the `cacheKeyForObject` method on the instance of the `ApolloClient`. This method tells Apollo how you'd like to uniquely identify the objects it's putting into the cache. In this case, that's simply by looking at the `id` property.
+
+最后一件为了让watchers正常工作的事是实现`ApolloClient`实例的`cacheKeyForObject`方法。这个方法告诉Apollo你想如何唯一识别它放入缓存的对象。在此例中，检查属性`id`就很好。
 
 A good place to implement `cacheKeyForObject` is when the app launches for the first time. Open _AppDelegate.swift_ and add the following line in `application(_:didFinishLaunchingWithOptions:)` before the `return` statement:
     
-    
+实现`cacheKeyForObject`的好地方是在app初次启动时。打开_AppDelegate.swift_并添加如下代码到`application(_:didFinishLaunchingWithOptions:)`的`return`语句前：
     
     apollo.cacheKeyForObject = { $0["id"] }
     
 
 _Note:_ If you want to know more about why that's required and generally how the caching in Apollo works, you can read about it on the [Apollo blog][38]. 
 
+注意：如果你想知道更多关于为何这是必要的以及Apollo缓存的工作方式，你可阅读 [Apollo blog][38]。
+
 Running the app again and changing your attending status on a conference will now immediately update the UI. However, when navigating back to the `ConferencesTableViewController`, you'll notice the status is not updated in the conference cell:
+
+再次运行app，并修改你参加会议的意图，现在UI会立即更新。然而，当你回到`ConferencesTableViewController`，你不会看到会议cell中状态的更新。
 
 ![][39]
 
 To fix that, you can use the same approach using a `GraphQLQueryWatcher` again. Open _ConferencesTableViewController.swift_ and add the following property to the top of the class:
     
-    
+为了修复此问题，同样是用一个`GraphQLQueryWatcher`。打开_ConferencesTableViewController.swift_并增加如下属性到类的顶部：
     
     var allConferencesWatcher: GraphQLQueryWatcher?
     
 
 Next, update the query in `viewDidLoad`:
-    
+
+接着，更新`viewDidLoad`中的query：
     
     
     ...
@@ -1018,17 +1035,29 @@ Next, update the query in `viewDidLoad`:
 
 This will make sure to execute the trailing closure passed to `watch` when the data in the cache relating to `AllConferencesQuery` changes.
 
+这就确保了传递给`watch`的尾随闭包在每次缓存中与`AllConferencesQuery`相关的改变发生时自动执行。
+
 ## Where to Go From Here?
 
 Take a look at the [final project][40] for this GraphQL & Apollo on iOS tutorial in case you want to compare it against your work.
 
+看看此教程的[final project][40]，也许你需要对比一下。
+
 If you want to learn more about GraphQL, you can start by reading the excellent [docs][2] or subscribe to [GraphQL weekly][41].
+
+如果你想学到更多关于GraphQL的知识，你可以开始阅读它良好的[docs][2]，或者订阅[GraphQL weekly][41]。
 
 More great content around everything that's happening in the GraphQL community can be found on the [Apollo][42] and [Graphcool][43] blogs.
 
+更多关于GraphQL社区的精彩内容可在[Apollo][42]和[Graphcool][43]的博客中找到。
+
 As a challenge, you can try to implement functionality for adding new conferences yourself! This feature is also included in the sample solution.
 
+作为一个挑战，你可实现添加新会议的功能。这个特性同样已包含在样本代码中。
+
 We hope you enjoyed learning about GraphQL! Let us know what you think about this new API paradigm by joining the discussion in the forum below.
+
+我们希望你学习GraphQL学得有趣！请让我们知道你对这种新的API范式的想法，加入下面的论坛讨论。
 
 [1]: https://koenig-media.raywenderlich.com/uploads/2017/05/apollo-feature.png
 [2]: http://www.graphql.org
