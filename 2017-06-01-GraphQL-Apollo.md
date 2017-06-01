@@ -193,7 +193,7 @@ GraphQL有它自己的类型系统，你可在其上构建自己的类型。如�
     }
 ```
 
-这个代码片段包含两个GraphQL mutation。点击Play按钮并通过下拉菜单将每个mutaiton都选择一次（译者注：没次执行一个mutation）：
+这个代码片段包含两个GraphQL mutation。点击Play按钮并通过下拉菜单将每个mutaiton都选择一次（译者注：每次执行一个mutation）：
 
 ![GraphQL playground][19]
 
