@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-==========================================
+---
 
 2014 年 4 月 23 日更新：本文最初由 [Sean Berry](http://twitter.com/regularberry) 编写， 因为 iOS 7，现在由 [Ali Hafizji](http://www.raywenderlich.com/u/ali.hafizji) 将此文全面更新。
 
@@ -283,12 +283,6 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 如果你有任何问题，或有关于国际化的建议，请加入下面的讨论！
 
-===============
+---
 
-译者注：欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎转发此条微博 [http://weibo.com/2076580237/B1fcVd0rF](http://weibo.com/2076580237/B1fcVd0rF) 以分享给更多人！
-
-如果你认为这篇翻译不错，也有闲钱，那你可以用支付宝随便捐助一点，以慰劳译者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
