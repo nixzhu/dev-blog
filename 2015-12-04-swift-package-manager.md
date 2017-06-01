@@ -3,7 +3,6 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-=================================
 ---
 
 # 开发包
@@ -396,11 +395,6 @@ be installed to `/usr/local` for now adapt the paths, but as said, we plan to su
 
 例如，`libarchive` 可选依赖于 `xz`，这意味着它可以在 `xz` 支持下编译，但这不一定是必要的。要提供一个有着 xz 的 libarchive 包，你必须做一个 `CArchive+CXz` 包，其依赖于 `CXz`，同时提供 `CArchive`。
 
-===============
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
-
-欢迎捐助，以慰劳作者的辛苦：
-
-![nixzhu的支付宝二维码](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
