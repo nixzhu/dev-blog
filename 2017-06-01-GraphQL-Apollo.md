@@ -137,13 +137,13 @@ GraphQL在移动开发者社区中还不是很流行，不过很可能会随着�
       name: String!
       city: String!
       year: String!
-      attendees: [Attendee] @relation(name: Attendees)
+      attendees: [Attendee] @relation(name: "Attendees")
     }
     
     type Attendee {
       id: String!
       name: String!
-      conferences: [Conference] @relation(name: Attendees)
+      conferences: [Conference] @relation(name: "Attendees")
     }
 ```
 
@@ -470,7 +470,7 @@ Fragment能通过`...`加上片段名集成到任何query或mutation中。当`Al
         nameLabel.text = "(conference.name) (conference.year)"
         let attendeeCount = conference.numberOfAttendees
         infoLabel.text = 
-          "(conference.city) ((attendeeCount) (attendeeCount == 1 ? "attendee" : "attendees"))"
+          "\(conference.city) (\(attendeeCount) \(attendeeCount == 1 ? "attendee" : "attendees"))"
       }
     } 
 ```
@@ -716,8 +716,8 @@ The `_conferencesMeta` field in `AttendeeDetails` fragment allows you to retriev
 首先，打开_ConferenceDetailViewController.swift_并添加两个属性在顶部：
 
 ``` swift
-    var conferenceWatcher: GraphQLQueryWatcher?
-    var attendeesWatcher: GraphQLQueryWatcher?
+    var conferenceWatcher: GraphQLQueryWatcher<ConferenceDetailsQuery>?
+    var attendeesWatcher: GraphQLQueryWatcher<ConferenceDetailsQuery>?
 ```
 
 接下来，你要修改`viewDidLoad`中发送query的方式，使用方法`watch`替换`fetch`，并将返回值赋给上面创建的属性：
