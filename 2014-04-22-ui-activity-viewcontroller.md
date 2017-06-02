@@ -1,5 +1,5 @@
 # 研究 UIActivityViewController
-
+｀｀｀
 本文翻译自 [http://nshipster.com/uiactivityviewcontroller/](http://nshipster.com/uiactivityviewcontroller/)
 
 原作者：[Mattt Thompson](http://mattt.me/)
