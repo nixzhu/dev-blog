@@ -73,7 +73,7 @@ let a: Parser<Character> = { stream in
 a("abc".characters)
 ```
 
-希望你已经在Playground的右边栏看到输出了（类似`(.0 "a", {{…}, _coreOffset 1})`），不过这个输出不太美观，因为tuple里包含的是Stream而不是String，而且输入参数也不能直接用String。那就新增一个函数：
+希望你已经在Playground的右边栏看到输出了（类似`(.0 "a", { {…}, _coreOffset 1})`），不过这个输出不太美观，因为tuple里包含的是Stream而不是String，而且输入参数也不能直接用String。那就新增一个函数：
 
 ``` swift
 func test<A>(_ parser: Parser<A>, _ input: String) -> (A, String)? {
