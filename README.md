@@ -44,3 +44,6 @@ dev-blog
 - 翻译：[入门 GraphQL & Apollo](https://github.com/nixzhu/dev-blog/blob/master/2017-06-01-GraphQL-Apollo.md)
 
 欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
+
+感觉此开发博客对您有益？用支付宝请我喝咖啡吧：
+<img src="https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png" style="width:376px;height:376px"/>
