@@ -46,4 +46,5 @@ dev-blog
 欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
 
 感觉此开发博客对您有益？用支付宝请我喝咖啡吧：
-<img src="https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png" style="width:376px;height:376px"/>
+
+![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
