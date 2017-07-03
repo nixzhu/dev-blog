@@ -389,7 +389,7 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 
 下图显示了障碍函数对多个异步队列的影响：
 
-![Dispatch-Barrier](http://cdn1.raywenderlich.com/wp-content/uploads/2014/01/Dispatch-Barrier-480x272.png)
+![Dispatch-Barrier](https://koenig-media.raywenderlich.com/uploads/2014/01/Dispatch-Barrier.png)
 
 注意到正常部分的操作就如同一个正常的并发队列。但当障碍执行时，它本质上就如同一个串行队列。也就是，障碍是唯一在执行的事物。在障碍完成后，队列回到一个正常并发队列的样子。
 
@@ -494,7 +494,7 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 
 恭喜——你的 `PhotoManager` 单例现在是线程安全的了。不论你在何处或怎样读或写你的照片，你都有这样的自信，即它将以安全的方式完成，不会出现任何惊吓。
 
-## A Visual Review of Queueing 队列的虚拟回顾
+## A Visual Review of Queueing 队列的视觉回顾
 
 依然没有 100% 地掌握 GCD 的要领？确保你可以使用 GCD 函数轻松地创建简单的例子，使用断点和 `NSLog` 语句保证自己明白当下发生的情况。
 
@@ -517,7 +517,7 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 }
 ```
 
-![dispatch_sync_in_action](http://cdn1.raywenderlich.com/wp-content/uploads/2014/01/dispatch_sync_in_action.gif)
+![dispatch_sync_in_action](https://koenig-media.raywenderlich.com/uploads/2014/01/dispatch_sync_in_action.gif)
 
 下面是图中几个步骤的说明：
 
@@ -549,7 +549,7 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 }
 ```
 
-![dispatch_async_in_action](http://cdn1.raywenderlich.com/wp-content/uploads/2014/01/dispatch_async_in_action.gif)
+![dispatch_async_in_action](https://koenig-media.raywenderlich.com/uploads/2014/01/dispatch_async_in_action.gif)
 
 1. 主队列一路按顺序执行任务——接着是一个实例化 `UIViewController` 的任务，其中包含了 `viewDidLoad` 。
 2. `viewDidLoad` 在主线程执行。
