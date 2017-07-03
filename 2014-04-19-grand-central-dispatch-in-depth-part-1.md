@@ -68,7 +68,7 @@ GCD 是 `libdispatch` 的市场名称，而 libdispatch 作为 Apple 的一个�
 
 并发代码的不同部分可以“同步”执行。然而，该怎样发生或是否发生都取决于系统。多核设备通过并行来同时执行多个线程；然而，为了使单核设备也能实现这一点，它们必须先运行一个线程，执行一个上下文切换，然后运行另一个线程或进程。这通常发生地足够快以致给我们并发执行地错觉，如下图所示：
 
-![Concurrency_vs_Parallelism](http://cdn1.raywenderlich.com/wp-content/uploads/2014/01/Concurrency_vs_Parallelism.png)
+![Concurrency_vs_Parallelism](https://koenig-media.raywenderlich.com/uploads/2014/01/Concurrency_vs_Parallelism.png)
 
 虽然你可以编写代码在 GCD 下并发执行，但 GCD 会决定有多少并行的需求。并行_要求_并发，但并发并不能_保证_并行。
 
@@ -86,7 +86,7 @@ GCD 提供有 `dispatch queues` 来处理代码块，这些队列管理你提供
 
 串行队列中的任务一次执行一个，每个任务只在前一个任务完成时才开始。而且，你不知道在一个 Block 结束和下一个开始之间的时间长度，如下图所示：
 
-![Serial-Queue](http://cdn4.raywenderlich.com/wp-content/uploads/2014/01/Serial-Queue-480x272.png)
+![Serial-Queue](https://koenig-media.raywenderlich.com/uploads/2014/01/Serial-Queue.png)
 
 这些任务的执行时机受到 GCD 的控制；唯一能确保的事情是 GCD 一次只执行一个任务，并且按照我们添加到队列的顺序来执行。
 
