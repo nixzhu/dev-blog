@@ -342,7 +342,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
 
 `dispatch_once()` 以线程安全的方式执行且仅执行其代码块一次。试图访问临界区（即传递给 `dispatch_once` 的代码）的不同的线程会在临界区已有一个线程的情况下被阻塞，直到临界区完成为止。
 
-![Highlander_dispatch_once](http://cdn3.raywenderlich.com/wp-content/uploads/2014/01/Highlander_dispatch_once-480x274.png)
+![Highlander_dispatch_once](https://koenig-media.raywenderlich.com/uploads/2014/01/Highlander_dispatch_once.png)
 
 需要记住的是，这只是让访问共享实例线程安全。它绝对没有让类本身线程安全。类中可能还有其它竞态条件，例如任何操纵内部数据的情况。这些需要用其它方式来保证线程安全，例如同步访问数据，你将在下面几个小节看到。
 
