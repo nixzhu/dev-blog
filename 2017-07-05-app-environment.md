@@ -1,5 +1,7 @@
 # App的环境
 
+将散乱的配置包装起来
+
 作者：[@nixzhu](https://twitter.com/nixzhu)
 
 ---
@@ -75,10 +77,10 @@ struct AppEnvironment {
 
 本文属于阅读[kickstarter/ios-oss](https://github.com/kickstarter/ios-oss)的体会之一（我希望能写成一个系列）。
 
-此外，最近我参与开发的一个app：[SpaceHub](https://duodian.com)。在处理某些推送时需要实现一种临时切换环境的功能，所以也算有实际用上这种经验，这大概是阅读好代码的益处之一（尽管比较功利）。
+我之所以想起它，是因为最近我参与开发的一个app：[SpaceHub](https://duodian.com)，在处理某些推送时需要实现一种临时切换环境的功能，算得上有实际用上这种经验。这大概是阅读好代码的益处之一（尽管比较功利）。
 
 ---
 
-更多文章请见[dev-blog/README](https://github.com/nixzhu/dev-blog/blob/master/README.md)。
+更多文章请见：[dev-blog/README](https://github.com/nixzhu/dev-blog/blob/master/README.md)。
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
