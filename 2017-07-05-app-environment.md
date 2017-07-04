@@ -71,13 +71,13 @@ struct AppEnvironment {
 
 这样，在进入测试模式时，就将一个测试环境压栈中。当然，对应业务代码里要改为使用`AppEnvironment.current`替换之前的全局变量。至于UI，你可以直接替换window或者present一个最底层的Container ViewController覆盖当前的UI。当你测试结束，弹出测试环境，UI也对应调整一下即可。
 
-假如你的app支持多用户，用户会不停地的切换账号。而有了环境这种概念，是不是也觉得实现起来易如反掌？
+假如你的app支持多用户，用户会不停地的切换账号。有了环境这种概念，是不是也觉得挺好实现呢？
 
 ---
 
 本文属于阅读[kickstarter/ios-oss](https://github.com/kickstarter/ios-oss)的体会之一（我希望能写成一个系列）。
 
-我之所以想起它，是因为最近我参与开发的一个app：[SpaceHub](https://duodian.com)，在处理某些推送时需要实现一种临时切换环境的功能，算得上有实际用上这种经验。这大概是阅读好代码的益处之一（尽管比较功利）。
+我之所以想起它，是因为最近我参与开发的一个app：[SpaceHub](https://duodian.com)，在处理某些推送时需要实现一种临时切换环境的功能，算得上有实际用上这种经验。这大概是阅读好代码的益处之一，尽管比较功利。
 
 ---
 
