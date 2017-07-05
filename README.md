@@ -42,9 +42,10 @@ dev-blog
 - [解析器组合子](https://github.com/nixzhu/dev-blog/blob/master/2017-04-12-json-parser.md)
 - [基于栈的HTML解析器](https://github.com/nixzhu/dev-blog/blob/master/2017-05-22-stack-based-html-parser.md)
 - 翻译：[入门 GraphQL & Apollo](https://github.com/nixzhu/dev-blog/blob/master/2017-06-01-GraphQL-Apollo.md)
+- [App的环境](https://github.com/nixzhu/dev-blog/blob/master/2017-07-05-app-environment.md)
 
 欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
 
-感觉此开发博客对您有益？用支付宝请我喝咖啡吧：
+感觉此开发博客对您有益？用支付宝请我喝杯咖啡吧：
 
 ![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
