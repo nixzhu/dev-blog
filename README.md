@@ -46,6 +46,13 @@ dev-blog
 
 欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
 
-感觉此开发博客对您有益？用支付宝请我喝杯咖啡吧：
+感觉此博客对您有益？不如请我喝杯咖啡吧：
+
+支付宝：
 
 ![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
+
+比特币`1EcDVcsQPeg7QVGdCFkQpHXKQMjPJmbixz`：
+
+![NIX的BitCoin](https://github.com/nixzhu/dev-blog/raw/master/images/nix_bitcoin.png)
+
