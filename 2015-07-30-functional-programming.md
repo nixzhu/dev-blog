@@ -189,8 +189,8 @@ satisfied = bind(satisfied, hug(hugMinutes, smallTalk)) ?? false
 
 ``` swift
 precedencegroup BindPrecedence {
-  higherThan: NilCoalescingPrecedence
-  associativity: left
+    higherThan: NilCoalescingPrecedence
+    associativity: left
 }
 infix operator >>>: BindPrecedence
 
