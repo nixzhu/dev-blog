@@ -50,15 +50,15 @@ if foreplay(foreplayMinutes) {
 其中`foreplay`，`sexualIntercourse`，`hug`都是函数，它们的实现大概如下：
 
 ``` swift
-func foreplay(minutes: Int) -> Bool {
+func foreplay(_ minutes: Int) -> Bool {
     return minutes >= 15 ? true : false
 }
 
-func sexualIntercourse(minutes: Int) -> Bool {
+func sexualIntercourse(_ minutes: Int) -> Bool {
     return (minutes >= 3 && minutes <= 5) ? true : false
 }
 
-func hug(minutes: Int, smallTalk: Bool) -> Bool {
+func hug(_ minutes: Int, _ smallTalk: Bool) -> Bool {
     return ((minutes >= 30) ? true : false) && smallTalk
 }
 ```
@@ -77,10 +77,10 @@ func hug(minutes: Int, smallTalk: Bool) -> Bool {
 
 别慌，快了。
 
-其实函数式编程的是一种更高层的抽象（类似于我们将“过程”抽象成“函数”）：我们假设有个“高阶函数”，它能接受任意数据和一个函数（利用范型），并返回经过此函数处理的数据。我们命名此函数为`bind`：
+其实函数式编程是一种更高层的抽象（类似于我们将“过程”抽象成“函数”）：我们假设有个“高阶函数”，它能接受任意数据和一个函数（利用范型），并返回经过此函数处理的数据。我们命名此函数为`bind`：
 
 ``` swift
-func bind<A, B>(a: A?, f: A -> B?) -> B? {
+func bind<A, B>(_ a: A?, _ f: (A) -> B?) -> B? {
     if let x = a {
         return f(x)
     } else {
@@ -138,29 +138,28 @@ if satisfied {
 
 ``` swift
 func add(a: Int, b: Int) -> Int {
-	return a + b
+    return a + b
 }
 
 add(3, 4) // 7
 
 func add(a: Int)(b: Int) -> Int { // 等价于上面的 add 函数
-	return a + b
+    return a + b
 }
 
 let addThree = add(3) // addThree 是一个新的函数，其可接受一个参数
 
 addThree(4) // 7
-
 ```
 
 由此，我们改造`sexualIntercourse`和`hug`如下：
 
 ``` swift
-func sexualIntercourse(minutes: Int)(foreplaySatisfied: Bool) -> Bool? {
+func sexualIntercourse(_ minutes: Int) -> (_ foreplaySatisfied: Bool) -> Bool? {
     //...
 }
 
-func hug(minutes: Int, smallTalk: Bool)(sexualIntercourseSatisfied: Bool) -> Bool? {
+func hug(_ minutes: Int, _ smallTalk: Bool) -> (_ sexualIntercourseSatisfied: Bool) -> Bool? {
     //...
 }
 ```
@@ -168,9 +167,10 @@ func hug(minutes: Int, smallTalk: Bool)(sexualIntercourseSatisfied: Bool) -> Boo
 注意`hug`函数，表明了我们对多参数的分割可以在任意位置。事实上，我们也可以写为：
 
 ``` swift
-func hug(minutes: Int)(smallTalk: Bool)(sexualIntercourseSatisfied: Bool) -> Bool? {
+func hug(_ minutes: Int) -> (_ smallTalk: Bool) -> (_ sexualIntercourseSatisfied: Bool) -> Bool? {
     //...
 }
+
 ```
 
 当然使用时会更加灵活。
@@ -188,9 +188,13 @@ satisfied = bind(satisfied, hug(hugMinutes, smallTalk)) ?? false
 此时，我们用`bind`将我们的过程顺序链接起来了。不过`bind`的语法依然让人困惑，我们可以增加一个中缀操作符：
 
 ``` swift
-infix operator >>> { associativity left precedence 160 }
+precedencegroup BindPrecedence {
+  higherThan: NilCoalescingPrecedence
+  associativity: left
+}
+infix operator >>>: BindPrecedence
 
-func >>><A, B>(a: A?, f: A -> B?) -> B? {
+func >>><A, B>(_ a: A?, _ f: (A) -> B?) -> B? {
     return bind(a, f)
 }
 ```
@@ -213,7 +217,7 @@ let satisfied = foreplay(foreplayMinutes) >>> sexualIntercourse(sexualIntercours
 
 上面只是将数据和函数bind在一起处理，那若是其它“合成”情况，或更高阶呢？例如有某个函数接受两个函数作为参数并生成一个新的函数又会怎么样（完全不理会数据了）。只要发挥你的想象力，那函数式编程也就不再神秘。
 
-##小结
+## 小结
 
 函数式编程就是将函数当作一种数据类型，或者从更高的层面去看待数据和函数，使其可传递、可生成、可组合、可分解。有了这样的高级抽象，我们对函数的理解会更深刻，我们思考时就能更加自由。
 
