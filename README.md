@@ -43,6 +43,7 @@ dev-blog
 - [基于栈的HTML解析器](https://github.com/nixzhu/dev-blog/blob/master/2017-05-22-stack-based-html-parser.md)
 - 翻译：[入门 GraphQL & Apollo](https://github.com/nixzhu/dev-blog/blob/master/2017-06-01-GraphQL-Apollo.md)
 - [App的环境](https://github.com/nixzhu/dev-blog/blob/master/2017-07-05-app-environment.md)
+- [测试五要素](https://github.com/nixzhu/dev-blog/blob/master/2017-08-31-five-factor-testing.md)
 
 欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
 
