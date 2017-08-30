@@ -48,8 +48,6 @@
 
 > **5\. 支持重构**
 
-Let's look at each of these in more detail.
-
 让我们分别看看它们的细节。
 
 ## 1\. 验证代码的正确性
