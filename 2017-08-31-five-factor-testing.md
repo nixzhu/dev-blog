@@ -179,6 +179,8 @@
 
 是的。测试，它本身，就很复杂，因为测试是一种技术社会结构，用于支持代码和团队的协同工作。若你的团队的需求会随着时间修改（由于商业变化、个人变化、或两种都有），那你的测试也要跟着改变。将你的测试当作活着的文档，而不是过去冲刺所留下的僵死残余物。考虑它们的实际效用，就现在，而不是一本书、一个思想领袖、甚至你的老板说你“必须”要有它们。
 
+广告：最近写了一个用于从JSON生成Swift模型的Mac应用，叫做[CuteBaby](https://itunes.apple.com/us/app/cutebaby-json-model-generator-for-swift/id1262352477?l=zh&ls=1&mt=12)，它已支持生成Swift 4 Codable模型。如果你要迁移项目到Swift 4，也许用得到，欢迎购买！
+
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
