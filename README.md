@@ -44,6 +44,7 @@ dev-blog
 - 翻译：[入门 GraphQL & Apollo](https://github.com/nixzhu/dev-blog/blob/master/2017-06-01-GraphQL-Apollo.md)
 - [App的环境](https://github.com/nixzhu/dev-blog/blob/master/2017-07-05-app-environment.md)
 - 翻译：[测试五要素](https://github.com/nixzhu/dev-blog/blob/master/2017-08-31-five-factor-testing.md)
+- [让preferredStatusBarStyle真的工作（iOS 10以后）](https://github.com/nixzhu/dev-blog/blob/master/2017-10-20-preferredStatusBarStyle.md)
 
 欢迎用 iMessage 与我交流：`nixzhu@icloud.com`
 
