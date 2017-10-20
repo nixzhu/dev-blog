@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
 
 通常，这样就不会有问题了。不过，总是有一个例外。
 
-当你present一个VC的时候，被present的VC的`preferredStatusBarStyle`不会工作（尽管它会是visibleViewController）。你必须在present前设置：
+当你present一个VC的时候，被present的VC的`preferredStatusBarStyle`不会工作（尽管它会是`visibleViewController`）。你必须在present前设置：
 
 ``` swift
     vc.modalPresentationCapturesStatusBarAppearance = true
