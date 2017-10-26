@@ -7,7 +7,11 @@
 
 ---
 
-先观察Storyboard。
+首先阅读README。
+
+……
+
+接下来观察Storyboard。
 
 首先，VPN列表显示在`ConfigurationListController`，它通过`reloadManagers()`将所有的VPN配置加载为列表。通过segue，用户可以新增VPN配置、编辑已有VPN配置，最重要的是查看某个VPN的状态。
 
@@ -24,3 +28,20 @@
 具体到`startTunnel()`的代码，它新建了一个`ClientTunnel`，设置其`delegate`为`self`，并让其执行内部的`startTunnel()`，最后把`completionHandler`保存下来备用。
 
 既然如此，我们把目光转向这个真正做事的`ClientTunnel`。
+
+# ClientTunnel
+
+`ClientTunnel`位于`SimpleTunnelServices` target中，其`startTunnel()`首先根据来自`PacketTunnelProvider`（它已被通过参数传递）的配置，创建好`endpoint`，它是一个`NWEndpoint`，包装了`hostname`和`port`。至于缺少信息而创建`NWBonjourServiceEndpoint`类型的`endpoint`就不理会了。
+
+接下来就是最重要的一步，让`PacketTunnelProvider`通过`createTCPConnectionToEndpoint:enableTLS:TLSParameters:delegate:`发起到`endpoint`的TCP链接，并将链接记到`connection`上，且观察其`state`。
+
+那么我们就转到KVO的处理上。
+
+在`observeValue`方法中，当链接状态为`connected`，我们把`remoteAddress`的`hostname`记下来为`remoteHost`；然后用`readNextPacket()`读取下一个包，并让`delegate`（也就是`PacketTunnelProvider`）知道`tunnel`打开了。其它状的处理暂时不理。
+
+让我们转回到`PacketTunnelProvider`实现的`tunnelDidOpen`delegate方法，它利用tunnel建立了一个`ClientTunnelConnection`记为`tunnelConnection`并`open`它。
+
+那我们就再来看看`ClientTunnelConnection`是个什么东西。其`open`方法里，利用`clientTunnel`（也就是初始化时传递的`tunnel`)的`sendMessage`发送了一个字典，这个字典里有identifier、值为open的command以及为值ip的tunnel type。
+
+
+
