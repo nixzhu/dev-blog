@@ -46,10 +46,13 @@ class TabBarController: UITabBarController {
 当你present一个VC的时候，被present的VC的`preferredStatusBarStyle`不会工作（尽管它会是`visibleViewController`）。你必须在present前设置：
 
 ``` swift
+    vc.modalPresentationStyle = .overCurrentContext // 如果你用的是自定义转场，modalPresentationStyle会不一样。
     vc.modalPresentationCapturesStatusBarAppearance = true
 ```
 
 这样“确认工作”才会继续传递下去。
+
+如果有必要，你还应该在合适的时机调用UIViewController的`setNeedsStatusBarAppearanceUpdate()`来强制更新`preferredStatusBarStyle`。
 
 ---
 
