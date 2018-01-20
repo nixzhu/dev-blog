@@ -52,9 +52,5 @@ dev-blog
 
 支付宝：
 
-![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.png)
-
-比特币(`1EcDVcsQPeg7QVGdCFkQpHXKQMjPJmbixz`)：
-
-![NIX的BitCoin](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_bitcoin.png)
+![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/master/images/nixzhu_alipay.jpg)
 
