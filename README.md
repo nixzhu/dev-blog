@@ -46,7 +46,7 @@ dev-blog
 - 翻译：[测试五要素](https://github.com/nixzhu/dev-blog/blob/master/2017-08-31-five-factor-testing.md)
 - [让preferredStatusBarStyle真的工作（iOS 10以后）](https://github.com/nixzhu/dev-blog/blob/master/2017-10-20-preferredStatusBarStyle.md)
 
-有任何想法，欢迎[用邮件和我交流](mailto: zhuhongxu@gmail.com)。
+有任何想法，欢迎[用邮件和我交流](mailto:zhuhongxu@gmail.com)。
 
 感觉此博客对您有益？不如请我喝杯咖啡（或者绿茶）吧：
 
