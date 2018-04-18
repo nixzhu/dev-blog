@@ -45,6 +45,7 @@ dev-blog
 - [App的环境](https://github.com/nixzhu/dev-blog/blob/master/2017-07-05-app-environment.md)
 - 翻译：[测试五要素](https://github.com/nixzhu/dev-blog/blob/master/2017-08-31-five-factor-testing.md)
 - [让preferredStatusBarStyle真的工作（iOS 10以后）](https://github.com/nixzhu/dev-blog/blob/master/2017-10-20-preferredStatusBarStyle.md)
+- [自定义Share Extension](https://github.com/nixzhu/dev-blog/blob/master/2018-04-18-custom-share-extension.md)
 
 有任何想法，欢迎[用邮件和我交流](mailto:zhuhongxu@gmail.com)。
 
