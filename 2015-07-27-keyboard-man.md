@@ -167,8 +167,6 @@ public var postKeyboardInfo: ((keyboardMan: KeyboardMan, keyboardInfo: KeyboardI
 
 项目地址：[https://github.com/nixzhu/KeyboardMan](https://github.com/nixzhu/KeyboardMan)
 
-最后是个预告，我最近在写一本关于算法的书（代码用 Swift 2），不会是系统的算法讲解，而是从具体例子实现一些“综合性”的算法，重点在于分析的过程。但只刚开了个头，希望能在 Swift 2 正式版发布前完成，似乎时间不多了，不敢保证。
-
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
