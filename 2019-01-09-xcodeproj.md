@@ -57,3 +57,7 @@ try project.write(path: projectPath, override: true)
 最后的最后，查看 xcodeproj 的文档 [https://tuist.github.io/xcodeproj/](https://tuist.github.io/xcodeproj/)，对这棵树里有什么东西就更加清楚了。
 
 具体使用时，多利用 Xcode 的代码提示功能，看看有什么属性可以用，某些结构里都有什么值，渐渐就熟悉了。
+
+------
+
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
