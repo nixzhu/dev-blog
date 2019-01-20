@@ -674,3 +674,7 @@ fetchIds()
 - [JavaScript Promises … In Wicked Detail](https://www.mattgreer.org/articles/promises-in-wicked-detail/)
 - [PromiseKit 6 Release Details](https://promisekit.org/news/2018/02/PromiseKit-6.0-Released/)
 - [TDD Implementation of Promises in JavaScript](https://www.youtube.com/watch?v=C3kUMPtt4hY)
+
+------
+
+欢迎转载，但请一定注明出处：[https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog) ！
