@@ -48,6 +48,7 @@ dev-blog
 - [自定义Share Extension](https://github.com/nixzhu/dev-blog/blob/master/2018-04-18-custom-share-extension.md)
 - [ARC：我捕捉它了吗？](https://github.com/nixzhu/dev-blog/blob/master/2018-06-04-arc.md)
 - [使用 xcodeproj](https://github.com/nixzhu/dev-blog/blob/master/2019-01-09-xcodeproj.md)
+- 翻译：[使用 Swift 实现 Promise](https://github.com/nixzhu/dev-blog/blob/master/2019-01-21-implementing-promises-in-swift.md)
 
 有任何想法，欢迎[用邮件和我交流](mailto:zhuhongxu@gmail.com)。
 
