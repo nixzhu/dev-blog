@@ -6,6 +6,8 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
+广告：帮你转换 JSON 为 Codable 模型的 [SmartBaby](https://itunes.apple.com/us/app/smartbaby/id1438971945?mt=12) 已发布1.0 版，节省点时间。
+
 ---
 
 我最近在找如何使用 Swift 实现 Promise 的资料，因为没找到好的文章，所以我想自己写一篇。通过本文，我们将实现自己的 Promise 类型，以便明了其背后的逻辑。
