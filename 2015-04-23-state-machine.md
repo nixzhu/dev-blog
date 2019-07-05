@@ -235,6 +235,10 @@ rocketView.stateTransitionAction = { (previousState, currentState) in
 
 一个迷你的状态机：[Redstone](https://github.com/nixzhu/Redstone)，实现简单，使用方便，可满足绝大部分需求。
 
+# 补记 2
+
+另一个更简单的使用转移函数的实现：[StateMachine-TransitionFunction.swift](https://gist.github.com/nixzhu/3f6dfd063f784269a29320b8d38e1719)
+
 ---
 
 欢迎转载，但请一定注明出处！ [https://github.com/nixzhu/dev-blog](https://github.com/nixzhu/dev-blog)
