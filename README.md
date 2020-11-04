@@ -56,5 +56,4 @@ dev-blog
 
 支付宝：
 
-![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/main/posts/images/nixzhu_alipay.jpg)
-
+![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/main/images/nixzhu_alipay.jpg)
