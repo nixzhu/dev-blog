@@ -42,7 +42,7 @@ UIActivityViewController *activityViewController =
 
 这将在屏幕的底部呈现如下所示的东西：
 
-![UIActivityViewController](http://nshipster.s3.amazonaws.com/uiactivityviewcontroller.png)
+![UIActivityViewController](https://nshipster.com/assets/uiactivityviewcontroller-a7b5cb0c237bc73fb43ca87c87d0c087954edf0e214c68978017411f65042d1feea8f49747005ade4bedc17d037b2cf55b41854d5682ad798fcc040dd73e7f73.png)
 
 默认情况下，UIActivityViewController 将显示所有可用于所提供内容的服务，但我们也可以排除特定的 Activity 类型。
 
@@ -419,9 +419,9 @@ Activity 类型又分为“操作”和“分享”两大类：
 
 作为例子，让我们创建一个自定义 Activity 类型，它能接受一个图片 URL 并使用 [mustache.me](http://mustache.me/) 为其安上一瞥胡子。
 
-![Jony Ive Before](http://nshipster.s3.amazonaws.com/jony-ive-unstache.png)之前
+![Jony Ive Before](https://nshipster.com/assets/jony-ive-unstache-471d24859054e549fdcdb85074d36c0afc4c277e83cd82fc29afa5d0d1ecd5fb3638a0e9aec484dfbb38a8ffc724e117355d6bd068469f81bbfe770c84a67e52.png)之前
 
-![Jony Ive After](http://nshipster.s3.amazonaws.com/jony-ive-mustache.png)之后
+![Jony Ive After](https://nshipster.com/assets/jony-ive-mustache-c52be213feccf807b5765bec739a345b1b9e7dbae856eea5fb417e34b8537fa686de5bc08344bc53dfaa56009200fc435f2506746630caad30144ac6aaafec88.png)之后
 
 首先，我们为 Activity 类型定义一个[反向DNS标识符（reverse-DNS identifier）](http://en.wikipedia.org/wiki/Reverse_domain_name_notation)，指定类别为 UIActivityCategoryAction ，然后提供一个本地化的标题和一个合适于iOS版本的图像：
 
@@ -615,7 +615,7 @@ TWTweetComposeViewController *tweetComposeViewController =
 
 虽然 iOS 缺少可扩展的基础架构来支持这些，但一个第三方的库，叫做 IntentKit，由 [@lazerwalker ](https://github.com/lazerwalker)(有着 [f*ingblocksyntax.com](http://goshdarnblocksyntax.com/) 的声誉) 编写，它是一个有趣的关于我们如何缩小差距的例子。
 
-![IntentKit](https://raw.github.com/intentkit/IntentKit/master/example.gif)
+![IntentKit](https://github.com/intentkit/IntentKit/raw/master/example.gif)
 
 正常情况下，在一开始一个开发者就要做许多工作，例如查询某个特定的应用是否已被安装，以及构造一个 URL 以支持某个特定的 Activity 等。
 
