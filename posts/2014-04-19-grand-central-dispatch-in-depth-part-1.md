@@ -8,16 +8,16 @@
 
 ---
 
-虽然 GCD 已经出现过一段时间了，但不是每个人都明了其主要内容。这是可以理解的；并发一直很棘手，而 GCD 是基于 C 的 API ，它们就像一组尖锐的棱角戳进 Objective-C 的平滑世界。我们将分两个部分的教程来深入学习 GCD 。
+虽然 GCD 已出现一段时间了，但不是每个人都明了其主要功能。可以理解，因为并发一直很棘手。GCD 提供基于 C 的 API ，它们就像一组棱角戳进 Objective-C 的平滑世界。我们将分两个部分的教程来深入学习 GCD 。
 
-在这两部分的系列中，第一个部分的将解释 GCD 是做什么的，并从许多基本的 GCD 函数中找出几个来展示。在[第二部分](https://github.com/nixzhu/dev-blog/blob/master/2014-05-14-grand-central-dispatch-in-depth-part-2.md)，你将学到几个 GCD 提供的高级函数。
+在这两部分的系列中，第一部分的将解释 GCD 是做什么的，并从许多基本的 GCD 函数中找出几个来展示。在[第二部分](https://github.com/nixzhu/dev-blog/blob/main/posts/2014-05-14-grand-central-dispatch-in-depth-part-2.md)，你将学到 GCD 提供的几个高级函数。
 
 ## 什么是 GCD
 
 GCD 是 `libdispatch` 的市场名称，而 libdispatch 作为 Apple 的一个库，为并发代码在多核硬件（跑 iOS 或 OS X ）上执行提供有力支持。它具有以下优点：
 
-- GCD 能通过推迟昂贵计算任务并在后台运行它们来改善你的应用的响应性能。
-- GCD 提供一个易于使用的并发模型而不仅仅只是锁和线程，以帮助我们避开并发陷阱。
+- GCD 能将昂贵计算任务推迟在后台运行，以改善应用的响应性能。
+- GCD 提供一个易于使用的并发模型而不仅仅只是锁和线程，能帮助我们避开并发陷阱。
 - GCD 具有在常见模式（例如单例）上用更高性能的原语优化你的代码的潜在能力。
 
 本教程假设你对 Block 和 GCD 有基础了解。如果你对 GCD 完全陌生，先看看 [iOS 上的多线程和 GCD 入门教程](http://www.raywenderlich.com/4295/multithreading-and-grand-central-dispatch-on-ios-for-beginners-tutorial) 学习其要领。
@@ -494,7 +494,7 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 
 恭喜——你的 `PhotoManager` 单例现在是线程安全的了。不论你在何处或怎样读或写你的照片，你都有这样的自信，即它将以安全的方式完成，不会出现任何惊吓。
 
-## A Visual Review of Queueing 队列的视觉回顾
+## A Visual Review of Queueing 以动画回顾队列
 
 依然没有 100% 地掌握 GCD 的要领？确保你可以使用 GCD 函数轻松地创建简单的例子，使用断点和 `NSLog` 语句保证自己明白当下发生的情况。
 
@@ -564,8 +564,8 @@ Dispatch barriers 是一组函数，在并发队列上工作时扮演一个串�
 ## 下一步怎么走？
 
 在本教程中，你学习了如何让你的代码线程安全，以及在执行 CPU 密集型任务时如何保持主线程的响应性。
- 
-你可以下载[ GooglyPuff 项目](https://koenig-media.raywenderlich.com/uploads/2014/01/GooglyPuff_End_1.zip)，它包含了目前所有本教程中编写的实现。在本教程的[第二部分](https://github.com/nixzhu/dev-blog/blob/master/2014-05-14-grand-central-dispatch-in-depth-part-2.md)，你将继续改进这个项目。
+
+你可以下载[ GooglyPuff 项目](https://koenig-media.raywenderlich.com/uploads/2014/01/GooglyPuff_End_1.zip)，它包含了目前所有本教程中编写的实现。在本教程的[第二部分](https://github.com/nixzhu/dev-blog/blob/main/posts/2014-05-14-grand-central-dispatch-in-depth-part-2.md)，你将继续改进这个项目。
 
 如果你计划优化你自己的应用，那你应该用 `Instruments` 中的 `Time Profile` 模版分析你的工作。对这个工具的使用超出了本教程的范围，你可以看看 [如何使用Instruments](http://www.raywenderlich.com/23037/how-to-use-instruments-in-xcode) 来得到一个很好的概述。
 
