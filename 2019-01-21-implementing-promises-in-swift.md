@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-广告：帮你转换 JSON 为 Codable 模型的 [SmartBaby](https://itunes.apple.com/us/app/smartbaby/id1438971945?mt=12) 已发布1.0 版，节省点时间。
+广告：可转换 JSON 为 Codable 模型的 [SmartBaby](https://apps.apple.com/cn/app/smartbaby/id1438971945?mt=12) 已发布1.0 版，它能帮你节省制作模型的时间。
 
 ---
 
