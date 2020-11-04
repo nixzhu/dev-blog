@@ -18,12 +18,12 @@
 
 在本教程中，你将学会如何搭建了一个 Node.js 环境，驱动 Express；在此平台之上，你将构建一个通过 REST API 来提供一个 MongoDB 数据库的服务器，就像这样：
 
-![The backend database rendered in a HTML table](http://cdn4.raywenderlich.com/wp-content/uploads/2014/02/tmt_db-480x270.png)  
+![The backend database rendered in a HTML table](https://koenig-media.raywenderlich.com/uploads/2014/02/tmt_db.png)  
 在一个 HTML 表格中呈现的后端数据库
 
 本教程的第二部分重点放在 iOS 应用端。你将构建一个很酷的叫做“有趣的地方”的应用，标记有趣的位置，让其它用户能够找出他们附近有趣的地方。下面稍微窥探一下你将构建的应用：
 
-![The TourMyTown main view](http://cdn3.raywenderlich.com/wp-content/uploads/2014/02/tmt_basic-213x320.png)  
+![The TourMyTown main view](https://koenig-media.raywenderlich.com/uploads/2014/02/tmt_basic.png)  
 TourMyTown 的主视图
 
 本教程假设你已经了解了 JavaScript 和 Web 开发的基础，但对 Node.js、Express 以及 MongoDB 都不熟悉。
@@ -135,7 +135,7 @@ node index.js
 
 再一次，我们看到了熟悉的 “Hello World” 输出。你也可以执行 `node .` 来运行你的脚本，`.` 就会默认查找 `index.js` 。
 
-![node_run](http://cdn3.raywenderlich.com/wp-content/uploads/2014/02/node_run-480x109.png)
+![node_run](https://koenig-media.raywenderlich.com/uploads/2014/02/node_run.png)
 
 固然，一个 “Hello World” 脚本成不了一个服务器，但这是测试你的安装是否成功的快速方式。下一节将向你介绍 Node.js 包的世界，这会成为你那闪亮的新 Web 服务器的基础！
 
@@ -175,11 +175,11 @@ node index.js
 
 你将在控制台看到如下输出：
 
-![node_server](http://cdn4.raywenderlich.com/wp-content/uploads/2014/02/node_server-480x88.png)
+![node_server](https://koenig-media.raywenderlich.com/uploads/2014/02/node_server.png)
 
 打开你最喜欢的浏览器导航至 [http://localhost:3000](http://localhost:3000) ；好好瞧着， Node.js 正在提供给你的是一个 “Hello World” 页面。
 
-![web_helloworld](http://cdn1.raywenderlich.com/wp-content/uploads/2014/02/web_helloworld-480x230.png)
+![web_helloworld](https://koenig-media.raywenderlich.com/uploads/2014/02/web_helloworld.png)
 
 你的脚本还在哪里，耐心地等待从 3000 端口传入的 HTTP 请求。要干掉（kill）你的 Node 实例，只需在终端按下 `Ctrl+C`。
 
@@ -252,7 +252,7 @@ npm install
 
 你会看到如下输出：
 
-![npm_install](http://cdn2.raywenderlich.com/wp-content/uploads/2014/02/npm_install-480x284.png)
+![npm_install](https://koenig-media.raywenderlich.com/uploads/2014/02/npm_install.png)
 
 `install` 下载并安装 `package.json` 指定的依赖——以及你的依赖本身的依赖！:] ——存进一个叫做 `node_modules` 的目录，并让你的应用程序使用它们。
 
@@ -340,7 +340,7 @@ curl -v http://localhost:3000
 
 你会看到如下输出：
 
-![curl_v](http://cdn2.raywenderlich.com/wp-content/uploads/2014/02/curl_v-437x320.png)
+![curl_v](https://koenig-media.raywenderlich.com/uploads/2014/02/curl_v.png)
 
 `curl` 吐出你的 HTTP 请求的头和内容，给你显示服务传来的东西的原始细节。注意 `X-Powered-By : Express` 头；Express 会自动添加这个元数据到应答里。
 
@@ -404,7 +404,7 @@ mkdir public; edit public/hello.html
 
 再次用命令 `node index.js` 重启你的 Node 实例。 浏览器打开 [http://localhost:3000/hello.html](http://localhost:3000/hello.html) 你就会看到这个新创建的页面，如下所示：
 
-![web_hello](http://cdn5.raywenderlich.com/wp-content/uploads/2014/02/web_hello-480x230.png)
+![web_hello](https://koenig-media.raywenderlich.com/uploads/2014/02/web_hello.png)
 
 ## 高级路由
 
@@ -429,7 +429,7 @@ app.get('/:a?/:b?/:c?', function (req,res) {
 
 重启你的 Node 实例，再将浏览器转到 [http://localhost:3000/hi/every/body](http://localhost:3000/hi/every/body) 。你将看到如下页面：
 
-![web_hieverybody](http://cdn1.raywenderlich.com/wp-content/uploads/2014/02/web_hieverybody-480x230.png)
+![web_hieverybody](https://koenig-media.raywenderlich.com/uploads/2014/02/web_hieverybody.png)
 
 “hi” 是 `req.params.a` 的值，“every” 是`req.params.b` 的值，最后 “body” 分配给 `req.params.c` 。
 
@@ -541,7 +541,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 重启你的 Node 实例，使用浏览器加载 URL [http://localhost:3000/show/a/404/page](http://localhost:3000/show/a/404/page) 。你将看到如下页面：
 
-![web_404](http://cdn1.raywenderlich.com/wp-content/uploads/2014/02/web_404-480x230.png)
+![web_404](https://koenig-media.raywenderlich.com/uploads/2014/02/web_404.png)
 
 现在你的 `index.js` 中有足够的启动代码去接收传入的请求并提供一些基本的响应。而缺失的部分就是数据库持久化，它能将这些东西变成一个有用的Web应用程序，能够被一个移动应用所利用。
 
@@ -797,7 +797,7 @@ app.get('/:collection/:entity', function(req, res) { //I
 
 保存你的工作，重启你的 Node 实例， 检查你的 mongod 守护进程是否依然在运行，然后将浏览器指向 [http://localhost:3000/items](http://localhost:3000/items) ；你将看到如下页面：
 
-![web_emptyitems](http://cdn2.raywenderlich.com/wp-content/uploads/2014/02/web_emptyitems-480x247.png)
+![web_emptyitems](https://koenig-media.raywenderlich.com/uploads/2014/02/web_emptyitems.png)
 
 怎么什么都没有？发生了什么事？
 
@@ -857,11 +857,11 @@ curl -H "Content-Type: application/json" -X POST -d '{"title":"Hello World"}' ht
 
 你会在控制台看到记录的返回信息，如下所示：
 
-![term_create](http://cdn5.raywenderlich.com/wp-content/uploads/2014/02/term_create-437x320.png)
+![term_create](https://koenig-media.raywenderlich.com/uploads/2014/02/term_create.png)
 
 现在转到你的浏览器，并重新加载 [http://localhost:3000/items](http://localhost:3000/items) ；你就会在表格中看到你插入的项目。
 
-![web_createitem](http://cdn4.raywenderlich.com/wp-content/uploads/2014/02/web_createitem-480x247.png)
+![web_createitem](https://koenig-media.raywenderlich.com/uploads/2014/02/web_createitem.png)
 
 ## 更新与删除数据
 
@@ -967,11 +967,11 @@ curl -H "Content-Type: application/json" -X PUT -d '{"title":"Good Golly Miss Mo
 
 你会在终端看到如下应答：
 
-![term_update](http://cdn2.raywenderlich.com/wp-content/uploads/2014/02/term_update-437x320.png)
+![term_update](https://koenig-media.raywenderlich.com/uploads/2014/02/term_update.png)
 
 转到浏览器，重新载入 [http://localhost:3000/items](http://localhost:3000/items) ；你会在表格中看到你修改的条目：
 
-![web_updated](http://cdn1.raywenderlich.com/wp-content/uploads/2014/02/web_updated-480x247.png)
+![web_updated](https://koenig-media.raywenderlich.com/uploads/2014/02/web_updated.png)
 
 在终端里执行下列命令以删除你的记录：
 
@@ -981,11 +981,11 @@ curl -H "Content-Type: application/json" -X DELETE  http://localhost:3000/items/
 
 你会看到 curl 收到的响应：
 
-![term_delete](http://cdn5.raywenderlich.com/wp-content/uploads/2014/02/term_delete-437x320.png)
+![term_delete](https://koenig-media.raywenderlich.com/uploads/2014/02/term_delete.png)
 
 重新载入 [http://localhost:3000/items](http://localhost:3000/items) ，我能确定，你的实体不见了。
 
-![web_delete](http://cdn2.raywenderlich.com/wp-content/uploads/2014/02/web_delete-480x247.png)
+![web_delete](https://koenig-media.raywenderlich.com/uploads/2014/02/web_delete.png)
 
 就这样，你使用 Node.js、Express 以及 MongoDB 完成了你的整个 CRUD 模型！
 
