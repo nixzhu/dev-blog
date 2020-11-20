@@ -57,3 +57,7 @@ dev-blog
 支付宝：
 
 ![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/main/images/nixzhu_alipay.jpg)
+
+也欢迎购买我开发的 app：
+
+- 帮助开发者生成 JSON 模型以节省时间的 [Ducky](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933)。
