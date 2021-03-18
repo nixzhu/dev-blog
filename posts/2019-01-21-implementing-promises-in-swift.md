@@ -6,7 +6,7 @@
 
 译者：[@nixzhu](https://twitter.com/nixzhu)
 
-广告：可转换 JSON 为 Codable 模型的 [SmartBaby](https://apps.apple.com/cn/app/smartbaby/id1438971945?mt=12) 已发布1.0 版，它能帮你节省制作模型的时间。
+广告：可转换 JSON 为 Codable 模型的 [Ducky - Model Editor](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933) 现可免费获取，它能帮你节省制作模型的时间。
 
 ---
 
