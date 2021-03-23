@@ -36,11 +36,11 @@
 
 ## 开始
 
-第一步就来[下载](http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/StarterKit.zip) iLikeIt 启动项目，整篇教程里都会用到它。
+第一步就来[下载](https://koenig-media.raywenderlich.com/uploads/2014/03/StarterKit.zip) iLikeIt 启动项目，整篇教程里都会用到它。
 
 用 Xcode 5 打开项目，并在模拟器中运行。在按下 `You like?` 之后你会看到如下界面：
 
-![Starter product screenshot](http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/starter_project_screenshot.png)
+![Starter product screenshot](https://koenig-media.raywenderlich.com/uploads/2014/03/starter_project_screenshot.png)
 
 如你在截图中所见的，你需要本地化 4 个元素：
 
@@ -59,7 +59,7 @@ Xcode 使用以 ".strings" 为扩展名的多个文件来存储和检索所有�
 
 那就让我们来试试看。打开菜单 `File > New > File`，选择 Resource 下 `Strings Fils` ，如下所示：
 
-![Choose strings file](http://cdn3.raywenderlich.com/wp-content/uploads/2014/03/Screen-Shot-2014-03-07-at-4.30.35-pm-700x471.png)
+![Choose strings file](https://koenig-media.raywenderlich.com/uploads/2014/03/Screen-Shot-2014-03-07-at-4.30.35-pm-700x471.png)
 
 点击 `Next` ，将文件命名为 `Localizable.strings` ，然后点击 `Save`。
 
@@ -109,7 +109,7 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 `NSLocalizedString` 宏根据当前的语言设置使用 `localizedStringForKey` 方法去查找给定键值的字符串。它传递 nil 给 table name，所以它使用默认的 strings 文件名（即 `Localizable.strings`）。对于完整细节，请看 Apple 的 [NSBundle Class Reference](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSBundle_Class/Reference/Reference.html)。
 
 >Note：这个宏接受一个注释作为参数，但似乎没什么用。这是因为除了亲手在 `Localizable.strings` 中键入每个 key/value pair 之外，你还可以使用 iOS SDK 提供的一个叫做 `genstrings` 的工具来自动做到这一点（这对于大型项目相当方便）。  
-如果你使用这个方法，你可以在每个字符串上放一个注释，它们会显示在默认字符串的旁边以作为翻译者的辅助。例如，你可以添加一个注释指明字符串被使用在怎样的上下文里。
+>如果你使用这个方法，你可以在每个字符串上放一个注释，它们会显示在默认字符串的旁边以作为翻译者的辅助。例如，你可以添加一个注释指明字符串被使用在怎样的上下文里。
 
 好，已经有了足够的背景信息——让我们开搞！
 
@@ -119,15 +119,15 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 要支持另外一种语言，点击左边窗格里蓝色的 iLikeIt 项目文件夹，在右边的窗格里选择 `Project`（注意不是 Target），然后在 info 标签下你将看到一个 `Localizations` 分段。点击 `+` 然后选择 `Spanish (es)` 。
 
-![Adding Spanish](http://cdn1.raywenderlich.com/wp-content/uploads/2014/03/localization_steps-700x457.png)
+![Adding Spanish](https://koenig-media.raywenderlich.com/uploads/2014/03/localization_steps-700x457.png)
 
 之后出现的屏幕会询问你哪些文件需要做本地化。让它们全部保持选中状态，然后单击 `Finish` 。注意：`Localizable.strings` 没有显示在这个列表里，先不要慌张！
 
-![Select files to localize](http://cdn4.raywenderlich.com/wp-content/uploads/2014/03/select_files_to_localize-700x470.png)
+![Select files to localize](https://koenig-media.raywenderlich.com/uploads/2014/03/select_files_to_localize-700x470.png)
 
 在这个点上，Xcode 已经在后面设置好一些目录，它们包含有不同版本的 `InfoPlist.strings` 和 `Main.storyboard` 以适合你所选择的语言。你可以打开项目文件夹自己看看，大概如下所示：
 
-![New project structure](http://cdn4.raywenderlich.com/wp-content/uploads/2014/03/project_structure.png)
+![New project structure](https://koenig-media.raywenderlich.com/uploads/2014/03/project_structure.png)
 
 看到 `en.lproj` 和 `es.lproj` 了吗？它们包含有特定语言版本的文件。
 
@@ -139,15 +139,15 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 但先等一下，`Localizable.strings` 呢？要让 Xcode 知道你想让它本地化，在左窗格里选中这个文件，然后在右边窗格里打开 `File Inspector`。你会看到一个叫做 `Localize` 的按钮，点击它，选择英语（因为它目前就只有英语），最后点击 `Localize`。
 
-![Localize button](http://cdn1.raywenderlich.com/wp-content/uploads/2014/03/Localize_button-700x457.png)
+![Localize button](https://koenig-media.raywenderlich.com/uploads/2014/03/Localize_button-700x457.png)
 
 现在 `File Inspector` 窗格会显示这个文件属于哪些语言。目前，如你所见，这个文件只有英文的本地化。点击 `Spanish` 左边的 box 就可以添加西班牙语的本地化了。
 
-![Select spanish button](http://cdn5.raywenderlich.com/wp-content/uploads/2014/03/select_spanish_button.png)
+![Select spanish button](https://koenig-media.raywenderlich.com/uploads/2014/03/select_spanish_button.png)
 
 回到左边窗格并点击 `Localizable.strings` 前面的小箭头，就会显示出子元素。你会看到有两个版本的文件：一个是为英语准备的，另一个是为西班牙语准备的：
 
-![Localization files](http://cdn4.raywenderlich.com/wp-content/uploads/2014/03/localization_files.png)
+![Localization files](https://koenig-media.raywenderlich.com/uploads/2014/03/localization_files.png)
 
 要修改西班牙语的文本，选择 `Localizable.strings (Spanish)` 并用下面显示的文体替换它的内容：
 
@@ -162,7 +162,7 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 如果你还在运行 Xcode debugger ，先 `Stop` ，再重新编译并运行应用，你将看到：
 
-![Spanish version](http://cdn3.raywenderlich.com/wp-content/uploads/2014/03/espanol_version-308x500.png)
+![Spanish version](https://koenig-media.raywenderlich.com/uploads/2014/03/espanol_version-308x500.png)
 
 ## 语言环境 vs 语言
 
@@ -179,15 +179,15 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 编译并运行应用，现在数字看起来更加易读了：
 
-![Number formatted](http://cdn5.raywenderlich.com/wp-content/uploads/2014/03/number_formatted-308x500.png)
+![Number formatted](https://koenig-media.raywenderlich.com/uploads/2014/03/number_formatted-308x500.png)
 
 这在美国人看了很棒，但在西班牙 1 百万写作 “1.000.000″ 而不是 “1,000,000″ 。在西班牙语下运行应用，你就会看到分隔0的还是逗号。因为在 iOS 中，数字的格式化基于地区/国家，而不是语言，所以为了观察西班牙的某个人会看到怎样的销售数字，打开 `设置（Settings.app）` 通过导航到 `通用General -> 多语言环境International ->区域格式Region Format -> Spanish -> Spain` 来修改语言环境：
 
-![Spanish region format](http://cdn3.raywenderlich.com/wp-content/uploads/2014/03/spanish_region_format-308x500.png)
+![Spanish region format](https://koenig-media.raywenderlich.com/uploads/2014/03/spanish_region_format-308x500.png)
 
 再次编译并运行应用，你就会看到格式正确的数字：
 
-![Spain number formatting](http://cdn1.raywenderlich.com/wp-content/uploads/2014/03/spain_number_formatting-308x500.png)
+![Spain number formatting](https://koenig-media.raywenderlich.com/uploads/2014/03/spain_number_formatting-308x500.png)
 
 额外的说明，`NSNumberFormatter` 自动地以合适的区域格式化你的数字。只要有可能，请抗拒重新发明轮子的冲动，因为在 iOS 上，按着 Apple 的方式做事才有回报。
 
@@ -219,7 +219,7 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 要本地化图片，首先下载这个西班牙语的图片（在大多数浏览器上都是：右键－>存储图像为…）
 
-![Me Gusta](http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/megusta.png)
+![Me Gusta](https://koenig-media.raywenderlich.com/uploads/2014/03/megusta.png)
 
 打开 `Images.xcassets` 并通过拖动将刚下载的这个 `megusta.png` 到左边的图片列表以添加到资产目录（asset catalog）。资产目录不能被国际化，所以你需要使用一个简单的解决办法来本地化这个图像。
 
@@ -245,7 +245,7 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 如果有必要，将 模拟器/设备 切换到西班牙语，然后编译并运行，你就会看到本地化版本的图像显示出来了。
 
-![Spanish image](http://cdn4.raywenderlich.com/wp-content/uploads/2014/03/spanish_image-308x500.png)
+![Spanish image](https://koenig-media.raywenderlich.com/uploads/2014/03/spanish_image-308x500.png)
 
 恭喜！你已经拥有了能本地化应用到多种不同语言的全部工具。
 
@@ -275,7 +275,7 @@ _salesCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Yesterday
 
 ## 下一步该怎么走？
 
-这里是[最终的项目](http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/Final-Project.zip)，包含有上面的教程中你所编写的所有代码。
+这里是[最终的项目](https://koenig-media.raywenderlich.com/uploads/2014/03/Final-Project.zip)，包含有上面的教程中你所编写的所有代码。
 
 现在你知道了国际化一个 iPhone 应用的基本技术，那就为你的某个旧应用或在设计下一个应用时添加一门外语吧。正如你所看到的，这几乎不花时间，而且能将应用推给更广泛、更多样化的受众，那些不会英语的受众会因此而感激你！
 
