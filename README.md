@@ -50,10 +50,11 @@ dev-blog
 - [使用 xcodeproj](https://github.com/nixzhu/dev-blog/blob/main/posts/2019-01-09-xcodeproj.md)
 - 翻译：[使用 Swift 实现 Promise](https://github.com/nixzhu/dev-blog/blob/main/posts/2019-01-21-implementing-promises-in-swift.md)
 - 翻译：[使用 Swift 的 async/await 构建一个图片加载器](https://github.com/nixzhu/dev-blog/blob/main/posts/2021-09-28-using-swifts-async-await-to-build-an-image-loader.md)
+- 翻译：[Swift 中 Actor 的重入问题](https://github.com/nixzhu/dev-blog/blob/main/posts/2021-09-28-actor-reentrancy-problem.md)
 
 有任何想法，欢迎[用邮件和我交流](mailto:zhuhongxu@gmail.com)。
 
 也欢迎购买我开发的 app：
 
-- 帮助开发者生成 JSON 模型以节省时间的 [Ducky](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933)。
+- 帮助开发者生成 JSON 模型以节省时间的 [Ducky](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933)，同时支持 iOS 和 Mac。
 
