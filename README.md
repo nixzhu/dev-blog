@@ -53,12 +53,7 @@ dev-blog
 
 有任何想法，欢迎[用邮件和我交流](mailto:zhuhongxu@gmail.com)。
 
-感觉此博客对您有益？不如请我喝杯咖啡（或者绿茶）吧：
-
-支付宝：
-
-![NIX的支付宝](https://github.com/nixzhu/dev-blog/raw/main/images/nixzhu_alipay.jpg)
-
 也欢迎购买我开发的 app：
 
 - 帮助开发者生成 JSON 模型以节省时间的 [Ducky](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933)。
+
