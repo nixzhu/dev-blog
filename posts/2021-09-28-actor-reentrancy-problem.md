@@ -1,5 +1,3 @@
-![The Actor Reentrancy Problem in Swift](https://i1.wp.com/swiftsenpai.com/wp-content/uploads/2021/09/actor-reentrancy-feature-image.jpeg?fit=1420%2C800&ssl=1)
-
 # Swift 中 Actor 的重入问题
 
 本文翻译自：[https://swiftsenpai.com/swift/actor-reentrancy-problem/](https://swiftsenpai.com/swift/actor-reentrancy-problem/)
