@@ -248,7 +248,7 @@ func withdraw(_ amount: Int) async {
     }
     print("✅ 交易已授权: \(amount)")
     
-    // Check balance again after the authorization process
+    // 授权后再次检查余额
     guard canWithdraw(amount) else {
         print("⛔️ 余额不够提取: \(amount) (已授权)")
         return
