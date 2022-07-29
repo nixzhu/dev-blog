@@ -12,7 +12,7 @@
 
 其中，name 的最大长度很可能超过通过简单计算的 barWidth（即，barWidth = fullWidth / count），所以默认情况下将 name 旋转一个角度放置，使各名字不互相覆盖。如图所示：
 
-![Adaptive Chart Intro](https://github.com/nixzhu/dev-blog/raw/master/images/adaptive_chart_intro.png)
+![Adaptive Chart Intro](https://github.com/nixzhu/dev-blog/raw/main/images/adaptive_chart_intro.png)
 
 图中的红色是我要求得的变量，以便根据它们“画出”柱状图。让我来解释一下这里遇到的困难。乍一看，`bestNameWidth?` 可以根据 “NIX ZHU” 的宽度 * cos(angle) 来得到，似乎算不上变量。但图中只是示意，我要特别说明一下。例如第二个 name 可能会很长，比如叫做 “WORLD VERY VERY LARGE...”，那么它就会超过 “NIX ZHU” 的右边界。所以 `bestNameWidth?` 的定义如下（带问号的为变量）：
 
@@ -99,7 +99,7 @@ var barRightMargin = currentTryRightMargin
 
 最后我们有了一个足够近似的 barRightMargin ，再计算出其他两个变量是分分钟的事情，不再赘述。实际效果如下：
 
-![Adaptive Chart Example](https://github.com/nixzhu/dev-blog/raw/master/images/adaptive_chart_example.png)
+![Adaptive Chart Example](https://github.com/nixzhu/dev-blog/raw/main/images/adaptive_chart_example.png)
 
 
 我打算根据上面的工作做出一个小巧的图表图片库，专门用于 WATCH。目前已有代码放在 [https://github.com/nixzhu/AdaptiveChartDemo](https://github.com/nixzhu/AdaptiveChartDemo) ，可以画出柱状图和折线图，待增添更多样式。
