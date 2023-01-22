@@ -40,12 +40,12 @@ dev-blog
 - [制作一个苦力](https://github.com/nixzhu/dev-blog/blob/main/posts/2016-06-29-coolie.md)
 - [能偶尔用上的 awk](https://github.com/nixzhu/dev-blog/blob/main/posts/2016-08-11-awk.md)
 - [解析器组合子](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-04-12-json-parser.md)
-- [基于栈的HTML解析器](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-05-22-stack-based-html-parser.md)
+- [基于栈的 HTML 解析器](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-05-22-stack-based-html-parser.md)
 - 翻译：[入门 GraphQL & Apollo](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-06-01-GraphQL-Apollo.md)
-- [App的环境](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-07-05-app-environment.md)
+- [App 的环境](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-07-05-app-environment.md)
 - 翻译：[测试五要素](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-08-31-five-factor-testing.md)
-- [让preferredStatusBarStyle真的工作（iOS 10以后）](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-10-20-preferredstatusbarstyle.md)
-- [自定义Share Extension](https://github.com/nixzhu/dev-blog/blob/main/posts/2018-04-18-custom-share-extension.md)
+- [让 preferredStatusBarStyle 真的工作（iOS 10以后）](https://github.com/nixzhu/dev-blog/blob/main/posts/2017-10-20-preferredstatusbarstyle.md)
+- [自定义 Share Extension](https://github.com/nixzhu/dev-blog/blob/main/posts/2018-04-18-custom-share-extension.md)
 - [ARC：我捕捉它了吗？](https://github.com/nixzhu/dev-blog/blob/main/posts/2018-06-04-arc.md)
 - [使用 xcodeproj](https://github.com/nixzhu/dev-blog/blob/main/posts/2019-01-09-xcodeproj.md)
 - 翻译：[使用 Swift 实现 Promise](https://github.com/nixzhu/dev-blog/blob/main/posts/2019-01-21-implementing-promises-in-swift.md)
@@ -54,7 +54,7 @@ dev-blog
 
 有任何想法，欢迎[用邮件和我交流](mailto:zhuhongxu@gmail.com)。
 
-也欢迎购买我开发的 app：
+同时欢迎购买我开发的 app：
 
-- 帮助开发者生成 JSON 模型以节省时间的 [Ducky](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933)，同时支持 iOS 和 Mac。
+- 帮助开发者生成 JSON 模型以节省时间的 [Ducky Model Editor](https://apps.apple.com/cn/app/ducky-model-editor/id1525505933)，同时支持 iOS 和 Mac。
 
